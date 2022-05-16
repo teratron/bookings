@@ -1,5 +1,3 @@
-import React from 'react';
-
 //import LoginControl from '../Login';
 import logo from '../../static/media/logo.svg';
 import './header.scss';

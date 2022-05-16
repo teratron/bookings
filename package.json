@@ -8,6 +8,7 @@
     "hotel"
   ],
   "main": "index.js",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
