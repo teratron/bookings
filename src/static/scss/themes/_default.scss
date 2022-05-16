@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    /* Colors */
+    --color-primary: #036647;
+    --color-primary-dark: #035a3f;
+    --color-primary-light: #009466;
+    --color-primary-font: white;
+
+
+    --color-secondary: #7ba63d;
+    --color-secondary-dark: #668630;
+    --color-secondary-light: #96cb4b;
+    --color-secondary-font: white;
+
+    --color-accent: #725ac1;
+    --color-accent-dark: #3e3167;
+    --color-accent-light: #9374f8;
+    --color-accent-font: white;
+
+    --color-success: #3fa34d;
+    --color-success-dark: #167c24;
+    --color-success-light: #5cd06d;
+    --color-success-font: white;
+
+    --color-warning: #ffcf4b;
+    --color-warning-dark: #deaa1f;
+    --color-warning-light: #ffd562;
+    --color-warning-font: black;
+
+    --color-error: #ea526f;
+    --color-error-dark: #c4465e;
+    --color-error-light: #ff6381;
+    --color-error-font: white;
+
+    --color-grey: #aaa;
+    --color-dark: #222;
+    --color-light: #eee;
+}

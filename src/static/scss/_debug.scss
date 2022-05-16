@@ -1,0 +1,77 @@
+/*** No semantic ***/
+address nav,
+a a,
+a label,
+a button,
+label a,
+label label,
+button a,
+button label,
+button button {
+    outline: 5px solid red;
+}
+
+/*** Marker ***/
+._marker:after {
+    $font-size: 12px;
+    $padding-size: 12px;
+
+    background-color: rgba(0, 0, 0, .6);
+    color: white;
+    font-size: $font-size;
+    min-width: 60px;
+    min-height: $font-size + 2 * $padding-size;
+    line-height: 1em;
+    vertical-align: middle;
+    text-align: right;
+    display: block;
+    white-space: nowrap;
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
+    left: auto;
+    right: 0;
+    padding: $padding-size;
+    z-index: var(--zindex-debug);
+}
+
+._marker {
+    @media only screen {
+        &._size:after {
+            $min: 1in;
+            @media (max-width: $min) {
+                content: "<= #{$min}";
+            }
+
+            @while $min <= 23in {
+                $max: $min + 0.5in;
+                @media (min-width: $min) and (max-width: $max) {
+                    content: "#{$min} - #{$max}";
+                }
+                $min: $max;
+            }
+
+            @media (min-width: $min) {
+                content: ">= #{$min}";
+            }
+        }
+    }
+}
+
+/***************************************
+ Desktop (8.2 - 788px, 5 - 480px)
+***************************************/
+@media only screen and (min-device-width: 8.2in) and (min-device-height: 5in), only screen and (min-width: 8.2in) and (min-height: 5in) {
+}
+
+/***************************************
+ Tablet
+***************************************/
+@media only screen and (max-device-width: 8.2in), only screen and (max-device-height: 5in) {
+}
+
+/***************************************
+ Mobile
+***************************************/
+@media only screen and (max-device-width: 5in), only screen and (max-device-height: 4.4in) {
+}

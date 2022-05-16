@@ -1,0 +1,21 @@
+.main-sidebar {
+    --color-sidebar-bg: #fafafa;
+
+    background-color: var(--color-sidebar-bg);
+    z-index: var(--zindex-sidebar);
+    box-shadow: .4rem 0 .8rem 0 rgba(0, 0, 0, .3);
+
+    .nav {
+        position: sticky;
+        top: 0;
+        bottom: auto;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main-sidebar {
+        background-color: red;
+    }
+}
