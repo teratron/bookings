@@ -1,11 +1,14 @@
-import React from 'react';
+import * as React from 'react';
 import {Link, Route, Routes} from 'react-router-dom';
 
-import Home from '../../routes/Home';
-import About from '../../routes/About';
+import Home from './pages/Home';
+import About from './pages/About';
 
-import Spinner from '../Spinner';
-import './app.scss';
+import Spinner from './components/Spinner';
+import './static/scss/app.scss';
+
+//const Home = React.lazy(() => import('./pages/Home'));
+//const About = React.lazy(() => import('./pages/About'));
 
 function App() {
     return (
