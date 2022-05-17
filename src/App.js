@@ -13,7 +13,7 @@ import './static/scss/app.scss';
 function App() {
     return (
         <React.Suspense fallback={<Spinner/>}>
-            <div className="app">
+            <div className="app btn">
                 <nav>
                     <Link to="/">Home</Link>
                     <Link to="/about">About</Link>

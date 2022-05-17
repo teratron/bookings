@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import {Link} from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Header';
 import Main from '../../components/Main';
 
-export default function Home() {
+function Home() {
     return (
         <React.Fragment>
             <Header/>
@@ -17,3 +17,5 @@ export default function Home() {
         </React.Fragment>
     );
 }
+
+export default Home;
