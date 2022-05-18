@@ -1,13 +1,10 @@
+@import 'themes/default';
 @import '~bootstrap/scss/bootstrap';
+
 //@import 'variables';
 //@import 'reset';
-@import 'themes/default';
 
-
-//$body-bg: #00f;
-//$body-color: #111;
-
-/*** Root ***/
+// Root
 #root {
     min-height: 100vh;
 }
