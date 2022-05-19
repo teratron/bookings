@@ -6,7 +6,7 @@ function Header() {
     return (
         <header className="app-header bg-primary">
             <div
-                className="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+                className="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
                 <Link to="/" className="d-flex text-dark text-decoration-none">
                     <img src={logo} className="logo" alt="logo" aria-label="Bootstrap"/>
                 </Link>

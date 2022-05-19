@@ -39,11 +39,11 @@ function Footer() {
                             <div className="col">
                                 <h5>Social</h5>
                                 <ul className="nav flex-column">
-                                    <li className="nav-item mb-2"><Link to="/#"
-                                                                        className="nav-link p-0 text-muted">Home</Link>
+                                    <li className="nav-item mb-2">
+                                        <Link to="/#" className="nav-link p-0 text-muted">Home</Link>
                                     </li>
-                                    <li className="nav-item mb-2"><Link to="/#"
-                                                                        className="nav-link p-0 text-muted">About</Link>
+                                    <li className="nav-item mb-2">
+                                        <Link to="/#" className="nav-link p-0 text-muted">About</Link>
                                     </li>
                                 </ul>
                             </div>
