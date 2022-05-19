@@ -1,9 +1,10 @@
 :root {
     /* Layout */
-    --html-font-size: .5em; /* 8px */
+    --html-font-size: .5em; // 8px
 
     --app-layout-padding: 7rem;
-    --app-header-height: 11rem;
+    --app-header-height: 96px;
+    --app-footer-height: 220px;
 
     --app-navbar-height: 11rem;
     --app-tab-height: 8.5rem;
@@ -15,7 +16,7 @@
     --zindex-content: 30;
     --zindex-sidebar: 40;
     --zindex-header: 50;
-
+    --zindex-footer: 60;
     --zindex-dropdown: 1000;
     --zindex-sticky: 2000;
     --zindex-fixed: 3000;
