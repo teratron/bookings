@@ -47,9 +47,9 @@ $font-family-monospace: Menlo, Consolas, "Courier New", monospace;
 
 // CSS color variables
 :root {
-  --color-primary: $primary;
-  --color-primary-dark: darken($primary, 40%);
-  --color-primary-light: lighten($primary, 40%);
+  --color-primary: #f8bb44;
+  --color-primary-dark: darken(var(--color-primary), 40%);
+  --color-primary-light: lighten(var(--color-primary), 40%);
   --color-primary-font: white;
 
   --color-secondary: $secondary;

@@ -3,13 +3,19 @@
 */
 
 .app-header {
-    //height: var(--app-header-height);
     max-height: var(--app-header-height);
-    //background-color: var(--color-primary);
-    //background-color: $primary;
-    //color: var(--color-primary-font);
+    background-color: var(--color-primary);
+    color: var(--color-primary-font);
     //z-index: var(--zindex-header);
     //@include bar(var(--app-header-height), 0, var(--app-layout-padding));
+
+    &, > .app-container {
+        height: var(--app-header-height);
+    }
+
+    > .app-container {
+        height: var(--app-header-height);
+    }
 
     .logo {
         height: 3.4em;

@@ -1,11 +1,13 @@
-import {Link} from "react-router-dom";
-import logo from '../../static/media/logo.svg';
 import './header.scss';
 
 function Header() {
     return (
-        <header className="app-header bg-primary">
-            <div
+        <header className="app-header">
+            <div className="app-container">
+
+            </div>
+
+            {/*<div
                 className="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
                 <Link to="/" className="d-flex text-dark text-decoration-none">
                     <img src={logo} className="logo" alt="logo" aria-label="Bootstrap"/>
@@ -19,7 +21,7 @@ function Header() {
                     <button type="button" className="btn btn-outline-primary me-2">Login</button>
                     <button type="button" className="btn btn-primary">Sign-up</button>
                 </div>
-            </div>
+            </div>*/}
         </header>
     );
 }
