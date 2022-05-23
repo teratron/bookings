@@ -1,1 +1,1 @@
-# Booking
+# Bookings
