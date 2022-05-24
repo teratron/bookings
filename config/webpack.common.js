@@ -6,8 +6,7 @@ module.exports = (params) => ({
     entry: paths.src + '/index.js',
     output: {
         path: paths.build,
-        filename: 'static/js/[name].bundle.js',
-        publicPath: '',
+        publicPath: 'auto',
         clean: true
     },
     module: {
@@ -39,8 +38,7 @@ module.exports = (params) => ({
                     {
                         loader: 'css-loader',
                         options: {
-                            importLoaders: 1,
-                            modules: false
+                            importLoaders: 1
                         }
                     },
                     {
@@ -58,20 +56,18 @@ module.exports = (params) => ({
                 ]
             },
             {
-                test: /\.(?:ico|gif|png|jpe?g)$/i,
-                type: 'asset/resource'
+                test: /\.(svg|gif|png|jpe?g)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'static/media/[name].[hash][ext]'
+                }
             },
             {
                 test: /\.(woff(2)?|eot|ttf|otf)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'static/fonts/[name].[hash][ext]',
-                    publicPath: '../../'
-                },
-            },
-            {
-                test: /\.svg$/,
-                type: 'asset/inline'
+                    filename: 'static/fonts/[name].[hash][ext]'
+                }
             }
         ]
     },
@@ -93,7 +89,8 @@ module.exports = (params) => ({
         new HtmlWebpackPlugin({
             title: 'Bookings',
             template: paths.public + '/template.html',
-            filename: 'index.html'
+            filename: 'index.html',
+            minify: false
         }),
         new HtmlWebpackPlugin({
             title: 'Bookings2',
