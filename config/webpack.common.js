@@ -83,7 +83,7 @@ module.exports = (props) => {
                     loader: 'html-loader'
                 },
                 {
-                    test: /\.handlebars$/,
+                    test: /\.(hbs|handlebars)$/,
                     loader: 'handlebars-loader'
                 }
             ]
@@ -119,6 +119,7 @@ module.exports = (props) => {
                 title: 'Bookings',
                 template: paths.public + '/template.html',
                 filename: 'index.html',
+                chunks: ['index'],
                 inject: true,
                 minify: false
             }),
@@ -137,18 +138,6 @@ module.exports = (props) => {
                     })
                 )*/
         ],
-        optimization: {
-            splitChunks: {
-                cacheGroups: {
-                    vendor: {
-                        name: 'vendors',
-                        test: /node_modules/,
-                        chunks: 'all',
-                        enforce: true
-                    }
-                }
-            }
-        },
         resolve: {
             modules: [paths.src, 'node_modules'],
             extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass'],
