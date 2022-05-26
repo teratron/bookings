@@ -2,7 +2,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./paths')
 
-module.exports = (params) => {
+module.exports = (props) => {
     return {
         entry: {
             main: paths.src + '/index.js'
@@ -42,7 +42,7 @@ module.exports = (params) => {
                     include: paths.src,
                     exclude: /node_modules/,
                     use: [
-                        params.styleLoader,
+                        props.styleLoader,
                         {
                             loader: 'css-loader',
                             options: {
@@ -76,6 +76,15 @@ module.exports = (params) => {
                     generator: {
                         filename: 'static/fonts/[name].[hash][ext]'
                     }
+                },
+                {
+                    test: /\.(html|tmpl)$/i,
+                    exclude: paths.public,
+                    loader: 'html-loader'
+                },
+                {
+                    test: /\.handlebars$/,
+                    loader: 'handlebars-loader'
                 }
             ]
         },
@@ -113,12 +122,12 @@ module.exports = (params) => {
                 inject: true,
                 minify: false
             }),
-            new HtmlWebpackPlugin({
+            /*new HtmlWebpackPlugin({
                 title: 'Bookings2',
                 template: paths.public + '/template.html',
                 filename: 'app.html',
                 inject: true
-            })
+            })*/
             /*...require('fs')
                 .readdirSync(paths.src)
                 .filter(fileName => fileName.endsWith('.html'))
@@ -142,7 +151,7 @@ module.exports = (params) => {
         },
         resolve: {
             modules: [paths.src, 'node_modules'],
-            extensions: ['.js', '.jsx', '.json', '.css', '.scss', '.sass'],
+            extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass'],
             alias: {
                 '~': paths.src,
                 '@': paths.src + 'js',

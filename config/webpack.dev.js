@@ -10,13 +10,7 @@ const config = merge(common({styleLoader: 'style-loader'}), {
     },
     devServer: {
         static: paths.build,
-        contentBase: paths.build,
         port: 9000,
-        overlay: {
-            warnings: true,
-            errors: true
-        },
-        clientLogLevel: 'silent',
         historyApiFallback: true,
         compress: true,
         open: true,

@@ -1,8 +1,8 @@
 class Jet extends HTMLElement {
-    constructor(...params) {
+    constructor(...props) {
         super();
         // элемент создан
-        this.params = params
+        this.params = props
         this.jetElement = this
     }
 
