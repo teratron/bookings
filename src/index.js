@@ -3,7 +3,7 @@ import './static/scss/index.scss'
 import './static/media/logo.png'
 import './static/media/logo.svg'
 //import tmpl from './partial.header.tmpl'
-import Header from './partial.header.handlebars'
+//import Header from './partial.header.handlebars'
 
 //document.body.innerHTML = '<img src="logo" alt="">'
 //document.getElementById('root').append('logo')

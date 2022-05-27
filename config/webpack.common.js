@@ -1,5 +1,5 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const paths = require('./paths')
 
 module.exports = (props) => {
@@ -15,7 +15,7 @@ module.exports = (props) => {
         module: {
             rules: [
                 {
-                    test: /\.m?js$/,
+                    test: /\.m?js$/i,
                     include: paths.src,
                     exclude: /node_modules/,
                     use: {
@@ -25,8 +25,8 @@ module.exports = (props) => {
                                 [
                                     '@babel/preset-env',
                                     {
-                                        targets: 'defaults',
-                                        modules: false
+                                        targets: 'defaults'
+                                        //modules: false
                                     }
                                 ]
                             ],
@@ -38,7 +38,7 @@ module.exports = (props) => {
                     }
                 },
                 {
-                    test: /\.(sa|sc|c)ss$/,
+                    test: /\.(sa|sc|c)ss$/i,
                     include: paths.src,
                     exclude: /node_modules/,
                     use: [
@@ -64,6 +64,16 @@ module.exports = (props) => {
                     ]
                 },
                 {
+                    test: /\.(hbs|handlebars)$/i,
+                    exclude: /node_modules/,
+                    loader: 'handlebars-loader'
+                },
+                /*{
+                    test: /\.(html|tmpl)$/i,
+                    exclude: paths.public,
+                    loader: 'html-loader'
+                },*/
+                {
                     test: /\.(svg|gif|png|jpe?g)$/i,
                     type: 'asset/resource',
                     generator: {
@@ -76,33 +86,12 @@ module.exports = (props) => {
                     generator: {
                         filename: 'static/fonts/[name].[hash][ext]'
                     }
-                },
-                {
-                    test: /\.(html|tmpl)$/i,
-                    exclude: paths.public,
-                    loader: 'html-loader'
-                },
-                {
-                    test: /\.(hbs|handlebars)$/,
-                    loader: 'handlebars-loader'
                 }
             ]
         },
         plugins: [
             new CopyWebpackPlugin({
                 patterns: [
-                    /*{
-                        from: `${PATHS.src}/${PATHS.assets}img`,
-                        to: `${PATHS.assets}img`
-                    },
-                    {
-                        from: `${PATHS.src}/${PATHS.assets}fonts`,
-                        to: `${PATHS.assets}fonts`
-                    },
-                    {
-                        from: `${PATHS.src}/static`,
-                        to: ''
-                    },*/
                     {
                         from: paths.public,
                         globOptions: {
@@ -119,8 +108,8 @@ module.exports = (props) => {
                 title: 'Bookings',
                 template: paths.public + '/template.html',
                 filename: 'index.html',
-                chunks: ['index'],
-                inject: true,
+                //chunks: ['index'],
+                inject: 'body',
                 minify: false
             }),
             /*new HtmlWebpackPlugin({
@@ -143,8 +132,7 @@ module.exports = (props) => {
             extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass'],
             alias: {
                 '~': paths.src,
-                '@': paths.src + 'js',
-                jet$: 'jet.js'
+                '@': paths.src + 'js'
             }
         }
     }

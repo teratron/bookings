@@ -4,7 +4,8 @@ const paths = require('./paths')
 
 const config = merge(common({styleLoader: 'style-loader'}), {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'eval-cheap-module-source-map',
+    //devtool: 'inline-source-map',
     output: {
         filename: 'static/js/[name].bundle.js'
     },
@@ -17,16 +18,10 @@ const config = merge(common({styleLoader: 'style-loader'}), {
         hot: true
     },
     optimization: {
-        splitChunks: {
-            cacheGroups: {
-                vendor: {
-                    name: 'vendors',
-                    test: /node_modules/,
-                    chunks: 'all',
-                    enforce: true
-                }
-            }
-        }
+        removeAvailableModules: false,
+        removeEmptyChunks: false,
+        splitChunks: false,
+        runtimeChunk: 'single'
     }
 })
 
