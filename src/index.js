@@ -19,7 +19,6 @@ import './static/media/logo.svg'
 
 //console.log(typeof tmpl)
 
-
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('root').innerHTML = Header(/*{
         username: "test",
