@@ -25,8 +25,8 @@ module.exports = (props) => {
                                 [
                                     '@babel/preset-env',
                                     {
-                                        targets: 'defaults'
-                                        //modules: false
+                                        targets: 'defaults',
+                                        modules: false
                                     }
                                 ]
                             ],
@@ -64,7 +64,7 @@ module.exports = (props) => {
                     ]
                 },
                 {
-                    test: /\.(hbs|handlebars)$/i,
+                    test: /\.(handlebars)$/i,
                     exclude: /node_modules/,
                     loader: 'handlebars-loader'
                 },
@@ -105,19 +105,21 @@ module.exports = (props) => {
                 ]
             }),
             new HtmlWebpackPlugin({
-                title: 'Bookings',
+                title: 'Bookings - Home',
                 template: paths.public + '/template.html',
                 filename: 'index.html',
-                //chunks: ['index'],
+                chunks: ['index'],
                 inject: 'body',
                 minify: false
             }),
-            /*new HtmlWebpackPlugin({
-                title: 'Bookings2',
+            new HtmlWebpackPlugin({
+                title: 'Bookings - About',
                 template: paths.public + '/template.html',
-                filename: 'app.html',
-                inject: true
-            })*/
+                filename: 'about.html',
+                //chunks: ['about'],
+                inject: 'body',
+                minify: false
+            })
             /*...require('fs')
                 .readdirSync(paths.src)
                 .filter(fileName => fileName.endsWith('.html'))
