@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const paths = require('./paths')
 
-module.exports = (props) => {
+module.exports = props => {
     return {
         entry: {
             main: paths.src + '/index.js'
@@ -25,8 +25,7 @@ module.exports = (props) => {
                                 [
                                     '@babel/preset-env',
                                     {
-                                        targets: 'defaults',
-                                        modules: false
+                                        targets: 'defaults'
                                     }
                                 ]
                             ],
@@ -64,14 +63,20 @@ module.exports = (props) => {
                     ]
                 },
                 {
-                    test: /\.(handlebars)$/i,
+                    test: /\.(hbs|handlebars)$/i,
                     exclude: /node_modules/,
                     loader: 'handlebars-loader'
                 },
                 /*{
-                    test: /\.(html|tmpl)$/i,
-                    exclude: paths.public,
+                    test: /\.html$/i,
                     loader: 'html-loader'
+                },*/
+                /*{
+                    test: /\.html$/i,
+                    type: 'asset/resource',
+                    generator: {
+                        filename: '[name][ext]'
+                    }
                 },*/
                 {
                     test: /\.(svg|gif|png|jpe?g)$/i,
@@ -108,34 +113,34 @@ module.exports = (props) => {
                 title: 'Bookings - Home',
                 template: paths.public + '/template.html',
                 filename: 'index.html',
-                chunks: ['index'],
+                //chunks: ['index'],
                 inject: 'body',
                 minify: false
             }),
-            new HtmlWebpackPlugin({
+            /*new HtmlWebpackPlugin({
                 title: 'Bookings - About',
-                template: paths.public + '/template.html',
+                template: paths.src + '/templates/layouts/base.handlebars',
                 filename: 'about.html',
                 //chunks: ['about'],
                 inject: 'body',
                 minify: false
+            }),*/
+            /*new HtmlWebpackPlugin({
+                title: 'Bookings - Blog',
+                template: paths.src + '/templates/layouts/base.js',
+                filename: 'blog.html',
+                //chunks: ['about'],
+                inject: 'body',
+                minify: false
+            }),*/
+            new HtmlWebpackPlugin({
+                title: 'Bookings - Blog',
+                template: paths.src + '/templates/pages/blog.js',
+                filename: 'blog.html',
+                //chunks: ['about'],
+                inject: 'body',
+                minify: false
             })
-            /*...require('fs')
-                .readdirSync(paths.src)
-                .filter(fileName => fileName.endsWith('.html'))
-                .map(page => new HtmlWebpackPlugin({
-                        template: paths.src + `/${page}`,
-                        filename: `./${page}`
-                    })
-                )*/
-        ],
-        resolve: {
-            modules: [paths.src, 'node_modules'],
-            extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass'],
-            alias: {
-                '~': paths.src,
-                '@': paths.src + 'js'
-            }
-        }
+        ]
     }
 }
