@@ -1,38 +1,22 @@
-/*{{> header}}
-{{> main}}
-{{> footer}}*/
-import Handlebars from 'handlebars'
-import source from './base.handlebars'
-
-//Handlebars.registerPartial ( 'myPartial' ,  '{{prefix}}' );
-
-/*
-let source = "<p>Hello, my name is {{name}}. I am from {{hometown}}. I have " +
-    "{{kids.length}} kids:</p>" +
-    "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
-*/
-
-//console.log(source)
+import template from './base.handlebars'
 
 const data = {
-    "name": "Alan",
-    "hometown": "Somewhere, TX",
-    "kids": [
-        {
-            "name": "Jimmy",
-            "age": "12"
-        },
-        {
-            "name": "Sally",
-            "age": "4"
-        }
-    ]
-};
+    username: "test",
+    info: "Your books are due next Tuesday"
+}
 
-const Base = Handlebars.compile(source);
+export default template(data)
 
-//const base = Base(data)
+// Webpack require:
+//var partial = require('./partial.html');
+//var universal = require('./universial.js');
 
-export default Base(data);
+// Export a function / promise / or a string:
+// This function has to return a string or promised string:
+/*module.exports = function (templateParams) {
+    var html = '<html><head>' +
+        '<title>' + templateParams.htmlWebpackPlugin.options.title + '</title>' +
+        '</head><body>' + universal() + ' - ' + partial + '</body></html>';
 
-//export default source;
+    return html;
+};*/
