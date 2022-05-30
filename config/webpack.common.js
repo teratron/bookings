@@ -71,13 +71,6 @@ module.exports = props => {
                     test: /\.html$/i,
                     loader: 'html-loader'
                 },*/
-                /*{
-                    test: /\.html$/i,
-                    type: 'asset/resource',
-                    generator: {
-                        filename: '[name][ext]'
-                    }
-                },*/
                 {
                     test: /\.(svg|gif|png|jpe?g)$/i,
                     type: 'asset/resource',
@@ -110,34 +103,20 @@ module.exports = props => {
                 ]
             }),
             new HtmlWebpackPlugin({
-                title: 'Bookings - Home',
-                template: paths.public + '/template.html',
+                template: paths.src + '/templates/pages/home.js',
                 filename: 'index.html',
-                //chunks: ['index'],
                 inject: 'body',
                 minify: false
             }),
-            /*new HtmlWebpackPlugin({
-                title: 'Bookings - About',
-                template: paths.src + '/templates/layouts/base.handlebars',
-                filename: 'about.html',
-                //chunks: ['about'],
-                inject: 'body',
-                minify: false
-            }),*/
-            /*new HtmlWebpackPlugin({
-                title: 'Bookings - Blog',
-                template: paths.src + '/templates/layouts/base.js',
-                filename: 'blog.html',
-                //chunks: ['about'],
-                inject: 'body',
-                minify: false
-            }),*/
             new HtmlWebpackPlugin({
-                title: 'Bookings - Blog',
+                template: paths.src + '/templates/pages/about.handlebars',
+                filename: 'about.html',
+                inject: 'body',
+                minify: false
+            }),
+            new HtmlWebpackPlugin({
                 template: paths.src + '/templates/pages/blog.js',
                 filename: 'blog.html',
-                //chunks: ['about'],
                 inject: 'body',
                 minify: false
             })

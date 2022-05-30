@@ -1,15 +1,12 @@
 import Handlebars from 'handlebars'
-import template from './base.handlebars'
+import app from './app.handlebars'
 
-Handlebars.registerPartial('base', template)
+Handlebars.registerPartial('app', app)
 
-const data = {
-    username: "test",
-    info: "Your books are due next Tuesday"
-}
-
-//export default template(data)
-export default Handlebars.template(base)
+// const Handlebars = require('handlebars')
+// const base = require('../src/templates/pages/blog.handlebars')
+// console.log(base)
+// Handlebars.registerPartial('base', Handlebars.compile(base))
 
 // Webpack require:
 //var partial = require('./partial.html');

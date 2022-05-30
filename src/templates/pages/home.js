@@ -1,8 +1,8 @@
-import template from './blog.handlebars'
+import template from './home.handlebars'
 
 const context = {
     app: {
-        title: 'Blog'
+        title: 'Home'
     }
 }
 

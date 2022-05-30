@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+    <meta content="application/json" http-equiv="Content-Type"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="#000000" name="theme-color"/>
+    <meta content="Bookings" name="description"/>
+    <meta content="bookings,hotel" name="keyword"/>
+    <meta content="index, follow" name="robots"/>
+    <meta content="browserconfig.xml" name="msapplication-config"/>
+    <link href="static/media/logo192x192.png" rel="apple-touch-icon"/>
+    <link href="favicon.ico" rel="icon"/>
+    <link href="manifest.json" rel="manifest"/>
+    <title>{{app.title}}</title>
+</head>
+<body>
+<div id="app">
+    {{#if app-partial-block}}
+        {{> @partial-block }}
+    {{/if}}
+</div>
+</body>
+</html>
