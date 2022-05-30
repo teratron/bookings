@@ -1,5 +1,5 @@
+import { props } from '../app'
 import template from './home.handlebars'
-import {props} from '../app'
 
 const context = {
     app: {

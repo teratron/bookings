@@ -8,12 +8,45 @@ Handlebars.registerPartial('app', app)
 
 export default app()*/
 
+import packageJSON from '../../package.json'
+
+
 export const props = {
     title: 'Bookings',
     description: 'Bookings - hotels etc.',
     keyword: 'bookings,hotel',
-    publicURL: ''
+    publicURL: '',
+    version: packageJSON.version
 }
+
+
+
+/*
+function registerTemplates() {
+    const partials = [
+        'App',
+        'AppStatus',
+        'Tags',
+        'Networks'
+    ];
+
+    partials.forEach((partial) => {
+        Handlebars.registerPartial(partial, FS.readFileSync(`${__dirname}/html/partials/${partial}.html`, { encoding: 'utf8' }));
+    });
+
+    mainTemplate = Handlebars.compile(FS.readFileSync(`${__dirname}/html/Main.html`, { encoding: 'utf8' }));
+    appTemplate = Handlebars.compile('{{> App}}');
+    appStatusTemplate = Handlebars.compile('{{> AppStatus}}');
+    tagsTemplate = Handlebars.compile('{{> Tags}}');
+    networksTemplate = Handlebars.compile('{{> Networks}}');
+}
+
+partials.forEach(function (item) {
+    let partialFile = __base + 'html/templates/partials/' + item + '.hbs';
+    let partial = handlebars.compile(fs.readFileSync(partialFile, 'utf-8'));
+    handlebars.registerPartial(item, partial);
+});
+*/
 
 //export {path}
 
