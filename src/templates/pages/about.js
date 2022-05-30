@@ -4,7 +4,7 @@ import {props} from '../app'
 const context = {
     app: {
         ...props,
-        title: props['title'] + ' - Blog'
+        title: props['title'] + ' - About'
     }
 }
 

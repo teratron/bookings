@@ -1,7 +1,23 @@
-import Handlebars from 'handlebars'
+/*import Handlebars from 'handlebars'
 import app from './app.handlebars'
+//import * as path from './helpers/path'
 
 Handlebars.registerPartial('app', app)
+
+
+
+export default app()*/
+
+export const props = {
+    title: 'Bookings',
+    description: 'Bookings - hotels etc.',
+    keyword: 'bookings,hotel',
+    publicURL: ''
+}
+
+//export {path}
+
+//Handlebars.registerPartial('app', app)
 
 // const Handlebars = require('handlebars')
 // const base = require('../src/templates/pages/blog.handlebars')

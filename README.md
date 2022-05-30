@@ -13,7 +13,13 @@
 [https://handlebarsjs.com/guide/partials.html#dynamic-partials](https://handlebarsjs.com/guide/partials.html#dynamic-partials)\
 [https://habr.com/ru/post/273581/](https://habr.com/ru/post/273581/)\
 [https://metanit.com/web/nodejs/4.19.php](https://metanit.com/web/nodejs/4.19.php)\
-[https://github.com/pcardune/handlebars-loader/tree/main/examples](https://github.com/pcardune/handlebars-loader/tree/main/examples)
-\
-
+[https://github.com/pcardune/handlebars-loader/tree/main/examples](https://github.com/pcardune/handlebars-loader/tree/main/examples)\
 [http://tryhandlebarsjs.com/](http://tryhandlebarsjs.com/)
+
+```sh
+npm run start
+```
+
+```sh
+npm run build
+```

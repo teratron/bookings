@@ -67,10 +67,6 @@ module.exports = props => {
                     exclude: /node_modules/,
                     loader: 'handlebars-loader'
                 },
-                /*{
-                    test: /\.html$/i,
-                    loader: 'html-loader'
-                },*/
                 {
                     test: /\.(svg|gif|png|jpe?g)$/i,
                     type: 'asset/resource',
@@ -109,7 +105,7 @@ module.exports = props => {
                 minify: false
             }),
             new HtmlWebpackPlugin({
-                template: paths.src + '/templates/pages/about.handlebars',
+                template: paths.src + '/templates/pages/about.js',
                 filename: 'about.html',
                 inject: 'body',
                 minify: false

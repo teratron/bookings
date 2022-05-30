@@ -1,8 +1,10 @@
 import template from './home.handlebars'
+import {props} from '../app'
 
 const context = {
     app: {
-        title: 'Home'
+        ...props,
+        title: props['title'] + ' - Home'
     }
 }
 
