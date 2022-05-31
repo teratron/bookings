@@ -1,6 +1,6 @@
 {
   "name": "bookings",
-  "version": "0.0.417",
+  "version": "0.0.419",
   "private": true,
   "description": "Bookings",
   "main": "src/index.js",
@@ -50,5 +50,5 @@
       "last 1 safari version"
     ]
   },
-  "buildDate": "2022-05-31T08:05:36.088Z"
+  "buildDate": "2022-05-31T11:29:23.498Z"
 }

@@ -1,5 +1,7 @@
 # Bookings
 
+[https://www.figma.com/file/3I6zZdpUFzkjbxSaQ1j9Jz/in-ukraina?node-id=0%3A1](https://www.figma.com/file/3I6zZdpUFzkjbxSaQ1j9Jz/in-ukraina?node-id=0%3A1)
+
 ### HtmlWebpackPlugin
 
 [https://github.com/jantimon/html-webpack-plugin#plugins](https://github.com/jantimon/html-webpack-plugin#plugins)\
@@ -15,7 +17,7 @@
 [https://metanit.com/web/nodejs/4.19.php](https://metanit.com/web/nodejs/4.19.php)\
 [https://github.com/pcardune/handlebars-loader/tree/main/examples](https://github.com/pcardune/handlebars-loader/tree/main/examples)\
 [http://tryhandlebarsjs.com/](http://tryhandlebarsjs.com/)\
-https://www.tabnine.com/code/javascript/functions/handlebars/registerPartial
+[https://www.tabnine.com/code/javascript/functions/handlebars/registerPartial](https://www.tabnine.com/code/javascript/functions/handlebars/registerPartial)
 
 ```sh
 npm run start

@@ -1,4 +1,4 @@
-import { props } from '../app'
+import {props} from '../app'
 import template from './home.handlebars'
 
 const context = {
