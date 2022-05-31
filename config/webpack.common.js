@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const paths = require('./paths')
+const pages = require('./pages')
 
 module.exports = props => {
     return {
@@ -98,7 +99,7 @@ module.exports = props => {
                     }
                 ]
             }),
-            new HtmlWebpackPlugin({
+            /*new HtmlWebpackPlugin({
                 template: paths.src + '/templates/pages/home.js',
                 filename: 'index.html',
                 inject: 'body',
@@ -115,7 +116,18 @@ module.exports = props => {
                 filename: 'blog.html',
                 inject: 'body',
                 minify: false
-            })
+            }),*/
+            ...pages.map(page => new HtmlWebpackPlugin({
+                ...page
+            }))
+            /*...require('fs')
+                .readdirSync(paths.src + 'templates/pages')
+                .filter(fileName => fileName.endsWith('.js'))
+                .map(page => new HtmlWebpackPlugin({
+                        //template: paths.src + `/${page}`,
+                        //filename: `./${page}`
+                    })
+                )*/
         ]
     }
 }

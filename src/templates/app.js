@@ -4,12 +4,9 @@ import app from './app.handlebars'
 
 Handlebars.registerPartial('app', app)
 
-
-
 export default app()*/
 
 import packageJSON from '../../package.json'
-
 
 export const props = {
     title: 'Bookings',
@@ -18,8 +15,6 @@ export const props = {
     publicURL: '',
     version: packageJSON.version
 }
-
-
 
 /*
 function registerTemplates() {
