@@ -1,23 +1,25 @@
-//@import 'themes/default';
+@import 'app';
+@import 'variables';
+@import 'themes/default';
 @import '~bootstrap/scss/bootstrap';
 
-@import 'app';
-//@import 'variables';
+
 //@import 'reset';
 
-@font-face {
+/*@font-face {
     font-family: "Futura";
     src: url("../fonts/futura/futura.ttf") format("truetype");
     font-style: normal;
     font-weight: 400;
-}
+}*/
 
 // Root
+/*
 #root {
     font-family: Futura, sans-serif;
     min-height: 100vh;
 }
-
+*/
 body {
     background-color: beige;
     font-family: Futura, sans-serif;

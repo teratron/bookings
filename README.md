@@ -19,6 +19,8 @@
 [http://tryhandlebarsjs.com/](http://tryhandlebarsjs.com/)\
 [https://www.tabnine.com/code/javascript/functions/handlebars/registerPartial](https://www.tabnine.com/code/javascript/functions/handlebars/registerPartial)
 
+[https://devdocs.io/handlebars-reference/](https://devdocs.io/handlebars-reference/)
+
 ```sh
 npm run start
 ```

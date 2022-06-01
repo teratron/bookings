@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const paths = require('./paths')
 const pages = require('./pages')
+const {template} = require('@babel/core');
 
 module.exports = props => {
     return {
@@ -54,8 +55,8 @@ module.exports = props => {
                             options: {
                                 postcssOptions: {
                                     plugins: [
-                                        'autoprefixer',
-                                        'postcss-preset-env'
+                                        //'autoprefixer',
+                                        //'postcss-preset-env'
                                     ]
                                 }
                             }
@@ -66,7 +67,13 @@ module.exports = props => {
                 {
                     test: /\.(hbs|handlebars)$/i,
                     exclude: /node_modules/,
-                    loader: 'handlebars-loader'
+                    loader: 'handlebars-loader',
+                    options: {
+                        //partialDirs: [paths.src + '/templates', paths.src + '/templates/partials', paths.src + '/templates/partials/header'],
+                        //rootRelative: paths.src + '/templates'
+                        rootRelative: ''
+
+                    }
                 },
                 {
                     test: /\.(svg|gif|png|jpe?g)$/i,

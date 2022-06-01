@@ -1,4 +1,4 @@
-const paths = require('./paths');
+const paths = require('./paths')
 
 const common = {
     inject: 'body',
@@ -8,7 +8,7 @@ const common = {
 module.exports = [
     {
         ...common,
-        template: paths.src + '/templates/pages/home.js',
+        template: paths.src + '/templates/pages/index.js',
         filename: 'index.html'
     },
     {
@@ -22,3 +22,9 @@ module.exports = [
         filename: 'blog.html'
     }
 ]
+
+/*
+import header from '../src/templates/partials/header.handlebars'
+import Handlebars from 'handlebars';
+
+Handlebars.registerHelper('Header', header);*/

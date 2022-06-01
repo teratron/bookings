@@ -16,6 +16,62 @@
     margin-right: auto;
 }
 
+@import '../../static/scss/mixins/bar';
+
+// Header
+.app-header {
+    max-height: var(--app-header-height);
+    background-color: var(--color-primary);
+    color: var(--color-primary-font);
+    //z-index: var(--zindex-header);
+
+    &, > .app-container {
+        height: var(--app-header-height);
+    }
+
+    > .app-container {
+        @include bar;
+    }
+
+    .logo {
+        height: 3.4em;
+        //margin-right: 2rem;
+        pointer-events: none;
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .dropdown-menu {
+        min-width: auto;
+    }
+
+}
+
+// Footer
+.app-footer {
+    //height: var(--app-footer-height);
+    min-height: var(--app-footer-height);
+    //background-color: var(--color-primary);
+    //color: var(--color-primary-font);
+    //z-index: var(--zindex-footer);
+
+    .logo {
+        height: 3.4em;
+        margin-right: 2rem;
+        pointer-events: none;
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0;
+    }
+}
+
 /*
 @media (min-width: 1400px) {
     .app-container {

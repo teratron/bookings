@@ -1,4 +1,4 @@
-@use "sass:meta";
+//@use "sass:meta";
 
 // Color variables
 $blue: #0009e1;
@@ -31,19 +31,19 @@ $body-color: #000;
 $font-family-: Menlo, Consolas, "Courier New", monospace;
 $font-family-monospace: Menlo, Consolas, "Courier New", monospace;
 
-@font-face {
+/*@font-face {
   font-family: "Futura";
   src: url("../../fonts/futura/futura.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
-}
+}*/
 
-@font-face {
+/*@font-face {
   font-family: "FuturaLight";
   src: url("../../fonts/futura/futura_light_bt.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
-}
+}*/
 
 // CSS color variables
 :root {
@@ -86,5 +86,5 @@ $font-family-monospace: Menlo, Consolas, "Courier New", monospace;
   --color-dark: #222;
   --color-light: #eee;
 
-  --font-family-monospace: #{meta.inspect($font-family-monospace)};
+  //--font-family-monospace: #{meta.inspect($font-family-monospace)};
 }

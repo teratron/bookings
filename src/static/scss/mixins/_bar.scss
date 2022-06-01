@@ -1,0 +1,34 @@
+@mixin bar($height: auto, $gap: 0, $padding: 0) {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: $height;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    grid-gap: $gap;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    justify-items: stretch;
+
+    > * {
+        display: grid;
+        grid-auto-flow: dense;
+        align-items: center;
+    }
+
+    > .head,
+    > :first-child {
+        justify-self: start;
+        padding-left: $padding;
+    }
+
+    > .body,
+    > :nth-child(2) {
+    }
+
+    > .foot,
+    > :last-child:not(:first-child) {
+        justify-self: end;
+        padding-right: $padding;
+    }
+}
