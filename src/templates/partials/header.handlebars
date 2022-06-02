@@ -1,48 +1,29 @@
 <header class="app-header">
     <div class="app-container">
         <div class="head">
-            <h1 class="title">Bookings****</h1>
+            <h1 class="title">Bookings</h1>
         </div>
 
         <div class="body">
-            {{!header2}}
+            <ul class="nav">
+                <li class="dropdown">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Catalog
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/#">Action</a></li>
+                        <li><a class="dropdown-item" href="/#">Another action</a></li>
+                        <li><a class="dropdown-item" href="/#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="/#">Separated link</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link" href="/#">Map</a></li>
+                <li><a class="nav-link" href="/#">Blog</a></li>
+            </ul>
         </div>
 
         <div class="foot">
-            <div class="dropdown-center">
-                <button type="button" id="dropdownCenterBtn" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="false">Ру
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownCenterBtn">
-                    <li><a class="dropdown-item" href="/#">Укр</a></li>
-                    <li><a class="dropdown-item" href="/#">En</a></li>
-                    <li><a class="dropdown-item" href="/#">Pl</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!--<div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-        <div class="d-flex align-items-center col-md-3">
-            <h1 class="title">Bookings****</h1>
-        </div>
-
-        <ul class="nav col-12 col-md-auto justify-content-center mb-2 mb-md-0">
-            <li class="btn-group">
-                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Catalog
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/#">Action</a></li>
-                    <li><a class="dropdown-item" href="/#">Another action</a></li>
-                    <li><a class="dropdown-item" href="/#">Something else here</a></li>
-                    <li><a class="dropdown-item" href="/#">Separated link</a></li>
-                </ul>
-            </li>
-            <li><a class="nav-link" href="/#">Map</a></li>
-            <li><a class="nav-link" href="/#">Blog</a></li>
-        </ul>
-        <div class="col-md-3 text-end">
-            <div class="btn-group">
+            <div class="dropdown">
                 <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     Ру
                 </button>
@@ -53,5 +34,5 @@
                 </ul>
             </div>
         </div>
-    </div>-->
+    </div>
 </header>

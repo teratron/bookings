@@ -1,5 +1,2 @@
-import 'bootstrap'
+import 'bootstrap/js/dist/dropdown'
 import './static/scss/index.scss'
-/*import * as app from './templates/pages/index'
-
-document.getElementById('app').append(app.default)*/

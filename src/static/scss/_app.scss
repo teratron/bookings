@@ -1,3 +1,6 @@
+@import './mixins/bar';
+
+// Application
 #app {
     display: grid;
     grid-template-rows: auto 1fr;
@@ -16,26 +19,34 @@
     margin-right: auto;
 }
 
-@import '../../static/scss/mixins/bar';
+// Common mixin for Header and Footer
+@mixin app-common {
+    background-color: var(--color-primary);
+    color: var(--color-primary-font);
+
+    > .app-container {
+        @include bar;
+    }
+
+    .nav-link {
+        color: var(--color-primary-font);
+    }
+}
 
 // Header
 .app-header {
+    @include app-common;
+
     max-height: var(--app-header-height);
-    background-color: var(--color-primary);
-    color: var(--color-primary-font);
     //z-index: var(--zindex-header);
 
     &, > .app-container {
         height: var(--app-header-height);
     }
 
-    > .app-container {
-        @include bar;
-    }
-
     .logo {
         height: 3.4em;
-        //margin-right: 2rem;
+        margin-right: 2rem;
         pointer-events: none;
     }
 
@@ -45,18 +56,20 @@
         margin: 0;
     }
 
+    .btn {
+        color: var(--color-primary-font);
+    }
+
     .dropdown-menu {
         min-width: auto;
     }
-
 }
 
 // Footer
 .app-footer {
-    //height: var(--app-footer-height);
+    @include app-common;
+
     min-height: var(--app-footer-height);
-    //background-color: var(--color-primary);
-    //color: var(--color-primary-font);
     //z-index: var(--zindex-footer);
 
     .logo {
@@ -70,7 +83,9 @@
         font-weight: 500;
         margin: 0;
     }
+
 }
+
 
 /*
 @media (min-width: 1400px) {

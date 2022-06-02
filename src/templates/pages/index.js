@@ -6,7 +6,6 @@ const context = {
         ...props,
         title: props['title'] + ' - Home'
     }
-    //header2: '164w8qw4d'
 }
 
 export default template(context)

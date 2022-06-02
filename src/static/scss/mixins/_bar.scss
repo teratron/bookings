@@ -5,29 +5,34 @@
     grid-auto-flow: column;
     grid-auto-columns: max-content;
     grid-gap: $gap;
-    align-items: center;
-    justify-content: space-around;
-    align-content: center;
+    justify-content: space-between;;
     justify-items: stretch;
+    align-content: center;
+    align-items: center;
 
     > * {
         display: grid;
-        grid-auto-flow: dense;
         align-items: center;
     }
 
     > .head,
     > :first-child {
+        justify-content: start;
+        justify-items: start;
         justify-self: start;
         padding-left: $padding;
     }
 
     > .body,
-    > :nth-child(2) {
+    > :not(:first-child):not(:last-child) {
+        justify-content: center;
+        justify-items: center;
     }
 
     > .foot,
     > :last-child:not(:first-child) {
+        justify-content: end;
+        justify-items: end;
         justify-self: end;
         padding-right: $padding;
     }

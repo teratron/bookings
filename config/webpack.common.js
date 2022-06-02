@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const paths = require('./paths')
 const pages = require('./pages')
-const {template} = require('@babel/core');
 
 module.exports = props => {
     return {
@@ -18,7 +17,6 @@ module.exports = props => {
             rules: [
                 {
                     test: /\.m?js$/i,
-                    include: paths.src,
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
@@ -40,7 +38,6 @@ module.exports = props => {
                 },
                 {
                     test: /\.(sa|sc|c)ss$/i,
-                    include: paths.src,
                     exclude: /node_modules/,
                     use: [
                         props.styleLoader,
@@ -69,10 +66,20 @@ module.exports = props => {
                     exclude: /node_modules/,
                     loader: 'handlebars-loader',
                     options: {
-                        //partialDirs: [paths.src + '/templates', paths.src + '/templates/partials', paths.src + '/templates/partials/header'],
-                        //rootRelative: paths.src + '/templates'
-                        rootRelative: ''
-
+                        helperDirs: [
+                            //paths.src + '/templates',
+                            paths.src + '/templates/partials',
+                            paths.src + '/templates/pages',
+                            paths.src + '/templates/layouts',
+                            paths.src + '/templates/helpers'
+                        ],
+                        partialDirs: [
+                            //paths.src + '/templates',
+                            paths.src + '/templates/partials',
+                            paths.src + '/templates/pages',
+                            paths.src + '/templates/layouts',
+                            paths.src + '/templates/helpers'
+                        ]
                     }
                 },
                 {
@@ -106,24 +113,6 @@ module.exports = props => {
                     }
                 ]
             }),
-            /*new HtmlWebpackPlugin({
-                template: paths.src + '/templates/pages/home.js',
-                filename: 'index.html',
-                inject: 'body',
-                minify: false
-            }),
-            new HtmlWebpackPlugin({
-                template: paths.src + '/templates/pages/about.js',
-                filename: 'about.html',
-                inject: 'body',
-                minify: false
-            }),
-            new HtmlWebpackPlugin({
-                template: paths.src + '/templates/pages/blog.js',
-                filename: 'blog.html',
-                inject: 'body',
-                minify: false
-            }),*/
             ...pages.map(page => new HtmlWebpackPlugin({
                 ...page
             }))

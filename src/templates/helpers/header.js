@@ -1,4 +1,8 @@
-import header from '../partials/header.handlebars'
 import Handlebars from 'handlebars';
+import template from '../partials/header.handlebars'
 
-Handlebars.registerHelper('header', () => header());
+const context = {
+    title: ' - HEADER'
+}
+
+export default Handlebars.compile(template(context))

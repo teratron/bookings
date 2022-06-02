@@ -22,9 +22,3 @@ module.exports = [
         filename: 'blog.html'
     }
 ]
-
-/*
-import header from '../src/templates/partials/header.handlebars'
-import Handlebars from 'handlebars';
-
-Handlebars.registerHelper('Header', header);*/
