@@ -1,0 +1,93 @@
+//@import './mixins/list';
+
+%grid {
+    display: grid;
+}
+
+.row {
+    @extend %grid;
+    grid-auto-flow: column;
+
+    >* {
+        outline: 3px solid red;
+        //height: 20px;
+    }
+
+    >.head {
+        @extend %grid;
+        //justify-content: start;
+        justify-items: start;
+        //justify-self: start;
+    }
+
+    >.body {
+        @extend %grid;
+        //justify-content: center;
+        justify-items: center;
+        //justify-self: stretch;
+    }
+
+    >.foot {
+        @extend %grid;
+        //justify-content: end;
+        justify-items: end;
+        //justify-self: end;
+    }
+}
+
+.col {
+    @extend %grid;
+    grid-auto-flow: row;
+
+    >* {
+        outline: 3px solid green;
+        //height: 20px;
+    }
+}
+
+.bar {
+    @extend .row;
+    //justify-items: stretch;
+    //align-items: stretch;
+
+    >* {
+        @extend %grid;
+        align-items: center;
+    }
+
+    /*>.head,
+    > :first-child {
+        justify-content: start;
+        justify-items: start;
+        justify-self: start;
+    }
+
+    >.body,
+    > :not(:first-child):not(:last-child) {
+        justify-content: center;
+        justify-items: center;
+        justify-self: stretch;
+    }
+
+    >.foot,
+    > :last-child:not(:first-child) {
+        justify-content: end;
+        justify-items: end;
+        justify-self: end;
+    }*/
+}
+
+.list {
+    //@include list;
+    @extend .col;
+    //grid-auto-rows: max-content;
+
+    >* {
+        outline: 3px solid blue;
+        //height: 50px;
+    }
+
+    >* {
+        @extend .bar;
+    }
+}

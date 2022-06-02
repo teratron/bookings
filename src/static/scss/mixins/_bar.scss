@@ -5,17 +5,17 @@
     grid-auto-flow: column;
     grid-auto-columns: max-content;
     grid-gap: $gap;
-    justify-content: space-between;;
+    justify-content: space-between;
     justify-items: stretch;
     align-content: center;
     align-items: center;
 
-    > * {
+    >* {
         display: grid;
         align-items: center;
     }
 
-    > .head,
+    >.head,
     > :first-child {
         justify-content: start;
         justify-items: start;
@@ -23,14 +23,14 @@
         padding-left: $padding;
     }
 
-    > .body,
+    >.body,
     > :not(:first-child):not(:last-child) {
         justify-content: center;
         justify-items: center;
         justify-self: stretch;
     }
 
-    > .foot,
+    >.foot,
     > :last-child:not(:first-child) {
         justify-content: end;
         justify-items: end;

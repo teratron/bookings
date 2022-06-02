@@ -67,18 +67,12 @@ module.exports = props => {
                     loader: 'handlebars-loader',
                     options: {
                         helperDirs: [
-                            //paths.src + '/templates',
-                            paths.src + '/templates/partials',
-                            paths.src + '/templates/pages',
-                            paths.src + '/templates/layouts',
                             paths.src + '/templates/helpers'
                         ],
                         partialDirs: [
-                            //paths.src + '/templates',
                             paths.src + '/templates/partials',
                             paths.src + '/templates/pages',
-                            paths.src + '/templates/layouts',
-                            paths.src + '/templates/helpers'
+                            paths.src + '/templates/layouts'
                         ]
                     }
                 },

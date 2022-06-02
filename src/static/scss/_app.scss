@@ -2,7 +2,8 @@
 
 // Application
 #app {
-    display: grid;
+    @extend %grid;
+    //display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: auto;
     grid-auto-flow: row;
@@ -24,7 +25,7 @@
     background-color: var(--color-primary);
     color: var(--color-primary-font);
 
-    > .app-container {
+    >.app-container {
         @include bar;
     }
 
@@ -40,7 +41,8 @@
     max-height: var(--app-header-height);
     //z-index: var(--zindex-header);
 
-    &, > .app-container {
+    &,
+    >.app-container {
         height: var(--app-header-height);
     }
 
