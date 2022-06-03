@@ -70,11 +70,13 @@ module.exports = props => {
                             paths.src + '/templates/helpers'
                         ],
                         partialDirs: [
+                            paths.src + '/templates',
                             paths.src + '/templates/partials',
                             paths.src + '/templates/pages',
                             paths.src + '/templates/layouts'
                         ]
                     }
+
                 },
                 {
                     test: /\.(svg|gif|png|jpe?g)$/i,

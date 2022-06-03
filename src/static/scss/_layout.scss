@@ -1,5 +1,3 @@
-//@import './mixins/list';
-
 %grid {
     display: grid;
 }
@@ -7,31 +5,23 @@
 .row {
     @extend %grid;
     grid-auto-flow: column;
+    align-items: start;
 
-    >* {
-        outline: 3px solid red;
-        //height: 20px;
+    > * {
+        @extend %grid;
+        //outline: 2px solid red;
     }
 
-    >.head {
-        @extend %grid;
-        //justify-content: start;
+    > .head {
         justify-items: start;
-        //justify-self: start;
     }
 
     >.body {
-        @extend %grid;
-        //justify-content: center;
         justify-items: center;
-        //justify-self: stretch;
     }
 
     >.foot {
-        @extend %grid;
-        //justify-content: end;
         justify-items: end;
-        //justify-self: end;
     }
 }
 
@@ -39,42 +29,20 @@
     @extend %grid;
     grid-auto-flow: row;
 
-    >* {
-        outline: 3px solid green;
-        //height: 20px;
-    }
+    /*>* {
+        //@extend %grid;
+        //outline: 2px solid green;
+    }*/
 }
 
 .bar {
     @extend .row;
-    //justify-items: stretch;
-    //align-items: stretch;
+    align-items: center;
 
-    >* {
-        @extend %grid;
+    > * {
+        //@extend %grid;
         align-items: center;
     }
-
-    /*>.head,
-    > :first-child {
-        justify-content: start;
-        justify-items: start;
-        justify-self: start;
-    }
-
-    >.body,
-    > :not(:first-child):not(:last-child) {
-        justify-content: center;
-        justify-items: center;
-        justify-self: stretch;
-    }
-
-    >.foot,
-    > :last-child:not(:first-child) {
-        justify-content: end;
-        justify-items: end;
-        justify-self: end;
-    }*/
 }
 
 .list {
@@ -82,12 +50,54 @@
     @extend .col;
     //grid-auto-rows: max-content;
 
-    >* {
-        outline: 3px solid blue;
+    /*>* {
+        //outline: 2px solid blue;
         //height: 50px;
-    }
+    }*/
 
-    >* {
+    > * {
         @extend .bar;
     }
 }
+
+// Layout 12 columns
+.layout-3-9 {
+    @extend %grid;
+    grid-template-columns: 3fr 9fr;
+}
+
+.layout-4-8 {
+    @extend %grid;
+    grid-template-columns: 4fr 8fr;
+}
+
+.layout-6-6,
+.layout-6_2 {
+    @extend %grid;
+    grid-template-columns: repeat(2, 6fr);
+}
+
+.layout-2-8-2 {
+    @extend %grid;
+    grid-template-columns: 2fr 8fr 2fr;
+}
+
+.layout-3-8-3 {
+    @extend %grid;
+    grid-template-columns: 3fr 6fr 3fr;
+}
+
+.layout-4_3 {
+    @extend %grid;
+    grid-template-columns: repeat(3, 4fr);
+}
+
+.layout-3_4 {
+    @extend %grid;
+    grid-template-columns: repeat(4, 3fr);
+}
+
+/*
+@for  {
+
+}*/

@@ -1,9 +1,10 @@
-@import './mixins/bar';
+//@import './mixins/bar';
+//@import 'layout';
 
 // Application
 #app {
-    @extend %grid;
-    //display: grid;
+    //@extend %grid;
+    display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: auto;
     grid-auto-flow: row;
@@ -25,10 +26,6 @@
     background-color: var(--color-primary);
     color: var(--color-primary-font);
 
-    >.app-container {
-        @include bar;
-    }
-
     .nav-link {
         color: var(--color-primary-font);
     }
@@ -41,8 +38,13 @@
     max-height: var(--app-header-height);
     //z-index: var(--zindex-header);
 
+    > .app-container {
+        @extend .bar;
+    }
+
     &,
-    >.app-container {
+    > .app-container {
+        grid-template-columns: 2fr 8fr 2fr;
         height: var(--app-header-height);
     }
 
@@ -74,6 +76,11 @@
     min-height: var(--app-footer-height);
     //z-index: var(--zindex-footer);
 
+    > .app-container {
+        @extend .row;
+        grid-template-columns: 3fr 6fr 3fr;
+    }
+
     .logo {
         height: 3.4em;
         margin-right: 2rem;
@@ -87,7 +94,6 @@
     }
 
 }
-
 
 /*
 @media (min-width: 1400px) {
