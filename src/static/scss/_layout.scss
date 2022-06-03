@@ -7,12 +7,12 @@
     grid-auto-flow: column;
     align-items: start;
 
-    > * {
+    >* {
         @extend %grid;
         //outline: 2px solid red;
     }
 
-    > .head {
+    >.head {
         justify-items: start;
     }
 
@@ -39,7 +39,7 @@
     @extend .row;
     align-items: center;
 
-    > * {
+    >* {
         //@extend %grid;
         align-items: center;
     }
@@ -55,7 +55,7 @@
         //height: 50px;
     }*/
 
-    > * {
+    >* {
         @extend .bar;
     }
 }
@@ -72,7 +72,7 @@
 }
 
 .layout-6-6,
-.layout-6_2 {
+.layout-6x2 {
     @extend %grid;
     grid-template-columns: repeat(2, 6fr);
 }
@@ -87,12 +87,12 @@
     grid-template-columns: 3fr 6fr 3fr;
 }
 
-.layout-4_3 {
+.layout-4x3 {
     @extend %grid;
     grid-template-columns: repeat(3, 4fr);
 }
 
-.layout-3_4 {
+.layout-3x4 {
     @extend %grid;
     grid-template-columns: repeat(4, 3fr);
 }
