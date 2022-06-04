@@ -9,12 +9,8 @@
     min-height: 100vh;
 }
 
-// Mixins
-@mixin text-decoration-none {
-    &,
-    &:hover {
-        text-decoration: none;
-    }
+.app-container {
+    @extend .container-xxl;
 }
 
 // Common mixin for header and footer
@@ -37,8 +33,8 @@
     max-height: var(--app-header-height);
 
     &,
-    > .container,
-    > .container > .row {
+    >.app-container,
+    >.app-container>.row {
         height: var(--app-header-height);
     }
 
@@ -68,7 +64,7 @@
     @include app-common;
     min-height: var(--app-footer-height);
 
-    > .container {
+    >.app-container {
         margin-top: 3rem;
         margin-bottom: 3rem;
     }
@@ -85,12 +81,8 @@
         margin: 0;
     }
 
-    .nav a {
-        /*&,
-        &:hover {
-            text-decoration: none;
-        }*/
-        @include text-decoration-none;
+    a {
+        @extend .text-decoration-none;
     }
 
     .btn {
