@@ -1,6 +1,7 @@
 // Custom
 @import "variables";
-@import "layout";
+//@import "reset";
+//@import "layout";
 @import "app";
 @import "button";
 @import "themes/default";
@@ -46,3 +47,7 @@
 //@import "bootstrap/scss/spinners";
 //@import "bootstrap/scss/offcanvas";
 //@import "bootstrap/scss/placeholders";
+
+// Bootstrap icons
+//@import "bootstrap-icons/icons";
+//@import "bootstrap-icons/font/bootstrap-icons";

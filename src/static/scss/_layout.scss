@@ -28,11 +28,6 @@
 .col {
     @extend %grid;
     grid-auto-flow: row;
-
-    /*>* {
-        //@extend %grid;
-        //outline: 2px solid green;
-    }*/
 }
 
 .bar {
@@ -49,11 +44,6 @@
     //@include list;
     @extend .col;
     //grid-auto-rows: max-content;
-
-    /*>* {
-        //outline: 2px solid blue;
-        //height: 50px;
-    }*/
 
     >* {
         @extend .bar;
@@ -96,8 +86,3 @@
     @extend %grid;
     grid-template-columns: repeat(4, 3fr);
 }
-
-/*
-@for  {
-
-}*/

@@ -1,5 +1,6 @@
 # Bookings
 
+### Design
 [https://www.figma.com/file/3I6zZdpUFzkjbxSaQ1j9Jz/in-ukraina?node-id=0%3A1](https://www.figma.com/file/3I6zZdpUFzkjbxSaQ1j9Jz/in-ukraina?node-id=0%3A1)
 
 ### HtmlWebpackPlugin
@@ -17,9 +18,15 @@
 [https://metanit.com/web/nodejs/4.19.php](https://metanit.com/web/nodejs/4.19.php)\
 [https://github.com/pcardune/handlebars-loader/tree/main/examples](https://github.com/pcardune/handlebars-loader/tree/main/examples)\
 [http://tryhandlebarsjs.com/](http://tryhandlebarsjs.com/)\
-[https://www.tabnine.com/code/javascript/functions/handlebars/registerPartial](https://www.tabnine.com/code/javascript/functions/handlebars/registerPartial)
-
+[https://www.tabnine.com/code/javascript/functions/handlebars/registerPartial](https://www.tabnine.com/code/javascript/functions/handlebars/registerPartial)\
 [https://devdocs.io/handlebars-reference/](https://devdocs.io/handlebars-reference/)
+
+### GitHub Pages Deployment
+
+[https://habr.com/ru/post/359368/](https://habr.com/ru/post/359368/)\
+[https://docs.travis-ci.com/user/deployment/pages/](https://docs.travis-ci.com/user/deployment/pages/)\
+[https://artslab.info/angular/sborka-deployment-angular-apps-github-actions](https://artslab.info/angular/sborka-deployment-angular-apps-github-actions)\
+[https://github.com/marketplace/actions/deploy-to-github-pages](https://github.com/marketplace/actions/deploy-to-github-pages)
 
 ```sh
 npm run start
