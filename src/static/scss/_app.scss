@@ -1,3 +1,6 @@
+::placeholder {
+    color: red;
+}
 // Application
 #app {
     display: grid;
@@ -14,7 +17,7 @@
 }
 
 // Common mixin for header and footer
-@mixin app-common {
+@mixin app-common() {
     background-color: var(--color-primary);
     color: var(--color-primary-font);
 
