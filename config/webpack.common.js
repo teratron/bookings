@@ -108,15 +108,11 @@ module.exports = props => {
                     }
                 ]
             }),
-            /*...pages.map(page => new HtmlWebpackPlugin({
-                ...page
-            })),*/
             ...require('fs')
                 .readdirSync(paths.src + '/templates/pages')
                 .filter(fileName => fileName.endsWith('.js'))
                 .map(page => new HtmlWebpackPlugin({
                         template: paths.src + `/templates/pages/${page}`,
-                        //filename: page.match(/\b(?:(?!.js)\w)+\b/gmi)[0] + '.html',
                         filename: page.replace(/.js/gi, '.html'),
                         inject: 'body',
                         minify: false
