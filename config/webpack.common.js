@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const paths = require('./paths')
-const pages = require('./pages')
 
 module.exports = props => {
     return {
@@ -109,17 +108,20 @@ module.exports = props => {
                     }
                 ]
             }),
-            ...pages.map(page => new HtmlWebpackPlugin({
+            /*...pages.map(page => new HtmlWebpackPlugin({
                 ...page
-            }))
-            /*...require('fs')
-                .readdirSync(paths.src + 'templates/pages')
+            })),*/
+            ...require('fs')
+                .readdirSync(paths.src + '/templates/pages')
                 .filter(fileName => fileName.endsWith('.js'))
                 .map(page => new HtmlWebpackPlugin({
-                        //template: paths.src + `/${page}`,
-                        //filename: `./${page}`
+                        template: paths.src + `/templates/pages/${page}`,
+                        //filename: page.match(/\b(?:(?!.js)\w)+\b/gmi)[0] + '.html',
+                        filename: page.replace(/.js/gi, '.html'),
+                        inject: 'body',
+                        minify: false
                     })
-                )*/
+                )
         ]
     }
 }
