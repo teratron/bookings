@@ -3,9 +3,38 @@
 @import "variables";
 @import "app";
 
-// Bootstrap
-@import "~bootstrap/scss/bootstrap";
-
 // Bootstrap icons
 //@import "bootstrap-icons/icons";
 //@import "bootstrap-icons/font/bootstrap-icons";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Fonts
+@font-face {
+    font-family: "Futura";
+    src: url("../fonts/futura/futura.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "FuturaLight";
+    src: url("../fonts/futura/futura_light_bt.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "FuturaMedium";
+    src: url("../fonts/futura/futura_medium_bt.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "FuturaMediumCondensed";
+    src: url("../fonts/futura/futura_medium_condensed_bt.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}

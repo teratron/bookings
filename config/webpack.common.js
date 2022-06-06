@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./paths')
 
 module.exports = props => {
@@ -117,6 +117,14 @@ module.exports = props => {
                         minify: false
                     })
                 )
-        ]
+        ],
+        resolve: {
+            modules: [paths.src, 'node_modules'],
+            extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass'],
+            alias: {
+                '~': paths.src,
+                '@': paths.src + 'js'
+            }
+        }
     }
 }

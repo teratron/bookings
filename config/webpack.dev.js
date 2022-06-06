@@ -9,7 +9,7 @@ const config = merge(common({styleLoader: 'style-loader'}), {
         filename: 'static/js/[name].bundle.js'
     },
     devServer: {
-        static: paths.build,
+        static: paths.build + '/static',
         port: 9000,
         historyApiFallback: true,
         compress: true,
