@@ -12,6 +12,15 @@ $border-radius: .35rem;
     font-size: 1.25rem;
 }
 
+/*$font-sizes: (
+    tiny: $h1-font-size,
+    small: $h2-font-size,
+    normal: 1rem,
+    4: $h4-font-size,
+    5: $h5-font-size,
+    6: $h6-font-size
+);*/
+
 // Application
 #app {
     display: grid;
@@ -33,12 +42,21 @@ $border-radius: .35rem;
     color: var(--color-primary-font);
 
     a {
+        @extend .text-decoration-none;
+
         &,
         &:focus,
         &:active,
         &:hover {
             color: var(--color-primary-font);
         }
+    }
+
+    .title {
+        font-family: FuturaMedium, sans-serif;
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0;
     }
 }
 
@@ -57,13 +75,6 @@ $border-radius: .35rem;
         height: 3.4em;
         margin-right: 2rem;
         pointer-events: none;
-    }
-
-    .title {
-        font-family: FuturaMedium, sans-serif;
-        font-size: 1.8rem;
-        font-weight: 500;
-        margin: 0;
     }
 
     .dropdown-toggle::after {
@@ -116,9 +127,10 @@ $border-radius: .35rem;
 
     .foot {
         .dropdown {
+
             .btn,
             .dropdown-menu {
-                border-color: white;
+                border-color: var(--color-primary-font);
                 border-style: solid;
             }
 
@@ -136,7 +148,7 @@ $border-radius: .35rem;
                 border-top-width: 0;
                 border-radius: 0 0 $border-radius $border-radius;
 
-                > .dropdown-item {
+                >.dropdown-item {
                     color: var(--color-primary-font);
                 }
             }
@@ -150,8 +162,10 @@ $border-radius: .35rem;
     min-height: var(--app-footer-height);
 
     >.app-container {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
+        margin: {
+            top: 3rem;
+            bottom: 3rem;
+        }
     }
 
     .logo {
@@ -161,13 +175,7 @@ $border-radius: .35rem;
     }
 
     .title {
-        font-size: 2rem;
-        font-weight: 500;
-        margin: 0;
-    }
-
-    a {
-        @extend .text-decoration-none;
+        margin-bottom: .4rem;
     }
 
     .btn {
