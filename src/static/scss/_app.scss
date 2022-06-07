@@ -51,8 +51,8 @@ $border-radius: .35rem;
     max-height: var(--app-header-height);
 
     &,
-    > .app-container,
-    > .app-container > .row {
+    >.app-container,
+    >.app-container>.row {
         height: var(--app-header-height);
     }
 
@@ -65,10 +65,11 @@ $border-radius: .35rem;
     .foot .dropdown-item {
         font-size: 1.25rem;
         line-height: 1;
+
         padding: {
             top: .563rem;
             bottom: .563rem;
-        };
+        }
     }
 
     .btn {
@@ -126,6 +127,7 @@ $border-radius: .35rem;
 
     .foot {
         .dropdown {
+
             .btn,
             .dropdown-menu {
                 border-color: var(--color-primary-font);
@@ -165,7 +167,7 @@ $border-radius: .35rem;
     @include app-common;
     min-height: var(--app-footer-height);
 
-    > .app-container {
+    >.app-container {
         margin: {
             top: 3rem;
             bottom: 3rem;
@@ -205,4 +207,16 @@ $border-radius: .35rem;
             }
         }
     }
+}
+
+// Jumbotron
+.app-jumbotron {
+    background-color: aquamarine;
+    min-height: 200px;
+    max-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
