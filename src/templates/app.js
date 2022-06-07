@@ -5,5 +5,6 @@ export const props = {
     description: 'Bookings - hotels etc.',
     keyword: 'bookings,hotel',
     publicURL: '',
-    version: packageJSON.version
+    version: packageJSON.version,
+    navigation: {}
 }

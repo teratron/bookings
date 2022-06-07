@@ -1,16 +1,16 @@
 {
-  "name": "bookings",
-  "version": "0.0.546",
-  "private": true,
-  "description": "Bookings",
-  "main": "src/index.js",
-  "keywords": [
-    "bookings",
-    "hotel"
-  ],
-  "homepage": ".",
-  "dependencies": {
-    "bootstrap-icons": "^1.8.3"
+    "name": "bookings",
+    "version": "0.0.552",
+    "private": true,
+    "description": "Bookings",
+    "main": "src/index.js",
+    "keywords": [
+        "bookings",
+        "hotel"
+    ],
+    "homepage": ".",
+    "dependencies": {
+        "bootstrap-icons": "^1.8.3"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
@@ -52,5 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "buildDate": "2022-06-06T18:17:42.422Z"
+    "buildDate": "2022-06-07T12:40:54.023Z"
 }
