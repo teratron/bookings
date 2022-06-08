@@ -1,12 +1,12 @@
-<header class="app-header sticky-top">
+<header class="app-header">
     <div class="app-container">
-        <div class="row align-items-center">
-            <div class="head col-2 d-flex justify-content-start">
+        <div class="row">
+            <div class="head">
                 <h1 class="title">
                     <a href="/">Bookings</a>
                 </h1>
             </div>
-            <div class="body col-8 d-flex justify-content-center">
+            <div class="body">
                 {{#if header.navigation}}
                 <ul class="nav">
                     <li class="dropdown">
@@ -24,12 +24,12 @@
                     <li><a class="nav-link" href="/blog">Blog</a></li>
                 </ul>
                 {{else}}
-                    {{#if header.search}}
-                        {{> inline-search}}
-                    {{/if}}
+                {{#if header.search}}
+                {{> inline-search}}
+                {{/if}}
                 {{/if}}
             </div>
-            <div class="foot col-2 d-flex justify-content-end">
+            <div class="foot">
                 <div class="dropdown">
                     <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-offset="0,-5"
                         aria-expanded="false">
