@@ -2,6 +2,7 @@
 @import "themes/default";
 @import "variables";
 @import "app";
+//@import "debug";
 
 // Bootstrap icons
 //@import "bootstrap-icons/icons";
@@ -9,6 +10,8 @@
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
+
+//@forward "bootstrap/scss/mixins/breakpoints";
 
 // Fonts
 @font-face {

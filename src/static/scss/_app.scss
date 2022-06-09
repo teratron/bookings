@@ -149,7 +149,6 @@ $border-radius: .35rem;
         @extend .col-2;
 
         .dropdown {
-
             .btn,
             .dropdown-menu {
                 border-color: var(--color-primary-font);
@@ -190,28 +189,26 @@ $border-radius: .35rem;
     min-height: var(--app-footer-height);
 
     >.app-container {
-        margin: {
-            top: 3rem;
-        }
+        margin-top: 3rem;
     }
 
     .head,
-    .body,
     .foot {
-        margin: {
-            bottom: 3rem;
-        }
+        margin-bottom: 3rem;
     }
 
     .head {
         @extend .d-flex;
         @extend .flex-column;
         @extend .justify-content-start;
+
         @extend .col-lg-3;
-        @extend .col-md-2;
-        @extend .col-sm-12;
+        //@extend .col-md-12;
+        //@extend .col-sm-12;
+        @extend .col-12;
+
         @extend .order-lg-1;
-        @extend .order-sm-3;
+        @extend .order-3;
 
         .logo {
             height: 3.4em;
@@ -225,29 +222,48 @@ $border-radius: .35rem;
 
     .body {
         @extend .col-lg-6;
-        @extend .col-md-8;
-        @extend .col-sm-9;
+        @extend .col-md-9;
+        //@extend .col-sm-12;
+        @extend .col-12;
+
         @extend .order-lg-2;
-        @extend .order-sm-1;
+        @extend .order-1;
 
         font-size: 1.22rem;
 
-        >.row>* {
+        > .row > * {
             @extend .col;
             @extend .d-flex;
             @extend .flex-column;
+
+            margin-bottom: 3rem;
         }
 
-        .nav {
-
-            .about &,
-            .contacts & {
+        .about,
+        .contacts {
+            .nav {
                 @extend .flex-column;
             }
+        }
 
-            .social & {
+        .about {
+            @extend .col-md-3;
+            @extend .col-sm-6;
+            @extend .col-12;
+        }
+
+        .contacts {
+            @extend .col-md-5;
+            @extend .col-sm-6;
+            @extend .col-12;
+        }
+
+        .social {
+            @extend .col-md-4;
+            @extend .col-12;
+
+            .nav {
                 @extend .nav-justified;
-
             }
         }
     }
@@ -256,11 +272,14 @@ $border-radius: .35rem;
         @extend .d-flex;
         @extend .justify-content-end;
         @extend .align-items-start;
+
         @extend .col-lg-3;
-        @extend .col-md-2;
-        @extend .col-sm-12;
+        @extend .col-md-3;
+        //@extend .col-sm-12;
+        @extend .col-12;
+
         @extend .order-lg-3;
-        @extend .order-sm-2;
+        @extend .order-2;
 
         .btn {
             @extend .col;
@@ -292,7 +311,4 @@ $border-radius: .35rem;
     background-color: rgb(236, 236, 236);
     min-height: 300px;
     max-height: 300px;
-    /*    display: flex;
-        align-items: center;
-        justify-content: center;*/
 }
