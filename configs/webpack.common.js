@@ -123,7 +123,7 @@ module.exports = props => {
             extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass'],
             alias: {
                 '~': paths.src,
-                '@': paths.src + 'js'
+                '@': paths.src + '/static/js'
             }
         }
     }

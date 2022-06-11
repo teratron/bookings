@@ -1,5 +1,5 @@
-const dev = require('./config/webpack.dev')
-const prod = require('./config/webpack.prod')
+const dev = require('./configs/webpack.dev')
+const prod = require('./configs/webpack.prod')
 
 module.exports = (_env, args) => {
     switch (args.mode) {
