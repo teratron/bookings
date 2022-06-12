@@ -18,3 +18,55 @@
     5: $h5-font-size,
     6: $h6-font-size
 );*/
+
+/*$app-breakpoint: (
+        1: 300px,
+        2: 400px,
+        3: 500px,
+        4: 600px,
+        5: 700px,
+        6: 800px,
+        7: 900px,
+        8: 1000px,
+        9: 1100px,
+        10: $layout-width
+    );*/
+
+/*.aaa {
+    @each $key, $value in $app-breakpoint {
+        &--#{$key} {
+            width: $value;
+        }
+    }
+}*/
+
+
+/*@mixin app-breakpoint() {
+
+}*/
+
+/*%app-breakpoint-max {
+    @media only screen {
+        @media (max-width: $layout-width) {
+        }
+    }
+}*/
+
+/*@media only screen {
+    @media (max-width: $width) {
+        #{$s} {
+            @each $key, $value in $props {
+                $key: $value;
+            }
+        }
+    }
+}*/
+
+@mixin app-break($width, $props) {
+    %br {
+        @media only screen {
+            @media (max-width: $width) {
+            }
+        }
+    }
+}

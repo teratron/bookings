@@ -1,0 +1,134 @@
+:root {
+    --app-header-height: 96px;
+    --app-footer-height: 220px
+}
+
+:root {
+    --color-primary: #f8bb44;
+    --color-primary-dark: #f8bb44;
+    --color-primary-light: #f8bb44;
+    --color-primary-font: white;
+    --color-secondary: #ebebeb;
+    --color-secondary-dark: #668630;
+    --color-secondary-light: #96cb4b;
+    --color-secondary-font: white;
+    --color-accent: #725ac1;
+    --color-accent-dark: #3e3167;
+    --color-accent-light: #9374f8;
+    --color-accent-font: white;
+    --color-info: #20a1ff;
+    --color-info-dark: #3e3167;
+    --color-info-light: #9374f8;
+    --color-info-font: white;
+    --color-success: #198754;
+    --color-success-dark: #167c24;
+    --color-success-light: #5cd06d;
+    --color-success-font: white;
+    --color-warning: #ffd582;
+    --color-warning-dark: #deaa1f;
+    --color-warning-light: #ffd562;
+    --color-warning-font: black;
+    --color-error: #ff6464;
+    --color-error-dark: #c4465e;
+    --color-error-light: #ff6381;
+    --color-error-font: white;
+    --color-grey: #aaa;
+    --color-dark: #222;
+    --color-light: #eee
+}
+
+#app {
+    display: grid;
+    grid-template-rows:auto 1fr;
+    grid-template-columns:1fr;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    grid-gap: 0;
+    min-height: 100vh
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns:repeat(12, 1fr);
+    grid-column-gap: 40px;
+    width: 100%;
+    max-width: 1240px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px
+}
+
+.app-header, .app-footer {
+    background-color: var(--color-primary);
+    color: var(--color-primary-font)
+}
+
+.app-header a, .app-header a:focus, .app-header a:active, .app-header a:hover, .app-footer a, .app-footer a:focus, .app-footer a:active, .app-footer a:hover {
+    color: var(--color-primary-font)
+}
+
+.app-header {
+    position: sticky;
+    top: 0;
+    max-height: 96px
+}
+
+.app-header, .app-header > .app-container {
+    height: 96px
+}
+
+.app-footer > .app-container {
+    grid-template-rows:minmax(220px, auto);
+    grid-auto-rows: auto;
+    padding-top: 40px
+}
+
+@media only screen and (max-width: 1240px) {
+    .app-footer > .app-container {
+        padding-top: 4vw;
+        background-color: red
+    }
+}
+
+.app-footer .head {
+    grid-column: span 3
+}
+
+.app-footer .body {
+    grid-column: span 6
+}
+
+.app-footer .foot {
+    grid-column: 10/span 3
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url(../../static/fonts/futura.71d20cae1da6df8d2a23.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 400
+}
+
+@font-face {
+    font-family: "FuturaLight";
+    src: url(../../static/fonts/futura_light_bt.ead7282f8edac7904e53.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 400
+}
+
+@font-face {
+    font-family: "FuturaMedium";
+    src: url(../../static/fonts/futura_medium_bt.4e762c29ef7b44ca51cb.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 400
+}
+
+@font-face {
+    font-family: "FuturaMediumCondensed";
+    src: url(../../static/fonts/futura_medium_condensed_bt.2423d8808228a8468e9c.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 400
+}
+
+/*# sourceMappingURL=main.6b9e40b257505c9772cf.bundle.css.map*/

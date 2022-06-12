@@ -1,4 +1,7 @@
-$layout-width: 1200px;
+$layout-columns: 12;
+$layout-width: 1240px;
+$layout-width-min: 320px;
+$layout-gap: 40px;
 $header-height: 96px;
 $footer-height: 220px;
 $border-radius: .35rem;
@@ -15,16 +18,46 @@ $border-radius: .35rem;
 }
 
 .app-container {
+    display: grid;
+    grid-template-columns: repeat($layout-columns, 1fr);
+    grid-column-gap: 40px;
     width: 100%;
     max-width: $layout-width;
-    margin-right: auto;
-    margin-left: auto;
+
+    margin: {
+        right: auto;
+        left: auto;
+    }
+
+    padding: {
+        right: 20px;
+        left: 20px;
+    }
+}
+
+@mixin a() {
+    //@extend .text-decoration-none;
+
+    &,
+    &:focus,
+    &:active,
+    &:hover {
+        color: var(--color-primary-font);
+    }
+}
+
+.app-header,
+.app-footer {
+    background-color: var(--color-primary);
+    color: var(--color-primary-font);
+
+    a {
+        @include a();
+    }
 }
 
 // Header
 .app-header {
-    background-color: var(--color-primary);
-
     position: sticky;
     top: 0;
 
@@ -45,6 +78,68 @@ $border-radius: .35rem;
     }
 }
 
+/*%aaa {
+    @media only screen {
+        @media (max-width: $layout-width) {
+            .app-footer {
+                background-color: red;
+            }
+        }
+    }
+}*/
+
+@mixin app-breakpoint($width, $props) {
+    @media only screen {
+        @media (max-width: $width) {
+            @each $key, $value in $props {
+                #{$key}: $value;
+            }
+        }
+    }
+}
+
 // Footer
 .app-footer {
+    > .app-container {
+        grid-template-rows: minmax($footer-height, auto);
+        grid-auto-rows: auto;
+
+        padding-top: 40px;
+
+        $props: (
+                padding-top: 4vw,
+                background-color: red
+        );
+        @include app-breakpoint($layout-width, $props);
+    }
+
+    .head {
+        grid-column: span 3;
+    }
+
+    .body {
+        grid-column: span 6;
+    }
+
+    .foot {
+        grid-column: 10 / span 3;
+    }
 }
+
+
+/*@media only screen {
+    @media (max-width: $layout-width) {
+        .app-footer {
+            background-color: red;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        .app-footer {
+            background-color: green;
+        }
+    }
+}*/
+
+
+
