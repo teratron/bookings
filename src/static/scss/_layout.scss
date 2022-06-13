@@ -1,0 +1,35 @@
+@use "sass:math";
+
+@mixin app-grid($width: 100%, $columns: 12) {
+    display: grid;
+    grid-template-columns: repeat($columns, minmax(1fr, math.div($width, $columns)));
+}
+
+@mixin add-style($props) {
+    @each $key, $value in $props {
+        #{$key}: $value;
+    }
+}
+
+@mixin add-class($selector, $props) {
+    @if $selector == & {
+        & {
+            @include add-style($props);
+        }
+    } @else {
+        #{$selector} {
+            @include add-style($props);
+        }
+    }
+}
+
+@mixin app-breakpoint($width, $props) {
+    //%bp {
+    @media only screen {
+        @media (max-width: $width) {
+            @include add-style($props);
+        }
+    }
+    //}
+}
+

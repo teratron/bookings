@@ -1,0 +1,17 @@
+.app-main {
+
+    min-height: $main-height;
+    height: 1fr;
+
+    > .app-container {
+        height: 100%;
+
+        > aside {
+            grid-column: span 3;
+        }
+
+        > section {
+            grid-column: span 9;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+.app-header {
+    position: sticky;
+    top: 0;
+
+    //max-height: $header-height;
+
+    &,
+    > .app-container {
+        align-items: center;
+        min-height: $header-height;
+    }
+
+    .head {
+        grid-column: span 3;
+    }
+
+    .body {
+        grid-column: span 6;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px;
+    }
+
+    .foot {
+        grid-column: 10 / span 3;
+        display: grid;
+        justify-items: end;
+    }
+
+    .title {
+        white-space: nowrap;
+    }
+}

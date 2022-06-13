@@ -1,5 +1,18 @@
+$layout-columns: 12;
+$layout-width: 1240px;
+$layout-width-min: 320px;
+$layout-gap: 40px;
+$header-height: 96px;
+$footer-height: 220px;
+$main-height: 220px;
+$border-radius: .35rem;
+
 :root {
     /* Layout */
-    --app-header-height: 96px;
-    --app-footer-height: 220px;
+    --app-header-height: #{$header-height};
+    --app-footer-height: #{$footer-height};
+    --app-main-height: #{$main-height};
+
+    /* Theme */
+    @include app-theme;
 }

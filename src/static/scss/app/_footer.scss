@@ -1,0 +1,139 @@
+.app-footer {
+    > .app-container {
+        min-height: $footer-height;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .head {
+        grid-column: span 3;
+        order: 1;
+    }
+
+    .body {
+        grid-column: span 6;
+        order: 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px;
+
+        .contacts {
+        }
+
+        .social {
+            .nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                > :not(:last-child) {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .foot {
+        grid-column: 10 / span 3;
+        order: 3;
+        display: grid;
+        align-items: start;
+    }
+
+    .title {
+        white-space: nowrap;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+
+        > * {
+            white-space: nowrap;
+        }
+    }
+
+    @media only screen {
+        @media (max-width: $layout-width) {
+            > .app-container {
+                padding-top: 3.64vw;
+                padding-bottom: 3.64vw;
+            }
+
+            .body {
+                grid-gap: 3.64vw;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .head {
+                grid-column: span 6;
+                order: 3;
+            }
+
+            .body {
+                grid-column: span 9;
+                order: 1;
+            }
+
+            .foot {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .head {
+                grid-column: span 9;
+                order: 2;
+            }
+
+            .body {
+                grid-column: span 12;
+            }
+
+            .foot {
+                order: 3;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .head {
+                grid-column: span 8;
+            }
+
+            .body {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+
+            .foot {
+                grid-column: span 4;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .head {
+                grid-column: span 6;
+            }
+
+            .foot {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .head {
+                grid-column: span 12;
+                order: 3;
+            }
+
+            .body {
+                grid-column: span 12;
+                order: 1;
+            }
+
+            .foot {
+                grid-column: span 12;
+                order: 2;
+            }
+        }
+    }
+}

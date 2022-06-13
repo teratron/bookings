@@ -29,16 +29,16 @@ $body-color: #000;
 $font-family-sans-serif: Futura, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 // CSS color variables
-:root {
-  --color-primary: #{$primary};
-  --color-primary-dark: #f8bb44;
-  --color-primary-light: #f8bb44;
-  --color-primary-font: white;
+@mixin app-theme {
+    --color-primary: #{$primary};
+    --color-primary-dark: #f8bb44;
+    --color-primary-light: #f8bb44;
+    --color-primary-font: white;
 
-  --color-secondary: #ebebeb;
-  --color-secondary-dark: #668630;
-  --color-secondary-light: #96cb4b;
-  --color-secondary-font: white;
+    --color-secondary: #ebebeb;
+    --color-secondary-dark: #668630;
+    --color-secondary-light: #96cb4b;
+    --color-secondary-font: white;
 
   --color-accent: #725ac1;
   --color-accent-dark: #3e3167;

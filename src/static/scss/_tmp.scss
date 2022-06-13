@@ -70,3 +70,13 @@
         }
     }
 }
+
+
+$props: (
+        grid-column-gap: 3.64vw,
+        margin-right: 0,
+        margin-left: 0,
+        padding-right: 1.82vw,
+        padding-left: 1.82vw
+);
+@include app-breakpoint($layout-width, $props);
