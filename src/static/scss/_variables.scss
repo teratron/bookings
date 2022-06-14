@@ -1,11 +1,18 @@
-$layout-columns: 12;
-$layout-width: 1240px;
-$layout-width-min: 320px;
+@use "sass:math";
+
+// Layout
+$layout-column: 12;
+$layout-width: 1200px;
+$layout-width-min: 280px;
 $layout-gap: 40px;
 $header-height: 96px;
 $footer-height: 220px;
 $main-height: 220px;
 $border-radius: .35rem;
+
+// Calculated variables
+$layout-width-gap: $layout-width + 2 * $layout-gap;
+$layout-gap-adaptive: math.div(100vw, $layout-width) * $layout-gap;
 
 :root {
     /* Layout */

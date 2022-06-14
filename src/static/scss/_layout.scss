@@ -1,35 +1,72 @@
 @use "sass:math";
 
-@mixin app-grid($width: 100%, $columns: 12) {
+// Grid
+.grid {
     display: grid;
-    grid-template-columns: repeat($columns, minmax(1fr, math.div($width, $columns)));
 }
 
-@mixin add-style($props) {
-    @each $key, $value in $props {
-        #{$key}: $value;
+// Column
+@mixin set-column($column: 12, $gap: 0) {
+    grid-template-columns: repeat($column, minmax(0, 1fr));
+
+    @if $gap > 0 {
+        grid-gap: $gap;
+        //@extend %layout-gap-adaptive;
     }
 }
 
-@mixin add-class($selector, $props) {
-    @if $selector == & {
-        & {
-            @include add-style($props);
-        }
-    } @else {
-        #{$selector} {
-            @include add-style($props);
+.column {
+    @extend .grid;
+    @include set-column($layout-column, $layout-gap);
+    grid-auto-columns: auto;
+    grid-auto-rows: auto;
+}
+
+%span {
+    width: auto;
+    max-width: none;
+}
+
+@for $i from 1 through $layout-column {
+    .span-#{$i} {
+        grid-column: span $i;
+        @extend %span;
+
+        &.column {
+            @include set-column($i, $layout-gap);
         }
     }
 }
 
-@mixin app-breakpoint($width, $props) {
-    //%bp {
+$s: math.div(($layout-width - $layout-width-min), $layout-column);
+@for $i from $layout-column to 1 {
+    $k: $i - 1;
     @media only screen {
-        @media (max-width: $width) {
-            @include add-style($props);
+        @media (max-width: math.round($layout-width-gap - ($layout-column - $k) * $s)) {
+            .shrink {
+                grid-template-columns: repeat($k, minmax(0, 1fr));
+
+                > %span-#{$i} {
+                    grid-column: span $k;
+                    @include set-column($k);
+                }
+            }
+
+            @for $j from $i through $layout-column {
+                .span-#{$j} {
+                    @extend %span-#{$i};
+                }
+            }
         }
     }
-    //}
+}
+
+// Breakpoint
+@media only screen {
+    @media (max-width: $layout-width-gap) {
+        %layout-gap-adaptive {
+            grid-gap: $layout-gap-adaptive;
+        }
+    }
 }
 

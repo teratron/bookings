@@ -1,3 +1,32 @@
+@mixin add-style($props) {
+    @each $key, $value in $props {
+        #{$key}: $value;
+    }
+}
+
+@mixin add-class($selector, $props) {
+    @if $selector == & {
+        & {
+            @include add-style($props);
+        }
+    } @else {
+        #{$selector} {
+            @include add-style($props);
+        }
+    }
+}
+
+@mixin app-breakpoint($width, $props) {
+    //%bp {
+    @media only screen {
+        @media (max-width: $width) {
+            @include add-style($props);
+        }
+    }
+    //}
+}
+
+
 /*.color-primary-bg {
     background-color: var(--color-primary);
 }
@@ -73,7 +102,7 @@
 
 
 $props: (
-        grid-column-gap: 3.64vw,
+        grid-column-gap: 3.2vw,
         margin-right: 0,
         margin-left: 0,
         padding-right: 1.82vw,
