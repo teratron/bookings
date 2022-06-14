@@ -1,5 +1,9 @@
 // Reset
-*, :before, :after, ::before, ::after {
+*,
+:before,
+:after,
+::before,
+::after {
     box-sizing: border-box;
     outline: 0 none;
 }
@@ -30,7 +34,7 @@ body {
 }
 
 .app-container {
-    @extend .column;
+    @extend .grid;
     //display: grid;
     //grid-template-columns: repeat($layout-column, minmax(0, 1fr));
     //grid-auto-columns: auto;
@@ -55,6 +59,7 @@ body {
 }
 
 @mixin a() {
+
     &,
     &:focus,
     &:active,

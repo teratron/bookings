@@ -1,25 +1,31 @@
 @use "sass:math";
 
 // Grid
-.grid {
+%grid {
     display: grid;
 }
 
 // Column
-@mixin set-column($column: 12, $gap: 0) {
+/*@mixin set-column($column: 12, $gap: 0) {
     grid-template-columns: repeat($column, minmax(0, 1fr));
 
-    @if $gap > 0 {
-        grid-gap: $gap;
-        //@extend %layout-gap-adaptive;
-    }
-}
+    //@if $gap >0 {
+    //grid-gap: $gap;
+    //@extend %layout-gap-adaptive;
+    //}
+}*/
 
-.column {
-    @extend .grid;
-    @include set-column($layout-column, $layout-gap);
+.grid {
+    @extend %grid;
+    //@include set-column($layout-column, $layout-gap);
+    grid-template-columns: repeat($layout-column, minmax(0, 1fr));
     grid-auto-columns: auto;
     grid-auto-rows: auto;
+
+    @if $layout-gap >0 {
+        grid-gap: $layout-gap;
+        @extend %layout-gap-adaptive;
+    }
 }
 
 %span {
@@ -32,23 +38,32 @@
         grid-column: span $i;
         @extend %span;
 
-        &.column {
-            @include set-column($i, $layout-gap);
+        &.grid {
+            //@include set-column($i, $layout-gap);
+            grid-template-columns: repeat($i, minmax(0, 1fr));
         }
     }
 }
 
-$s: math.div(($layout-width - $layout-width-min), $layout-column);
+@media only screen and (max-width: $layout-width-gap) {
+    %layout-gap-adaptive {
+        grid-gap: $layout-gap-adaptive;
+    }
+}
+
 @for $i from $layout-column to 1 {
     $k: $i - 1;
+    $b: math.round($layout-width-gap - ($layout-column - $k) * $grid-step);
+
     @media only screen {
-        @media (max-width: math.round($layout-width-gap - ($layout-column - $k) * $s)) {
+        @media (max-width: $b) {
             .shrink {
                 grid-template-columns: repeat($k, minmax(0, 1fr));
 
-                > %span-#{$i} {
+                >%span-#{$i} {
                     grid-column: span $k;
-                    @include set-column($k);
+                    grid-template-columns: repeat($k, minmax(0, 1fr));
+                    //@include set-column($k);
                 }
             }
 
@@ -62,11 +77,10 @@ $s: math.div(($layout-width - $layout-width-min), $layout-column);
 }
 
 // Breakpoint
-@media only screen {
+/*@media only screen {
     @media (max-width: $layout-width-gap) {
         %layout-gap-adaptive {
             grid-gap: $layout-gap-adaptive;
         }
     }
-}
-
+}*/

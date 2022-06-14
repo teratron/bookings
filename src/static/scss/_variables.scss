@@ -5,14 +5,16 @@ $layout-column: 12;
 $layout-width: 1200px;
 $layout-width-min: 280px;
 $layout-gap: 40px;
+$layout-padding: 40px;
 $header-height: 96px;
 $footer-height: 220px;
 $main-height: 220px;
 $border-radius: .35rem;
 
 // Calculated variables
-$layout-width-gap: $layout-width + 2 * $layout-gap;
+$layout-width-gap: $layout-width + 2 * $layout-padding; // TODO: rename
 $layout-gap-adaptive: math.div(100vw, $layout-width) * $layout-gap;
+$grid-step: math.div(($layout-width - $layout-width-min), $layout-column);
 
 :root {
     /* Layout */
