@@ -11,11 +11,16 @@
     }
 
     .body {
-        grid-column: span 6;
+        @extend .span-6;
+        @extend .grid-3;
+
+
+        //grid-column: span 6;
         order: 2;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: $layout-gap;
+        //display: grid;
+        //grid-template-columns: repeat(3, 1fr);
+        //grid-gap: $grid-gap;
+        //@extend %grid-gap-adaptive;
 
         .contacts {
         }
@@ -60,7 +65,7 @@
             }
 
             .body {
-                grid-gap: 3.2vw;
+                @extend %grid-gap-adaptive;
             }
         }
 
@@ -97,42 +102,29 @@
         }
 
         @media (max-width: 600px) {
-            .head {
-                grid-column: span 8;
+            .head, .foot {
+                grid-column: span 6;
             }
 
             .body {
                 grid-template-columns: repeat(auto-fit, minmax(149px, 1fr));
             }
-
-            .foot {
-                grid-column: span 4;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .head {
-                grid-column: span 6;
-            }
-
-            .foot {
-                grid-column: span 6;
-            }
         }
 
         @media (max-width: 400px) {
-            .head {
+            .head, .body, .foot {
                 grid-column: span 12;
+            }
+
+            .head {
                 order: 3;
             }
 
             .body {
-                grid-column: span 12;
                 order: 1;
             }
 
             .foot {
-                grid-column: span 12;
                 order: 2;
             }
         }

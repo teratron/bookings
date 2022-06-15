@@ -5,82 +5,91 @@
     display: grid;
 }
 
-// Column
-/*@mixin set-column($column: 12, $gap: 0) {
-    grid-template-columns: repeat($column, minmax(0, 1fr));
-
-    //@if $gap >0 {
-    //grid-gap: $gap;
-    //@extend %layout-gap-adaptive;
-    //}
-}*/
-
 .grid {
     @extend %grid;
-    //@include set-column($layout-column, $layout-gap);
-    grid-template-columns: repeat($layout-column, minmax(0, 1fr));
-    grid-auto-columns: auto;
-    grid-auto-rows: auto;
+    grid-auto-flow: dense; //TODO: column?
 
-    @if $layout-gap >0 {
-        grid-gap: $layout-gap;
-        @extend %layout-gap-adaptive;
+    @if $grid-gap > 0 {
+        grid-gap: $grid-gap;
+        @extend %grid-gap-adaptive;
     }
 }
 
+@for $i from 1 through $grid-column {
+    .grid-#{$i} {
+        @extend .grid;
+        grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+}
+
+// Span
 %span {
     width: auto;
     max-width: none;
 }
 
-@for $i from 1 through $layout-column {
+@for $i from 1 through $grid-column {
     .span-#{$i} {
         grid-column: span $i;
         @extend %span;
 
         &.grid {
-            //@include set-column($i, $layout-gap);
             grid-template-columns: repeat($i, minmax(0, 1fr));
         }
     }
 }
 
-@media only screen and (max-width: $layout-width-gap) {
-    %layout-gap-adaptive {
-        grid-gap: $layout-gap-adaptive;
-    }
-}
+// Layout
+.layout {
+    width: 100%;
+    max-width: $layout-width-gap;
+    margin-left: auto;
+    margin-right: auto;
 
-@for $i from $layout-column to 1 {
-    $k: $i - 1;
-    $b: math.round($layout-width-gap - ($layout-column - $k) * $grid-step);
-
-    @media only screen {
-        @media (max-width: $b) {
-            .shrink {
-                grid-template-columns: repeat($k, minmax(0, 1fr));
-
-                >%span-#{$i} {
-                    grid-column: span $k;
-                    grid-template-columns: repeat($k, minmax(0, 1fr));
-                    //@include set-column($k);
-                }
-            }
-
-            @for $j from $i through $layout-column {
-                .span-#{$j} {
-                    @extend %span-#{$i};
-                }
-            }
-        }
+    @if $layout-gap > 0 {
+        padding-left: $layout-gap;
+        padding-right: $layout-gap;
+        @extend %layout-gap-adaptive;
     }
 }
 
 // Breakpoint
-/*@media only screen {
-    @media (max-width: $layout-width-gap) {
-        %layout-gap-adaptive {
-            grid-gap: $layout-gap-adaptive;
+@media only screen and (max-width: $layout-width-gap) {
+    %grid-gap-adaptive {
+        grid-gap: $grid-gap-adaptive;
+    }
+
+    %layout-gap-adaptive {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: $layout-gap-adaptive;
+        padding-right: $layout-gap-adaptive;
+    }
+}
+
+// Shrink
+@for $i from $grid-column to 1 {
+    $k: $i - 1;
+    $b: math.round($layout-width-gap - ($grid-column - $k) * $grid-step);
+
+    @media only screen and (max-width: $b) {
+        .shrink {
+            &, > %span-#{$i} {
+                grid-template-columns: repeat($k, minmax(0, 1fr));
+            }
+
+            > %span-#{$i} {
+                grid-column: span $k;
+            }
+        }
+
+        @for $j from $i through $grid-column {
+            .span-#{$j} {
+                @extend %span-#{$i};
+            }
         }
     }
-}*/
+}
+
+// Tile
+

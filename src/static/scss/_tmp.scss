@@ -1,3 +1,14 @@
+/*@mixin breakpoint($placeholder) {
+    #{$placeholder} {
+        @media only screen and (max-width: $layout-width-gap) {
+            background-color: #0009e1;
+        }
+    }
+    @extend #{$placeholder};
+}*/
+//@include breakpoint('%ph');
+
+
 @mixin add-style($props) {
     @each $key, $value in $props {
         #{$key}: $value;
@@ -109,3 +120,41 @@ $props: (
         padding-left: 1.82vw
 );
 @include app-breakpoint($layout-width, $props);
+
+// Tile
+/*@media only screen and (min-width: 0) {
+    .tile > * {
+        width: 100%;
+    }
+
+    @for $i from 1 through $grid-column {
+        .tile-#{$i} > * {
+            $j: math.div(100%, $i);
+            width: $j;
+            max-width: $j;
+        }
+    }
+}
+
+@for $i from 1 through $grid-column {
+    @media only screen and (min-width: (120px + $i*120px)) {
+        .tile > * {
+            $j: math.div(100%, ($i + 1));
+            width: $j;
+            max-width: $j;
+        }
+    }
+}
+
+@for $i from 1 through $grid-column {
+    @for $j from 1 through 6*$i {
+        @media only screen and (min-width: math.round(math.div($layout-width-min + $j * $layout-width-min, $i))) {
+            .tile-#{$i} > * {
+                $k: math.div(100%, ($i + $j));
+                width: $k;
+                max-width: $k;
+            }
+        }
+    }
+}*/
+

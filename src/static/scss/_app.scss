@@ -34,32 +34,11 @@ body {
 }
 
 .app-container {
-    @extend .grid;
-    //display: grid;
-    //grid-template-columns: repeat($layout-column, minmax(0, 1fr));
-    //grid-auto-columns: auto;
-    //grid-auto-rows: auto;
-    //grid-gap: 40px;
-    width: 100%;
-    max-width: $layout-width-gap;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $layout-gap;
-    padding-left: $layout-gap;
-
-    @media only screen {
-        @media (max-width: $layout-width-gap) {
-            //grid-gap: 3.2vw;
-            margin-right: 0;
-            margin-left: 0;
-            padding-right: $layout-gap-adaptive;
-            padding-left: $layout-gap-adaptive;
-        }
-    }
+    //@extend .grid-12;
+    //@extend .layout;
 }
 
 @mixin a() {
-
     &,
     &:focus,
     &:active,
@@ -87,16 +66,21 @@ body {
     }
 }
 
-@import "header";
-@import "footer";
-@import "main";
-
+@import "app/header";
+@import "app/footer";
+@import "app/main";
 
 // Breakpoint
 @media only screen {
     @media (max-width: $layout-width-gap) {
         .app-footer {
             background-color: red;
+        }
+    }
+
+    @media (max-width: $layout-width) {
+        .app-footer {
+            background-color: #ff6381;
         }
     }
 

@@ -13,10 +13,13 @@
     }
 
     .body {
-        grid-column: span 6;
+        @extend .span-6;
+        @extend .grid-6;
+        /*grid-column: span 6;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: $layout-gap;
+        grid-gap: $grid-gap;
+        @extend %grid-gap-adaptive;*/
     }
 
     .foot {

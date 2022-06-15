@@ -4,14 +4,15 @@
     height: 1fr;
 
     > .app-container {
+        align-content: start;
         height: 100%;
 
-        /*> aside {
-            grid-column: span 3;
+        > .sidebar {
+            //grid-column: span 3;
         }
 
-        > section {
-            grid-column: span 9;
-        }*/
+        > .content {
+            //grid-column: span 9;
+        }
     }
 }

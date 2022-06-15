@@ -1,16 +1,16 @@
 {
-  "name": "bookings",
-  "version": "0.0.708",
-  "private": true,
-  "description": "Bookings",
-  "main": "src/index.js",
-  "keywords": [
-    "bookings",
-    "hotel"
-  ],
-  "homepage": "https://teratron.github.io/bookings",
-  "dependencies": {
-    "bootstrap-icons": "^1.8.3"
+    "name": "bookings",
+    "version": "0.0.737",
+    "private": true,
+    "description": "Bookings",
+    "main": "src/index.js",
+    "keywords": [
+        "bookings",
+        "hotel"
+    ],
+    "homepage": "https://teratron.github.io/bookings",
+    "dependencies": {
+        "bootstrap-icons": "^1.8.3"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
@@ -52,5 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "buildDate": "2022-06-14T16:32:02.012Z"
+    "buildDate": "2022-06-15T14:56:20.416Z"
 }
