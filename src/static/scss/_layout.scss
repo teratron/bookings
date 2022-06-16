@@ -3,11 +3,11 @@
 // Layout
 .layout {
     width: 100%;
-    max-width: $layout-width-gap;
+    max-width: $layout-width;
     margin-left: auto;
     margin-right: auto;
 
-    @if $layout-gap > 0 {
+    @if $layout-gap >0 {
         padding-left: $layout-gap;
         padding-right: $layout-gap;
         @extend %layout-gap-adaptive;
@@ -23,7 +23,7 @@
     @extend .grid;
     grid-auto-flow: dense;
 
-    @if $grid-gap > 0 {
+    @if $grid-gap >0 {
         grid-gap: $grid-gap;
         @extend %grid-gap-adaptive;
     }
@@ -51,7 +51,7 @@
 }
 
 // Breakpoint
-@media only screen and (max-width: $layout-width-gap) {
+@media only screen and (max-width: $layout-width) {
     %layout-gap-adaptive {
         margin-left: 0;
         margin-right: 0;
@@ -67,15 +67,19 @@
 // Shrink
 @for $i from $grid-column to 1 {
     $k: $i - 1;
-    $b: math.round($layout-width - ($grid-column - $k) * $grid-step);
+    $b: math.round($grid-width - ($grid-column - $k) * $grid-step);
 
     @media only screen and (max-width: $b) {
         .shrink {
-            &, > %grid-#{$i}, > %span-#{$i} {
+
+            &,
+            >%grid-#{$i},
+            >%span-#{$i} {
                 grid-template-columns: repeat($k, 1fr);
             }
 
-            > %grid-#{$i}, > %span-#{$i} {
+            >%grid-#{$i},
+            >%span-#{$i} {
                 grid-column: span $k;
             }
         }
@@ -89,5 +93,13 @@
                 @extend %span-#{$i};
             }
         }
+    }
+}
+
+@mixin name($props) {
+
+    @each $key,
+    $value in $props {
+        #{$key}: $value;
     }
 }

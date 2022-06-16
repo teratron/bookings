@@ -39,6 +39,7 @@ body {
 }
 
 @mixin a() {
+
     &,
     &:focus,
     &:active,
@@ -72,13 +73,13 @@ body {
 
 // Breakpoint
 @media only screen {
-    @media (max-width: $layout-width-gap) {
+    @media (max-width: $layout-width) {
         .app-footer {
             background-color: red;
         }
     }
 
-    @media (max-width: $layout-width) {
+    @media (max-width: $grid-width) {
         .app-footer {
             background-color: #ff6381;
         }

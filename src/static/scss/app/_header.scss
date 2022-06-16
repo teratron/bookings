@@ -3,31 +3,22 @@
     top: 0;
 
     &,
-    > .app-container {
+    >.app-container {
         align-items: center;
         min-height: $header-height;
     }
 
     .head {
         @extend .span-3;
-        //grid-column: span 3;
     }
 
     .body {
-        //@extend .span-6;
         @extend .grid-6;
-        /*grid-column: span 6;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: $grid-gap;
-        @extend %grid-gap-adaptive;*/
     }
 
     .foot {
         @extend .span-3;
         @extend .grid;
-        //grid-column: span 3;
-        //display: grid;
         justify-items: end;
     }
 
