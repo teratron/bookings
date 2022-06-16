@@ -6,23 +6,18 @@
     }
 
     .head {
-        grid-column: span 3;
+        @extend .span-3;
         order: 1;
     }
 
     .body {
-        @extend .span-6;
-        @extend .grid-3;
-
-
-        //grid-column: span 6;
+        @extend .grid-6;
         order: 2;
-        //display: grid;
-        //grid-template-columns: repeat(3, 1fr);
-        //grid-gap: $grid-gap;
-        //@extend %grid-gap-adaptive;
 
-        .contacts {
+        > .about,
+        > .contacts,
+        > .social {
+            @extend .span-2;
         }
 
         .social {
@@ -38,9 +33,9 @@
     }
 
     .foot {
-        grid-column: span 3;
+        @extend .span-3;
+        @extend .grid;
         order: 3;
-        display: grid;
         align-items: start;
     }
 
@@ -107,7 +102,7 @@
             }
 
             .body {
-                grid-template-columns: repeat(auto-fit, minmax(149px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
             }
         }
 

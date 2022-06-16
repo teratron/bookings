@@ -1,43 +1,5 @@
 @use "sass:math";
 
-// Grid
-%grid {
-    display: grid;
-}
-
-.grid {
-    @extend %grid;
-    grid-auto-flow: dense; //TODO: column?
-
-    @if $grid-gap > 0 {
-        grid-gap: $grid-gap;
-        @extend %grid-gap-adaptive;
-    }
-}
-
-@for $i from 1 through $grid-column {
-    .grid-#{$i} {
-        @extend .grid;
-        grid-template-columns: repeat($i, minmax(0, 1fr));
-    }
-}
-
-// Span
-%span {
-    width: auto;
-    max-width: none;
-}
-
-@for $i from 1 through $grid-column {
-    .span-#{$i} {
-        grid-column: span $i;
-        @extend %span;
-
-        &.grid {
-            grid-template-columns: repeat($i, minmax(0, 1fr));
-        }
-    }
-}
 
 // Layout
 .layout {
@@ -53,17 +15,53 @@
     }
 }
 
-// Breakpoint
-@media only screen and (max-width: $layout-width-gap) {
-    %grid-gap-adaptive {
-        grid-gap: $grid-gap-adaptive;
+// Grid
+.grid {
+    display: grid;
+}
+
+%grid {
+    @extend .grid;
+    grid-auto-flow: dense;
+
+    @if $grid-gap > 0 {
+        grid-gap: $grid-gap;
+        @extend %grid-gap-adaptive;
+    }
+}
+
+%span {
+    width: auto;
+    max-width: none;
+}
+
+@for $i from 1 through $grid-column {
+    .grid-#{$i} {
+        grid-template-columns: repeat($i, minmax(0, 1fr));
+        @extend %grid;
     }
 
+    .grid-#{$i},
+    .span-#{$i} {
+        grid-column: span $i;
+    }
+
+    .span-#{$i} {
+        @extend %span;
+    }
+}
+
+// Breakpoint
+@media only screen and (max-width: $layout-width-gap) {
     %layout-gap-adaptive {
         margin-left: 0;
         margin-right: 0;
         padding-left: $layout-gap-adaptive;
         padding-right: $layout-gap-adaptive;
+    }
+
+    %grid-gap-adaptive {
+        grid-gap: $grid-gap-adaptive;
     }
 }
 
@@ -74,16 +72,20 @@
 
     @media only screen and (max-width: $b) {
         .shrink {
-            &, > %span-#{$i} {
+            &, > %grid-#{$i}, > %span-#{$i} {
                 grid-template-columns: repeat($k, minmax(0, 1fr));
             }
 
-            > %span-#{$i} {
+            > %grid-#{$i}, > %span-#{$i} {
                 grid-column: span $k;
             }
         }
 
         @for $j from $i through $grid-column {
+            .grid-#{$j} {
+                @extend %grid-#{$i};
+            }
+
             .span-#{$j} {
                 @extend %span-#{$i};
             }
@@ -92,4 +94,16 @@
 }
 
 // Tile
+.tile {
+    display: grid;
+    //grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax($grid-step, 1fr));
+}
 
+@for $i from 1 through $grid-column {
+    .tile-#{$i} {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax($grid-step, 1fr));
+        grid-auto-flow: dense;
+    }
+}

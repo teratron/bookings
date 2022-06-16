@@ -1,9 +1,9 @@
 .app-main {
-
     min-height: $main-height;
     height: 1fr;
 
     > .app-container {
+        //@extend .shrink;
         align-content: start;
         height: 100%;
 

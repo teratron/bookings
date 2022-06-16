@@ -34,8 +34,8 @@ body {
 }
 
 .app-container {
-    //@extend .grid-12;
-    //@extend .layout;
+    @extend .layout;
+    @extend .grid-12;
 }
 
 @mixin a() {

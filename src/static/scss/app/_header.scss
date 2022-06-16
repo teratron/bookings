@@ -9,11 +9,12 @@
     }
 
     .head {
-        grid-column: span 3;
+        @extend .span-3;
+        //grid-column: span 3;
     }
 
     .body {
-        @extend .span-6;
+        //@extend .span-6;
         @extend .grid-6;
         /*grid-column: span 6;
         display: grid;
@@ -23,8 +24,10 @@
     }
 
     .foot {
-        grid-column: span 3;
-        display: grid;
+        @extend .span-3;
+        @extend .grid;
+        //grid-column: span 3;
+        //display: grid;
         justify-items: end;
     }
 
