@@ -20,7 +20,7 @@ $main-height: 220px;
 $border-radius: .35rem;
 
 // Calculated variables
-$ratio: math.div(100vw, $layout-width);
+$ratio: math.div(100vw, $layout-width); // 0.078125
 
 $layout-gap-adaptive: $ratio * $layout-gap;
 
@@ -33,10 +33,13 @@ $cell-width: math.round(math.div($grid-width, $grid-column));
 
 @function get-list-cell-width() {
     $list: [];
-    $r: math.div(100px, $layout-width);
+    //$r: math.div(100px, $layout-width);
+
     @for $i from 1 through $grid-column {
-        $list: list.append($list, $i * $cell-width);
+        //$d: $r * $i * $cell-width;
+        $list: list.append($list, $i * $cell-width + 2 * $layout-gap - 1);
     }
+
     @return $list;
 }
 
@@ -48,15 +51,18 @@ $cell-width-adaptive: math.div($grid-width-adaptive, $grid-column);
 
 @function get-list-cell-width-adaptive() {
     $list: [];
+
     @for $i from 1 through $grid-column {
         $list: list.append($list, $i * $cell-width-adaptive);
     }
+
     @return $list;
 }
 
 $cell-list-width-adaptive: get-list-cell-width-adaptive();
 
 :root {
+    //--cell12: #{$ratio};
     --cell1: #{$grid-width-adaptive};
     --cell11: #{$cell-width-adaptive};
     --cell111: #{get-list-cell-width-adaptive()};

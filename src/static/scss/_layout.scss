@@ -53,7 +53,7 @@
 }
 
 // Breakpoint
-@media only screen and (max-width: $layout-width - 1) {
+@media only screen and (max-width: $layout-width) {
     %layout-gap-adaptive {
         margin-left: 0;
         margin-right: 0;
@@ -71,22 +71,22 @@
     grid-gap: 0;
 }
 
-@for $i from list.length($cell-list-width) to 0 {
-    $b: list.nth($cell-list-width, $i) /*- 2 * $layout-gap*/
-;
+@for $i from $grid-column to 1 {
     $k: $i - 1;
+    $b: list.nth($cell-list-width, $k);
 
-    @if $b >= $layout-width-min {
+    @if $b >=$layout-width-min {
         @media only screen and (max-width: $b) {
             .shrink {
+
                 &,
-                > %grid-#{$i},
-                > %span-#{$i} {
+                >%grid-#{$i},
+                >%span-#{$i} {
                     grid-template-columns: repeat($k, 1fr);
                 }
 
-                > %grid-#{$i},
-                > %span-#{$i} {
+                >%grid-#{$i},
+                >%span-#{$i} {
                     grid-column: span $k;
                 }
             }
@@ -105,7 +105,9 @@
 }
 
 @mixin name($props) {
-    @each $key, $value in $props {
+
+    @each $key,
+    $value in $props {
         #{$key}: $value;
     }
 }
