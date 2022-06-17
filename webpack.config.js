@@ -1,8 +1,8 @@
 const dev = require('./config/webpack.dev')
 const prod = require('./config/webpack.prod')
 
-module.exports = (_env, args) => {
-    switch (args.mode) {
+module.exports = (_env, argv) => {
+    switch (argv.mode) {
         case 'none':
         case 'development':
             return dev

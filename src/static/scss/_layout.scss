@@ -65,41 +65,49 @@
 }
 
 // Shrink
+@each $value in $cell-list-width {
+    $i: 0;
+    .f-#{$i} {
+        width: $value;
+    }
+    $i: $i + 1;
+}
+
 @for $i from $grid-column to 1 {
     $k: $i - 1;
     $b: math.round($grid-width - ($grid-column - $k) * $grid-step);
 
-    @media only screen and (max-width: $b) {
-        .shrink {
+    @if $b >= $layout-width-min {
+        @media only screen and (max-width: $b) {
+            .shrink {
+                &,
+                > %grid-#{$i},
+                > %span-#{$i} {
+                    grid-template-columns: repeat($k, 1fr);
+                }
 
-            &,
-            >%grid-#{$i},
-            >%span-#{$i} {
-                grid-template-columns: repeat($k, 1fr);
+                > %grid-#{$i},
+                > %span-#{$i} {
+                    grid-column: span $k;
+                }
             }
 
-            >%grid-#{$i},
-            >%span-#{$i} {
-                grid-column: span $k;
-            }
-        }
+            @for $j from $i through $grid-column {
+                .grid-#{$j} {
+                    @extend %grid-#{$i};
+                }
 
-        @for $j from $i through $grid-column {
-            .grid-#{$j} {
-                @extend %grid-#{$i};
-            }
-
-            .span-#{$j} {
-                @extend %span-#{$i};
+                .span-#{$j} {
+                    @extend %span-#{$i};
+                }
             }
         }
     }
+
 }
 
 @mixin name($props) {
-
-    @each $key,
-    $value in $props {
+    @each $key, $value in $props {
         #{$key}: $value;
     }
 }

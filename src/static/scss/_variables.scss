@@ -1,4 +1,6 @@
 @use "sass:math";
+@use "sass:list";
+@use "sass:meta";
 
 $unit: 20px;
 
@@ -22,9 +24,36 @@ $ratio: math.div(100vw, $layout-width);
 $layout-gap-adaptive: $ratio * $layout-gap;
 $grid-gap-adaptive: $ratio * $grid-gap;
 $grid-width: $layout-width - 2 * $layout-gap;
-$grid-step: math.div(($grid-width - $layout-width-min), $grid-column);
+$grid-step: math.round(math.div(($grid-width - $layout-width-min), $grid-column));
+$cell-width: math.round(math.div($grid-width, $grid-column));
+
+
+@function get-list-cell-width() {
+    $list: ();
+    @for $i from 1 through $grid-column {
+        $list: list.append($list, $i * $cell-width);
+    }
+    @return list.zip($list);
+}
+
+$cell-list-width: get-list-cell-width();
+
+@function set-list-cell($list, $index) {
+    $i: 0;
+    @each $value in $list {
+        @if $i == $index {
+            @return $value;
+        }
+        $i: $i + 1;
+    }
+}
 
 :root {
+    --cell: #{get-list-cell-width()};
+    --cell2: #{list.length(get-list-cell-width())};
+    --cell3: #{set-list-cell(get-list-cell-width(), 3)};
+    --cell4: #{list.nth(get-list-cell-width(), 3)};
+
     /* Layout */
     --app-header-height: #{$header-height};
     --app-footer-height: #{$footer-height};

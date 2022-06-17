@@ -26,5 +26,5 @@ jobs:
         with:
           #ACCESS_TOKEN: $
           branch: gh-pages
-          folder: dist
+          folder: build
           #BUILD_SCRIPT: npm install && npm run-script build
