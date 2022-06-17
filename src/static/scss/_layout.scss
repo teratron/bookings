@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "sass:list";
+@use "sass:string";
 
 // Layout
 .layout {
@@ -52,7 +53,7 @@
 }
 
 // Breakpoint
-@media only screen and (max-width: $layout-width) {
+@media only screen and (max-width: $layout-width - 1) {
     %layout-gap-adaptive {
         margin-left: 0;
         margin-right: 0;
@@ -66,21 +67,14 @@
 }
 
 // Shrink
-@for $i from list.length($cell-list-width) to 0 {
-    $b: list.nth($cell-list-width, $i);
-
-    //@if $b >= $layout-width-min {
-    @media only screen and (max-width: $b) {
-        .fff-#{$i} {
-            width: $b;
-        }
-    }
-    //}
+.shrink {
+    grid-gap: 0;
 }
 
-@for $i from $grid-column to 1 {
+@for $i from list.length($cell-list-width) to 0 {
+    $b: list.nth($cell-list-width, $i) /*- 2 * $layout-gap*/
+;
     $k: $i - 1;
-    $b: math.round($grid-width - ($grid-column - $k) * $grid-step);
 
     @if $b >= $layout-width-min {
         @media only screen and (max-width: $b) {

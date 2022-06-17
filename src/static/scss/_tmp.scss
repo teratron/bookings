@@ -190,3 +190,70 @@ $props: (
         $i: $i + 1;
     }
 }
+
+/*
+@for $i from $grid-column to 1 {
+    $k: $i - 1;
+    $b: math.round($grid-width - ($grid-column - $k) * $grid-step);
+
+    @if $b >= $layout-width-min {
+        @media only screen and (max-width: $b) {
+            .shrink {
+                &,
+                > %grid-#{$i},
+                > %span-#{$i} {
+                    grid-template-columns: repeat($k, 1fr);
+                }
+
+                > %grid-#{$i},
+                > %span-#{$i} {
+                    grid-column: span $k;
+                }
+            }
+
+            @for $j from $i through $grid-column {
+                .grid-#{$j} {
+                    @extend %grid-#{$i};
+                }
+
+                .span-#{$j} {
+                    @extend %span-#{$i};
+                }
+            }
+        }
+    }
+}*/
+
+/*
+@for $i from list.length($cell-list-width) to 0 {
+    $b: list.nth($cell-list-width, $i) - 2 * $layout-gap;
+    $k: $i - 1;
+
+    @if $b >= $layout-width-min {
+    @media only screen and (max-width: $b) {
+    .shrink {
+        &,
+        > %grid-#{$i},
+        > %span-#{$i} {
+            grid-template-columns: repeat($k, 1fr);
+            //grid-template-columns: repeat(auto-fill, minmax($cell-width, 1fr));
+        }
+
+        > %grid-#{$i},
+        > %span-#{$i} {
+            grid-column: span $k;
+        }
+    }
+
+    @for $j from $i through $grid-column {
+        .grid-#{$j} {
+            @extend %grid-#{$i};
+        }
+
+        .span-#{$j} {
+            @extend %span-#{$i};
+        }
+    }
+    }
+    }
+}*/
