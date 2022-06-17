@@ -172,3 +172,21 @@ $props: (
         grid-auto-flow: dense;
     }
 }*/
+
+/*$i: 1;
+@each $value in $cell-list-width {
+    .f-#{$i} {
+        width: $value;
+    }
+    $i: $i + 1;
+}*/
+
+@function set-list-cell($list, $index) {
+    $i: 0;
+    @each $value in $list {
+        @if $i == $index {
+            @return $value;
+        }
+        $i: $i + 1;
+    }
+}

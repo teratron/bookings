@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:list";
 
 // Layout
 .layout {
@@ -65,12 +66,16 @@
 }
 
 // Shrink
-@each $value in $cell-list-width {
-    $i: 0;
-    .f-#{$i} {
-        width: $value;
+@for $i from list.length($cell-list-width) to 0 {
+    $b: list.nth($cell-list-width, $i);
+
+    //@if $b >= $layout-width-min {
+    @media only screen and (max-width: $b) {
+        .fff-#{$i} {
+            width: $b;
+        }
     }
-    $i: $i + 1;
+    //}
 }
 
 @for $i from $grid-column to 1 {
@@ -103,7 +108,6 @@
             }
         }
     }
-
 }
 
 @mixin name($props) {

@@ -27,9 +27,8 @@ $grid-width: $layout-width - 2 * $layout-gap;
 $grid-step: math.round(math.div(($grid-width - $layout-width-min), $grid-column));
 $cell-width: math.round(math.div($grid-width, $grid-column));
 
-
 @function get-list-cell-width() {
-    $list: ();
+    $list: [];
     @for $i from 1 through $grid-column {
         $list: list.append($list, $i * $cell-width);
     }
@@ -38,20 +37,9 @@ $cell-width: math.round(math.div($grid-width, $grid-column));
 
 $cell-list-width: get-list-cell-width();
 
-@function set-list-cell($list, $index) {
-    $i: 0;
-    @each $value in $list {
-        @if $i == $index {
-            @return $value;
-        }
-        $i: $i + 1;
-    }
-}
-
 :root {
     --cell: #{get-list-cell-width()};
     --cell2: #{list.length(get-list-cell-width())};
-    --cell3: #{set-list-cell(get-list-cell-width(), 3)};
     --cell4: #{list.nth(get-list-cell-width(), 3)};
 
     /* Layout */
