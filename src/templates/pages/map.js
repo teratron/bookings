@@ -1,5 +1,5 @@
 import {props} from '../app'
-import template from './map.handlebars'
+import template from './map.hbs'
 
 const context = {
     app: {

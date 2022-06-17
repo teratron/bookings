@@ -1,5 +1,5 @@
 import {props} from '../app'
-import template from './catalog.handlebars'
+import template from './catalog.hbs'
 
 const context = {
     app: {

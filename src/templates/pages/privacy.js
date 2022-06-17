@@ -1,5 +1,5 @@
 import {props} from '../app'
-import template from './privacy.handlebars'
+import template from './privacy.hbs'
 
 const context = {
     app: {

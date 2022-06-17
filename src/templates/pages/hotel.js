@@ -1,5 +1,5 @@
 import {props} from '../app'
-import template from './hotel.handlebars'
+import template from './hotel.hbs'
 
 const context = {
     app: {

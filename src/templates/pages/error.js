@@ -1,5 +1,5 @@
 import {props} from '../app'
-import template from './error.handlebars'
+import template from './error.hbs'
 
 const context = {
     app: {

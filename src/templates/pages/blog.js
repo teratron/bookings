@@ -1,5 +1,5 @@
-import { props } from '../app'
-import template from './blog.handlebars'
+import {props} from '../app'
+import template from './blog.hbs'
 
 const context = {
     app: {
