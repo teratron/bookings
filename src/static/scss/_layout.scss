@@ -9,7 +9,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    @if $layout-gap >0 {
+    @if $layout-gap > 0 {
         padding-left: $layout-gap;
         padding-right: $layout-gap;
         @extend %layout-gap-adaptive;
@@ -24,8 +24,9 @@
 %grid {
     @extend .grid;
     grid-auto-flow: dense;
+    grid-auto-rows: minmax($unit, auto);
 
-    @if $grid-gap >0 {
+    @if $grid-gap > 0 {
         grid-gap: $grid-gap;
         @extend %grid-gap-adaptive;
     }
@@ -67,25 +68,21 @@
 }
 
 // Shrink
-.shrink {
-    grid-gap: 0;
-}
-
 @for $i from $grid-column to 1 {
     $k: $i - 1;
-    $b: list.nth($cell-list-width, $k);
+    $b: list.nth($list-breakpoint, $k);
 
-    @if $b >=$layout-width-min {
+    @if $b >= $layout-width-min {
         @media only screen and (max-width: $b) {
             .shrink {
 
                 &,
-                >%grid-#{$i},
-                >%span-#{$i} {
+                > %grid-#{$i},
+                > %span-#{$i} {
                     grid-template-columns: repeat($k, 1fr);
                 }
 
-                >%grid-#{$i},
+                > %grid-#{$i},
                 >%span-#{$i} {
                     grid-column: span $k;
                 }
@@ -104,10 +101,10 @@
     }
 }
 
-@mixin name($props) {
+// Tile
 
-    @each $key,
-    $value in $props {
+@mixin name($props) {
+    @each $key, $value in $props {
         #{$key}: $value;
     }
 }

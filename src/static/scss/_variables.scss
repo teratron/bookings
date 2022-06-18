@@ -5,55 +5,52 @@
 $unit: 20px;
 
 // Layout
-$layout-width: 1280px;
-$layout-width-min: 360px;
-$layout-gap: 40px;
+$layout-width: $unit * 64; // 1280px
+$layout-width-min: $unit * 18; // 360px
+$layout-gap: $unit * 2; // 40px
 
 // Grid
 $grid-column: 12;
-$grid-gap: 40px;
+$grid-gap: $unit * 2; // 40px
 
 // App
-$header-height: 96px;
-$footer-height: 220px;
-$main-height: 220px;
+$header-height: $unit * 5; // 96px
+$footer-height: $unit * 11; // 220px
+$main-height: $unit * 11; // 220px
 $border-radius: .35rem;
 
 // Calculated variables
-$ratio: math.div(100vw, $layout-width); // 0.078125
-
-$layout-gap-adaptive: $ratio * $layout-gap;
-
-$grid-gap-adaptive: $ratio * $grid-gap;
+$rate: math.div(100vw, $layout-width);
+$layout-gap-adaptive: $rate * $layout-gap;
+$grid-gap-adaptive: $rate * $grid-gap;
 $grid-width: $layout-width - 2 * $layout-gap;
 $grid-step: math.round(math.div(($grid-width - $layout-width-min), $grid-column));
-
-//---
 $cell-width: math.round(math.div($grid-width, $grid-column));
 
-@function get-list-cell-width() {
+// Breakpoints
+@function get-list-breakpoint() {
     $list: [];
-
-    $r: math.div(100px, $layout-width);
-    $b: 2 * $r * $layout-gap;
-    $g: 100px - $b;
+    $r: math.div(100px, $layout-width); // rate (px)
+    $b: 2 * $r * $layout-gap; // 2 * width layout gap
+    $g: 100px - $b; // width grid (%)
 
     @for $i from 1 through $grid-column {
-        $a: $i * $cell-width;
-        $s: math.div($a, $g) * $b;
-        $r: math.round($i * $cell-width + $s);
-        $list: list.append($list, $r);
+        $w: $i * $cell-width; // width grid (px)
+        $s: math.div($w, $g) * $b; // 2 * width layout gap
+        $d: math.round($w + $s) - 1; // breakpoint
+        $list: list.append($list, $d);
     }
 
     @return $list;
 }
 
-$cell-list-width: get-list-cell-width();
+$list-breakpoint: get-list-breakpoint();
 
 :root {
-    --cell1: #{get-list-cell-width()};
-    --cell2: #{list.length(get-list-cell-width())};
-    --cell3: #{list.nth(get-list-cell-width(), 3)};
+    /* Debug */
+    --d1: #{get-list-breakpoint()};
+    --d2: #{list.length(get-list-breakpoint())};
+    --d3: #{list.nth(get-list-breakpoint(), 3)};
 
     /* Layout */
     --app-header-height: #{$header-height};
