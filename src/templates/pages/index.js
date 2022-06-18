@@ -1,5 +1,11 @@
-import {props} from '../app'
+import { props } from '../app'
 import template from './index.hbs'
+
+const arrGrid = []
+
+for (let i = 1; i <= 12; i++) {
+    arrGrid.push(i)
+}
 
 const context = {
     app: {
@@ -10,7 +16,8 @@ const context = {
         // navigation / search / none
         //search: true
         navigation: true
-    }
+    },
+    debugGrid: arrGrid
 }
 
 export default template(context)

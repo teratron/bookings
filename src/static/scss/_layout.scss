@@ -2,6 +2,20 @@
 @use "sass:list";
 @use "sass:string";
 
+// https://sass-lang.com/documentation/style-rules/parent-selector
+// https://sass-lang.com/documentation/at-rules/at-root
+@mixin set-adaptive-props($props) {
+    @each $key, $value in $props {
+        #{$key}: $value;
+    }
+
+    @media only screen and (max-width: ($layout-width - 1)) {
+        @each $key, $value in $props {
+            #{$key}: $rate * $value;
+        }
+    }
+}
+
 // Layout
 .layout {
     width: 100%;
@@ -10,9 +24,16 @@
     margin-right: auto;
 
     @if $layout-gap > 0 {
-        padding-left: $layout-gap;
-        padding-right: $layout-gap;
-        @extend %layout-gap-adaptive;
+        //padding-left: $layout-gap;
+        //padding-right: $layout-gap;
+        //@extend %layout-gap-adaptive;
+
+        @include set-adaptive-props(
+            (
+                padding-left: $layout-gap,
+                padding-right: $layout-gap,
+            )
+        );
     }
 }
 
@@ -27,8 +48,14 @@
     grid-auto-rows: minmax($unit, auto);
 
     @if $grid-gap > 0 {
-        grid-gap: $grid-gap;
-        @extend %grid-gap-adaptive;
+        //grid-gap: $grid-gap;
+        //@extend %grid-gap-adaptive;
+
+        @include set-adaptive-props(
+            (
+                grid-gap: $grid-gap,
+            )
+        );
     }
 }
 
@@ -54,7 +81,7 @@
 }
 
 // Breakpoint
-@media only screen and (max-width: $layout-width) {
+/*@media only screen and (max-width: ($layout-width - 1)) {
     %layout-gap-adaptive {
         margin-left: 0;
         margin-right: 0;
@@ -65,7 +92,7 @@
     %grid-gap-adaptive {
         grid-gap: $grid-gap-adaptive;
     }
-}
+}*/
 
 // Shrink
 @for $i from $grid-column to 1 {
@@ -75,7 +102,6 @@
     @if $b >= $layout-width-min {
         @media only screen and (max-width: $b) {
             .shrink {
-
                 &,
                 > %grid-#{$i},
                 > %span-#{$i} {
@@ -83,7 +109,7 @@
                 }
 
                 > %grid-#{$i},
-                >%span-#{$i} {
+                > %span-#{$i} {
                     grid-column: span $k;
                 }
             }
@@ -102,9 +128,16 @@
 }
 
 // Tile
+.tile {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+}
 
-@mixin name($props) {
-    @each $key, $value in $props {
-        #{$key}: $value;
+@for $i from 1 through $grid-column {
+    .tile-#{$i} {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-auto-flow: dense;
     }
 }

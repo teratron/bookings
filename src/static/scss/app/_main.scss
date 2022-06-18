@@ -2,7 +2,7 @@
     min-height: $main-height;
     height: 1fr;
 
-    > .app-container {
+    >.app-container {
         //@extend .shrink;
         align-content: start;
         height: 100%;
@@ -10,12 +10,14 @@
         padding-top: 20px;
         padding-bottom: 120px;
 
-        > .sidebar {
+        >.sidebar {
             //grid-column: span 3;
+            @extend .grid-3;
         }
 
-        > .content {
+        >.content {
             //grid-column: span 9;
+            @extend .grid-9;
         }
     }
 }

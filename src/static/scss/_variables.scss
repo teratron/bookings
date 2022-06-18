@@ -14,7 +14,7 @@ $grid-column: 12;
 $grid-gap: $unit * 2; // 40px
 
 // App
-$header-height: $unit * 5; // 96px
+$header-height: $unit * 5; // ~96px
 $footer-height: $unit * 11; // 220px
 $main-height: $unit * 11; // 220px
 $border-radius: .35rem;
@@ -24,7 +24,7 @@ $rate: math.div(100vw, $layout-width);
 $layout-gap-adaptive: $rate * $layout-gap;
 $grid-gap-adaptive: $rate * $grid-gap;
 $grid-width: $layout-width - 2 * $layout-gap;
-$grid-step: math.round(math.div(($grid-width - $layout-width-min), $grid-column));
+//$grid-step: math.round(math.div(($grid-width - $layout-width-min), $grid-column));
 $cell-width: math.round(math.div($grid-width, $grid-column));
 
 // Breakpoints
@@ -48,9 +48,9 @@ $list-breakpoint: get-list-breakpoint();
 
 :root {
     /* Debug */
-    --d1: #{get-list-breakpoint()};
-    --d2: #{list.length(get-list-breakpoint())};
-    --d3: #{list.nth(get-list-breakpoint(), 3)};
+    --d1: #{$list-breakpoint};
+    --d2: #{list.length($list-breakpoint)};
+    --d3: #{list.nth($list-breakpoint, 3)};
 
     /* Layout */
     --app-header-height: #{$header-height};
