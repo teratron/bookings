@@ -33,11 +33,16 @@ $cell-width: math.round(math.div($grid-width, $grid-column));
 
 @function get-list-cell-width() {
     $list: [];
-    //$r: math.div(100px, $layout-width);
+
+    $r: math.div(100px, $layout-width);
+    $b: 2 * $r * $layout-gap;
+    $g: 100px - $b;
 
     @for $i from 1 through $grid-column {
-        //$d: $r * $i * $cell-width;
-        $list: list.append($list, $i * $cell-width + 2 * $layout-gap - 1);
+        $a: $i * $cell-width;
+        $s: math.div($a, $g) * $b;
+        $r: math.round($i * $cell-width + $s);
+        $list: list.append($list, $r);
     }
 
     @return $list;
@@ -45,30 +50,10 @@ $cell-width: math.round(math.div($grid-width, $grid-column));
 
 $cell-list-width: get-list-cell-width();
 
-//---
-$grid-width-adaptive: 100vw - 2 * $layout-gap-adaptive;
-$cell-width-adaptive: math.div($grid-width-adaptive, $grid-column);
-
-@function get-list-cell-width-adaptive() {
-    $list: [];
-
-    @for $i from 1 through $grid-column {
-        $list: list.append($list, $i * $cell-width-adaptive);
-    }
-
-    @return $list;
-}
-
-$cell-list-width-adaptive: get-list-cell-width-adaptive();
-
 :root {
-    //--cell12: #{$ratio};
-    --cell1: #{$grid-width-adaptive};
-    --cell11: #{$cell-width-adaptive};
-    --cell111: #{get-list-cell-width-adaptive()};
-    --cell: #{get-list-cell-width()};
+    --cell1: #{get-list-cell-width()};
     --cell2: #{list.length(get-list-cell-width())};
-    --cell4: #{list.nth(get-list-cell-width(), 3)};
+    --cell3: #{list.nth(get-list-cell-width(), 3)};
 
     /* Layout */
     --app-header-height: #{$header-height};

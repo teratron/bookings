@@ -257,3 +257,19 @@ $props: (
     }
     }
 }*/
+
+//---
+/*$grid-width-adaptive: 100vw - 2 * $layout-gap-adaptive;
+$cell-width-adaptive: math.div($grid-width-adaptive, $grid-column);
+
+@function get-list-cell-width-adaptive() {
+    $list: [];
+
+    @for $i from 1 through $grid-column {
+        $list: list.append($list, $i * $cell-width-adaptive);
+    }
+
+    @return $list;
+}
+
+$cell-list-width-adaptive: get-list-cell-width-adaptive();*/
