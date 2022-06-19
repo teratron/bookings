@@ -1,3 +1,5 @@
+//$grid-step: math.round(math.div(($grid-width - $layout-width-min), $grid-column));
+
 /*@mixin breakpoint($placeholder) {
     #{$placeholder} {
         @media only screen and (max-width: $layout-width-gap) {

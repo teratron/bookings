@@ -1,15 +1,11 @@
 .app-footer {
     > .app-container {
         min-height: $footer-height;
-        //padding-top: $layout-gap;
-        //padding-bottom: $layout-gap;
 
-        @include set-adaptive-props(
-            (
+        @include setPropsAdaptive((
                 padding-top: $layout-gap,
                 padding-bottom: $layout-gap,
-            )
-        );
+        ));
     }
 
     .head {
@@ -30,7 +26,7 @@
         .social {
             .nav {
                 flex-direction: row;
-                flex-wrap: wrap;
+                flex-wrap:      wrap;
 
                 > :not(:last-child) {
                     margin-right: 10px;
@@ -42,7 +38,7 @@
     .foot {
         @extend .span-3;
         @extend .grid;
-        order: 3;
+        order:       3;
         align-items: start;
     }
 
@@ -51,7 +47,7 @@
     }
 
     .nav {
-        display: flex;
+        display:        flex;
         flex-direction: column;
 
         > * {
@@ -60,26 +56,18 @@
     }
 
     @media only screen {
-        @media (max-width: ($layout-width - 1)) {
-            /*> .app-container {
-                padding-top: $layout-gap-adaptive;
-                padding-bottom: $layout-gap-adaptive;
-            }*/
-
-            //.body {
-            //@extend %grid-gap-adaptive;
-            //}
-        }
+        //@media (max-width: ($layout-width - 1)) {
+        //}
 
         @media (max-width: 1000px) {
             .head {
                 grid-column: span 6;
-                order: 3;
+                order:       3;
             }
 
             .body {
                 grid-column: span 9;
-                order: 1;
+                order:       1;
             }
 
             .foot {
@@ -90,7 +78,7 @@
         @media (max-width: 800px) {
             .head {
                 grid-column: span 8;
-                order: 2;
+                order:       2;
             }
 
             .body {
@@ -99,7 +87,7 @@
 
             .foot {
                 grid-column: span 4;
-                order: 3;
+                order:       3;
             }
         }
 
