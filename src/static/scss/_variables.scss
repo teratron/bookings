@@ -3,65 +3,59 @@
 @use "sass:meta";
 
 // Root
-$unit:                20px;
-$rate-horizontal:     .8;
-$rate-vertical:       .8;
+$unit: 1.25rem; // 20px
+$px: 0.0625rem;
+$rate-horizontal: 0.8;
+$rate-vertical: 0.8;
 
 // Grid
-$grid-column:         12;
-$grid-width:          $unit * 60; // 1200px
-$grid-gap:            $unit * 2; // 40px
-$grid-row-height:     $unit * 2;
-$grid-col-width:      math.div($grid-width, $grid-column);
-$grid-cell-height:    $unit;
-$grid-cell-width:     math.div($grid-width - ($grid-column - 1) * $grid-gap, $grid-column);
+$grid-column: 12;
+$grid-width: $unit * 60; // 1200px
+$grid-gap: $unit * 2; // 40px
+$grid-row-height: $unit * 2;
+$grid-col-width: math.div($grid-width, $grid-column);
+$grid-cell-height: $unit;
+$grid-cell-width: math.div($grid-width - ($grid-column - 1) * $grid-gap, $grid-column);
 
 // Layout
-$layout-gap:          $unit * 2; // 40px
-$layout-gaps:         $layout-gap * 2;
-$layout-width:        $grid-width + $layout-gaps;
-$layout-width-min:    $unit * 18; // 360px
-
-// App
-$header-height:       $unit * 5; // ~96px
-$footer-height:       $unit * 11; // 220px
-$main-height:         $unit * 11; // 220px
-$border-radius:       .35rem;
+$layout-gap: $unit * 2; // 40px
+$layout-gaps: $layout-gap * 2;
+$layout-width: $grid-width + $layout-gaps;
+$layout-width-min: $unit * 18; // 360px
 
 // Calculated variables
-$rate:                math.div(100vw, $layout-width); // if($layout-width > 0, math.div(100vw, $layout-width), 0);
-$grid-gap-adaptive:   $rate * $grid-gap;
+$rate: math.div(100vw, $layout-width); // if($layout-width > 0, math.div(100vw, $layout-width), 0);
+$grid-gap-adaptive: $rate * $grid-gap;
 $layout-gap-adaptive: $rate * $layout-gap;
 
 // List breakpoints
 @function getListBreakpoints() {
     $list: [];
-    $r: math.div(100, $layout-width); // rate (px)
-    $b: $r * $layout-gaps;
-    $g: 100 - $b; // width grid (%)
+    $b: math.div(100, $layout-width) * $layout-gaps;
+    $g: 100 - $b;
 
     @for $i from 1 through $grid-column {
-        $w: $i * $grid-col-width; // width grid (px)
+        $w: $i * $grid-col-width;
         $s: math.div($w, $g) * $b;
-        $d: math.ceil($w + $s) - 1;
+        $d: $w + $s - $px;
         $list: list.append($list, $d);
     }
 
     @return $list;
 }
 
-$list-breakpoints:    getListBreakpoints();
+$list-breakpoints: getListBreakpoints();
 
 :root {
     /* Debug */
-    --d1:                #{$list-breakpoints};
-    --d2:                #{list.length($list-breakpoints)};
-    --d3:                #{list.nth($list-breakpoints, $grid-column)};
+    --d1: #{$list-breakpoints};
+    --d2: #{list.length($list-breakpoints)};
+    --d3: #{list.nth($list-breakpoints, $grid-column)};
 
-    /* Layout */
-    --app-header-height: #{$header-height};
-    --app-footer-height: #{$footer-height};
-    --app-main-height:   #{$main-height};
+    /* App */
+    //--app-header-height: #{$header-height};
+    //--app-footer-height: #{$footer-height};
+    //--app-main-height: #{$main-height};
 
     /* Theme */
     @include app-theme;
