@@ -1,4 +1,6 @@
+import fs from 'fs';
 import packageJSON from '../../package.json'
+
 
 export const props = {
     title: 'Bookings',
@@ -6,5 +8,8 @@ export const props = {
     keyword: 'bookings,hotel',
     publicURL: '',
     version: packageJSON.version,
-    navigation: {}
+    //navigation: {},
+    pages: fs.readdirSync('./src/templates/pages')
+        .filter(fileName => fileName.endsWith('.js'))
+        .map(page => page.replace(/.js/gi, ''))
 }

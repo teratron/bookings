@@ -2,10 +2,8 @@ import {props} from '../app'
 import template from './privacy.hbs'
 
 const context = {
-    app: {
-        ...props,
-        title: props['title'] + ' - Privacy'
-    },
+    ...props,
+    title: props['title'] + ' - Privacy',
     header: {
         // navigation / search / none
         //search: true

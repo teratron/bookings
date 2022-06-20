@@ -1,10 +1,10 @@
 .app-footer {
     > .app-container {
-        min-height: $footer-height;
+        min-height: $footer_height;
 
         @include setPropsAdaptive((
-                padding-top: $layout-gap,
-                padding-bottom: $layout-gap,
+                padding-top: $layout_gap,
+                padding-bottom: $layout_gap,
         ));
     }
 

@@ -1,9 +1,8 @@
 .app-main {
-    min-height: $main-height;
+    min-height: $main_height;
     height:     1fr;
 
     > .app-container {
-        //@extend .shrink;
         align-content:  start;
         height:         100%;
 
@@ -12,7 +11,8 @@
 
         > .sidebar {
             // grid-column: span 3;
-            @extend .grid-3;
+            //@extend .grid-3;
+            @extend .span-3;
         }
 
         > .content {

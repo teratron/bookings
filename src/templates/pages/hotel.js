@@ -2,10 +2,8 @@ import {props} from '../app'
 import template from './hotel.hbs'
 
 const context = {
-    app: {
-        ...props,
-        title: props['title'] + ' - Hotel'
-    },
+    ...props,
+    title: props['title'] + ' - Hotel',
     header: {
         // navigation / search / none
         //search: true

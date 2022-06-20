@@ -1,6 +1,5 @@
-{{#> base main-partial-block=true title=app.title}}
+{{#> base main-partial-block=true title=title}}
 {{!> jumbotron}}
-    <!--<div class="row">-->
     <style>
         .grid-12 > *,
         .tile > * {
@@ -9,30 +8,35 @@
     </style>
 
     <aside class="sidebar">
-        sidebar
+        <nav>
+            {{#each pages}}
+                <div>
+                    <a href="/{{this}}.html">{{this}}</a>
+                </div>
+            {{/each}}
+        </nav>
     </aside>
 
     <section class="content">
         content
+        <nav class="span">
+            {{#each pages}}
+                <div>
+                    <a href="/{{this}}.html">{{this}}</a>
+                </div>
+            {{/each}}
+        </nav>
     </section>
 
-<section class="grid-12" style="grid-gap: 0;">
-    {{#each debugGrid}}
-    <div>{{this}}</div>
-    {{/each}}
-</section>
+    <section class="grid-12">
+        {{#each debugGrid}}
+            <div>{{this}}</div>
+        {{/each}}
+    </section>
 
-<section class="grid-12 shrink" style="grid-gap: 0;">
-    {{#each debugGrid}}
-    <div>{{this}}</div>
-    {{/each}}
-</section>
-
-<section class="tile span-12">
-    {{#each debugGrid}}
-    <div>{{this}}</div>
-    {{/each}}
-</section>
-
-<!--</div>-->
+    <section class="grid-12 shrink">
+        {{#each debugGrid}}
+            <div>{{this}}</div>
+        {{/each}}
+    </section>
 {{/base}}

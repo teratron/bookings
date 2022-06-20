@@ -1,18 +1,23 @@
 // Variables
-$header-height: $unit * 5; // ~96px
-$footer-height: $unit * 11; // 220px
-$main-height: $unit * 11; // 220px
-$border-radius: 0.35rem;
+$header_height: $unit * 5; // ~96px
+$footer_height: $unit * 11; // 220px
+$main_height:   $unit * 11; // 220px
+$border_radius: 0.35rem;
+
+// Reset
+body {
+    font-family: Futura, sans-serif;
+}
 
 // Application
 #app {
-    display: grid;
+    display:               grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr;
-    grid-auto-flow: row;
-    grid-auto-rows: auto;
-    grid-gap: 0;
-    min-height: 100vh;
+    grid-auto-flow:        row;
+    grid-auto-rows:        auto;
+    grid-gap:              0;
+    min-height:            100vh;
 }
 
 .app-container {
@@ -32,7 +37,7 @@ $border-radius: 0.35rem;
 .app-header,
 .app-footer {
     background-color: var(--color-primary);
-    color: var(--color-primary-font);
+    color:            var(--color-primary-font);
 
     a {
         @include a();
@@ -42,8 +47,8 @@ $border-radius: 0.35rem;
     }
 
     .title {
-        white-space: nowrap;
-        margin-top: 0;
+        white-space:   nowrap;
+        margin-top:    0;
         margin-bottom: 0;
     }
 }
@@ -54,25 +59,25 @@ $border-radius: 0.35rem;
 
 // Breakpoints
 @media only screen {
-    @media (max-width: ($layout-width - 1)) {
+    @media (max-width: getBreakpoint()) {
         .app-footer {
             background-color: red;
         }
     }
 
-    @media (max-width: ($grid-width - 1)) {
+    @media (max-width: getBreakpoint(11)) {
         .app-footer {
             background-color: #ff6381;
         }
     }
 
-    @media (max-width: 1099px) {
+    @media (max-width: getBreakpoint(10)) {
         .app-footer {
             background-color: green;
         }
     }
 
-    @media (max-width: 999px) {
+    @media (max-width: getBreakpoint(9)) {
         .app-footer {
             background-color: palevioletred;
         }

@@ -3,39 +3,34 @@
 @use "sass:meta";
 
 // Root
-$unit: 1.25rem; // 20px
-$px: 0.0625rem;
-$rate-horizontal: 0.8;
-$rate-vertical: 0.8;
+$unit:             1.25rem; // 20px
+$px:               0.0625rem;
+$rate_horizontal:  0.8;
+$rate_vertical:    0.8;
 
 // Grid
-$grid-column: 12;
-$grid-width: $unit * 60; // 1200px
-$grid-gap: $unit * 2; // 40px
-$grid-row-height: $unit * 2;
-$grid-col-width: math.div($grid-width, $grid-column);
-$grid-cell-height: $unit;
-$grid-cell-width: math.div($grid-width - ($grid-column - 1) * $grid-gap, $grid-column);
+$grid_column:      12;
+$grid_width:       $unit * 60; // 1200px
+$grid_gap:         $unit * 2; // 40px
+$grid_col_width:   math.div($grid_width, $grid_column);
+$grid_cell_width:  math.div($grid_width - ($grid_column - 1) * $grid_gap, $grid_column);
+$grid_cell_height: $unit;
 
 // Layout
-$layout-gap: $unit * 2; // 40px
-$layout-gaps: $layout-gap * 2;
-$layout-width: $grid-width + $layout-gaps;
-$layout-width-min: $unit * 18; // 360px
+$layout_gap:       $unit * 2; // 40px
+$layout_gaps:      $layout_gap * 2;
+$layout_width:     $grid_width + $layout_gaps;
+$layout_width_min: $unit * 18; // 360px
+$layout_rate:      math.div(100vw, $layout_width);
 
-// Calculated variables
-$rate: math.div(100vw, $layout-width); // if($layout-width > 0, math.div(100vw, $layout-width), 0);
-$grid-gap-adaptive: $rate * $grid-gap;
-$layout-gap-adaptive: $rate * $layout-gap;
-
-// List breakpoints
+// Breakpoints
 @function getListBreakpoints() {
     $list: [];
-    $b: math.div(100, $layout-width) * $layout-gaps;
+    $b: math.div(100, $layout_width) * $layout_gaps;
     $g: 100 - $b;
 
-    @for $i from 1 through $grid-column {
-        $w: $i * $grid-col-width;
+    @for $i from 1 through $grid_column {
+        $w: $i * $grid_col_width;
         $s: math.div($w, $g) * $b;
         $d: $w + $s - $px;
         $list: list.append($list, $d);
@@ -44,13 +39,18 @@ $layout-gap-adaptive: $rate * $layout-gap;
     @return $list;
 }
 
-$list-breakpoints: getListBreakpoints();
+$list_breakpoints: getListBreakpoints();
+
+@function getBreakpoint($n: $grid_column) {
+    @return list.nth($list_breakpoints, $n)
+}
 
 :root {
     /* Debug */
-    --d1: #{$list-breakpoints};
-    --d2: #{list.length($list-breakpoints)};
-    --d3: #{list.nth($list-breakpoints, $grid-column)};
+    --d1: #{$list_breakpoints};
+    --d2: #{list.length($list_breakpoints)};
+    --d3: #{list.nth($list_breakpoints, $grid_column)};
+    --d4: #{getBreakpoint()};
 
     /* App */
     //--app-header-height: #{$header-height};
