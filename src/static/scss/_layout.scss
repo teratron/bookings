@@ -1,6 +1,6 @@
 @use "sass:math";
-@use "sass:list";
-@use "sass:string";
+//@use "sass:list";
+//@use "sass:string";
 
 @mixin setPropsAdaptive($props) {
     @each $key, $value in $props {
@@ -9,7 +9,7 @@
         }
     }
 
-    @media only screen and (max-width: getBreakpoint($n: $grid_column)) {
+    @media only screen and (max-width: getBreakpoint($grid_column)) {
         @each $key, $value in $props {
             @if $value > 0 {
                 #{$key}: $layout_rate * $value;
@@ -61,11 +61,11 @@
 
     .span-#{$i},
     .grid-#{$i},
-    .grid-#{$i} > .span {
+    .grid-#{$i} > .fit {
         grid-column: span $i;
     }
 
-    .span,
+    .fit,
     .span-#{$i} {
         @extend %span;
     }
@@ -74,21 +74,19 @@
 // Shrink
 @for $i from $grid_column to 1 {
     $k: $i - 1;
-    $b: list.nth($list_breakpoints, $k);
+    //$b: list.nth($list_breakpoints, $k);
+    $b: getBreakpoint($k);
 
     @if $b >= $layout-width-min {
         @media only screen and (max-width: $b) {
             .shrink {
                 &,
-                > %grid-#{$i} /*,
-                > %span-#{$i}*/
-                {
+                > %grid-#{$i} {
                     grid-template-columns: repeat($k, 1fr);
                 }
 
-                //> %grid-#{$i},
                 > %span-#{$i},
-                .grid-#{$i} > .span {
+                > .grid-#{$i} > .fit {
                     grid-column: span $k;
                 }
             }
@@ -103,3 +101,5 @@
         }
     }
 }
+
+// Spread/extend
