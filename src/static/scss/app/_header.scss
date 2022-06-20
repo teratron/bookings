@@ -1,15 +1,15 @@
 .app-header {
     position: sticky;
-    top:      0;
+    top: 0;
 
     &,
     > .app-container {
         align-items: center;
-        min-height:  $header_height;
+        min-height: $header_height;
     }
 
     .head {
-        @extend .span-3;
+        @extend .col-3;
     }
 
     .body {
@@ -17,7 +17,7 @@
     }
 
     .foot {
-        @extend .span-3;
+        @extend .col-3;
         @extend .grid;
         justify-items: end;
     }

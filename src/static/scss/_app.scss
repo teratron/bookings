@@ -1,7 +1,7 @@
 // Variables
 $header_height: $unit * 5; // ~96px
 $footer_height: $unit * 11; // 220px
-$main_height:   $unit * 11; // 220px
+$main_height: $unit * 11; // 220px
 $border_radius: 0.35rem;
 
 // Reset
@@ -11,13 +11,13 @@ body {
 
 // Application
 #app {
-    display:               grid;
+    display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr;
-    grid-auto-flow:        row;
-    grid-auto-rows:        auto;
-    grid-gap:              0;
-    min-height:            100vh;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    grid-gap: 0;
+    min-height: 100vh;
 }
 
 .app-container {
@@ -37,7 +37,7 @@ body {
 .app-header,
 .app-footer {
     background-color: var(--color-primary);
-    color:            var(--color-primary-font);
+    color: var(--color-primary-font);
 
     a {
         @include a();
@@ -47,8 +47,8 @@ body {
     }
 
     .title {
-        white-space:   nowrap;
-        margin-top:    0;
+        white-space: nowrap;
+        margin-top: 0;
         margin-bottom: 0;
     }
 }

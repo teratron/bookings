@@ -1,36 +1,16 @@
-@use "sass:math";
-//@use "sass:list";
-//@use "sass:string";
-
-@mixin setPropsAdaptive($props) {
-    @each $key, $value in $props {
-        @if $value > 0 {
-            #{$key}: $value;
-        }
-    }
-
-    @media only screen and (max-width: getBreakpoint($grid_column)) {
-        @each $key, $value in $props {
-            @if $value > 0 {
-                #{$key}: $layout_rate * $value;
-            } @else {
-                #{$key}: 0;
-            }
-        }
-    }
-}
-
 // Layout
 .layout {
-    width:        100%;
-    max-width:    $layout_width;
-    margin-left:  auto;
+    width: 100%;
+    max-width: $layout_width;
+    margin-left: auto;
     margin-right: auto;
 
-    @include setPropsAdaptive((
+    @include setPropsAdaptive(
+        (
             padding-left: $layout_gap,
             padding-right: $layout_gap,
-    ));
+        )
+    );
 }
 
 // Grid
@@ -43,13 +23,15 @@
     grid-auto-flow: dense;
     grid-auto-rows: minmax($grid_cell_height, auto);
 
-    @include setPropsAdaptive((
+    @include setPropsAdaptive(
+        (
             grid-gap: $grid_gap,
-    ));
+        )
+    );
 }
 
-%span {
-    width:     auto;
+%col {
+    width: auto;
     max-width: none;
 }
 
@@ -59,22 +41,25 @@
         @extend %grid;
     }
 
-    .span-#{$i},
+    .col-#{$i},
     .grid-#{$i},
-    .grid-#{$i} > .fit {
+    .grid-#{$i} > .col {
         grid-column: span $i;
     }
 
-    .fit,
+    .col,
+    .col-#{$i} {
+        @extend %col;
+    }
+
     .span-#{$i} {
-        @extend %span;
+        grid-column-start: $i;
     }
 }
 
 // Shrink
 @for $i from $grid_column to 1 {
     $k: $i - 1;
-    //$b: list.nth($list_breakpoints, $k);
     $b: getBreakpoint($k);
 
     @if $b >= $layout-width-min {
@@ -85,17 +70,17 @@
                     grid-template-columns: repeat($k, 1fr);
                 }
 
-                > %span-#{$i},
-                > .grid-#{$i} > .fit {
+                > %col-#{$i},
+                > .grid-#{$i} > .col {
                     grid-column: span $k;
                 }
             }
 
             @for $j from $i through $grid_column {
-                .grid-#{$j},
-                .span-#{$j} {
+                .col-#{$j},
+                .grid-#{$j} {
+                    @extend %col-#{$i};
                     @extend %grid-#{$i};
-                    @extend %span-#{$i};
                 }
             }
         }
