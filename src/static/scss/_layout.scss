@@ -1,37 +1,39 @@
 // Layout
 .layout {
-    width: 100%;
-    max-width: $layout_width;
-    margin-left: auto;
+    width:        100%;
+    max-width:    $layout_width;
+    margin-left:  auto;
     margin-right: auto;
 
-    @include setPropsAdaptive(
-        (
+    @include setPropsAdaptive((
             padding-left: $layout_gap,
             padding-right: $layout_gap,
-        )
-    );
+    ));
 }
 
 // Grid
 .grid {
-    display: grid;
+    display:        grid;
+    grid-auto-rows: minmax($grid_cell_height, auto);
 }
 
 %grid {
     @extend .grid;
     grid-auto-flow: dense;
-    grid-auto-rows: minmax($grid_cell_height, auto);
 
-    @include setPropsAdaptive(
-        (
+    @include setPropsAdaptive((
             grid-gap: $grid_gap,
-        )
-    );
+    ));
 }
 
+.row {
+    @extend .grid;
+    grid-auto-flow: column;
+}
+
+.col,
 %col {
-    width: auto;
+    width:     auto;
     max-width: none;
 }
 
@@ -43,11 +45,11 @@
 
     .col-#{$i},
     .grid-#{$i},
-    .grid-#{$i} > .col {
-        grid-column: span $i;
+    .grid-#{$i} > .col,
+    .grid-#{$i} > .row {
+        grid-column-end: span $i;
     }
 
-    .col,
     .col-#{$i} {
         @extend %col;
     }
@@ -60,31 +62,27 @@
 // Shrink
 @for $i from $grid_column to 1 {
     $k: $i - 1;
-    $b: getBreakpoint($k);
 
-    @if $b >= $layout-width-min {
-        @media only screen and (max-width: $b) {
-            .shrink {
-                &,
-                > %grid-#{$i} {
-                    grid-template-columns: repeat($k, 1fr);
-                }
-
-                > %col-#{$i},
-                > .grid-#{$i} > .col {
-                    grid-column: span $k;
-                }
+    @media only screen and (max-width: getBreakpoint($k)) {
+        .shrink {
+            &,
+            > %grid-#{$i} {
+                grid-template-columns: repeat($k, 1fr);
             }
 
-            @for $j from $i through $grid_column {
-                .col-#{$j},
-                .grid-#{$j} {
-                    @extend %col-#{$i};
-                    @extend %grid-#{$i};
-                }
+            > %col-#{$i},
+            > .grid-#{$i} > .col,
+            > .grid-#{$i} > .row {
+                grid-column-end: span $k;
+            }
+        }
+
+        @for $j from $i through $grid_column {
+            .col-#{$j},
+            .grid-#{$j} {
+                @extend %col-#{$i};
+                @extend %grid-#{$i};
             }
         }
     }
 }
-
-// Spread/extend

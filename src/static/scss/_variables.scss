@@ -1,28 +1,28 @@
 @use "sass:math";
 @use "sass:list";
 
-$prefix: "app-";
+$prefix:           "app-";
 
 // Root
-$unit: 1.25rem; // 20px
-$px: 0.0625rem;
-$rate_horizontal: 0.8;
-$rate_vertical: 0.8;
+$unit:             1.25rem; // 20px
+$px:               0.0625rem;
+$rate_horizontal:  0.8;
+$rate_vertical:    0.8;
 
 // Grid
-$grid_column: 12;
-$grid_width: $unit * 60; // 1200px
-$grid_gap: $unit * 2; // 40px
-$grid_col_width: math.div($grid_width, $grid_column);
-$grid_cell_width: math.div($grid_width - ($grid_column - 1) * $grid_gap, $grid_column);
+$grid_column:      12;
+$grid_width:       $unit * 60; // 1200px
+$grid_gap:         $unit * 2; // 40px
+$grid_col_width:   math.div($grid_width, $grid_column);
+$grid_cell_width:  math.div($grid_width - ($grid_column - 1) * $grid_gap, $grid_column);
 $grid_cell_height: $unit;
 
 // Layout
-$layout_gap: $unit * 2; // 40px
-$layout_gaps: $layout_gap * 2;
-$layout_width: $grid_width + $layout_gaps;
+$layout_gap:       $unit * 2; // 40px
+$layout_gaps:      $layout_gap * 2;
+$layout_width:     $grid_width + $layout_gaps;
 $layout_width_min: $unit * 18; // 360px
-$layout_rate: math.div(100vw, $layout_width);
+$layout_rate:      math.div(100vw, $layout_width);
 
 // Breakpoints
 @function getListBreakpoints() {

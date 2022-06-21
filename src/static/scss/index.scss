@@ -1,9 +1,17 @@
-// App
+// Configuration
 @import "themes/default";
 @import "variables";
 @import "reset";
 @import "layout";
 @import "app";
+
+// App
+@import "components/header";
+@import "components/footer";
+@import "components/main";
+
+// Elements
+@import "elements/dropdown";
 
 // Bootstrap icons
 //@import "bootstrap-icons/icons";
@@ -11,6 +19,12 @@
 
 // Bootstrap
 //@import "~bootstrap/scss/bootstrap";
+
+// Configuration
+//@import "bootstrap/scss/mixins";
+
+// Layout & components
+//@import "bootstrap/scss/dropdown";
 
 // Fonts
 @font-face {

@@ -1,8 +1,8 @@
 {{#> base main-partial-block=true title=title}}
 {{!> jumbotron}}
     <style>
-        .grid-12 > *,
-        .tile > * {
+        .row > *,
+        [class*="grid-"] > * {
             outline: 1px solid #ddd;
         }
     </style>
@@ -38,5 +38,20 @@
         {{#each debugGrid}}
             <div>{{this}}</div>
         {{/each}}
+    </section>
+
+    <section class="row">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div class="col-3">4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
     </section>
 {{/base}}
