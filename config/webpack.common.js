@@ -7,11 +7,6 @@ module.exports = props => {
         entry: {
             main: paths.src + '/index.js'
         },
-        output: {
-            path: paths.build,
-            publicPath: 'auto',
-            clean: true
-        },
         module: {
             rules: [
                 {
@@ -51,7 +46,7 @@ module.exports = props => {
                             options: {
                                 postcssOptions: {
                                     plugins: [
-                                        //'postcss-preset-env'
+                                        'postcss-preset-env'
                                     ]
                                 }
                             }
@@ -74,7 +69,6 @@ module.exports = props => {
                             paths.src + '/templates/layouts'
                         ]
                     }
-
                 },
                 {
                     test: /\.(svg|gif|png|jpe?g)$/i,
@@ -114,7 +108,7 @@ module.exports = props => {
                         template: paths.src + `/templates/pages/${page}`,
                         filename: page.replace(/.js/gi, '.html'),
                         inject: 'body',
-                        minify: false
+                    minify: !props.env
                     })
                 )
         ],

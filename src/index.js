@@ -1,3 +1,3 @@
-import 'bootstrap'
-//import './static/scss/themes/_default.scss'
+//import 'bootstrap'
+import 'bootstrap/js/dist/dropdown'
 import './static/scss/index.scss'

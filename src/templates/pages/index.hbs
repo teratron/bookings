@@ -1,8 +1,7 @@
 {{#> base main-partial-block=true title=title}}
 {{!> jumbotron}}
     <style>
-        .row > *,
-        [class*="grid-"] > * {
+        .outline > * {
             outline: 1px solid #ddd;
         }
     </style>
@@ -11,7 +10,7 @@
         <nav>
             {{#each pages}}
                 <div>
-                    <a href="/{{this}}.html">{{this}}</a>
+                    <a href="./{{this}}.html">{{this}}</a>
                 </div>
             {{/each}}
         </nav>
@@ -22,25 +21,25 @@
         <nav class="col">
             {{#each pages}}
                 <div>
-                    <a href="/{{this}}.html">{{this}}</a>
+                    <a href="./{{this}}.html">{{this}}</a>
                 </div>
             {{/each}}
         </nav>
     </section>
 
-    <section class="grid-12">
+    <section class="grid-12 outline">
         {{#each debugGrid}}
             <div>{{this}}</div>
         {{/each}}
     </section>
 
-    <section class="grid-12 shrink">
+    <section class="grid-12 shrink outline">
         {{#each debugGrid}}
             <div>{{this}}</div>
         {{/each}}
     </section>
 
-    <section class="row">
+    <section class="row outline">
         <div>1</div>
         <div>2</div>
         <div>3</div>

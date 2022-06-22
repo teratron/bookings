@@ -3,11 +3,16 @@
     height:     1fr;
 
     > .app-container {
-        align-content:  start;
-        height:         100%;
+        align-content: start;
+        height:        100%;
 
-        padding-top:    20px;
-        padding-bottom: 120px;
+        //padding-top:    20px;
+        //padding-bottom: 120px;
+
+        @include setPropsAdaptive((
+                padding-top: $grid_gap,
+                padding-bottom: toRem(120),
+        ));
 
         > .sidebar {
             @extend .col-3;

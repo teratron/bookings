@@ -1,21 +1,13 @@
-// The dropdown wrapper (`<div>`)
-.dropup,
-.dropend,
-.dropdown,
-.dropstart,
-.dropup-center,
-.dropdown-center {
+
+.dropdown {
     position: relative;
 }
 
 .dropdown-toggle {
     white-space: nowrap;
-
 }
 
-// The dropdown menu
 .dropdown-menu {
-
     position:        absolute;
     display:         none; // none by default, but block on "open" of the menu
     min-width:       100px; //var(--#{$prefix}dropdown-min-width);

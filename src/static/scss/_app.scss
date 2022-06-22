@@ -25,7 +25,7 @@ body {
     @extend .grid-12;
 }
 
-@mixin a() {
+@mixin aa() {
     &,
     &:focus,
     &:active,
@@ -40,7 +40,7 @@ body {
     color:            var(--color-primary-font);
 
     a {
-        @include a();
+        @include aa();
 
         //@extend .text-decoration-none;
         text-decoration: none;

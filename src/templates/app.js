@@ -8,7 +8,6 @@ export const props = {
     keyword: 'bookings,hotel',
     publicURL: '',
     version: packageJSON.version,
-    //navigation: {},
     pages: fs.readdirSync('./src/templates/pages')
         .filter(fileName => fileName.endsWith('.js'))
         .map(page => page.replace(/.js/gi, ''))

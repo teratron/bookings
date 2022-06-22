@@ -64,6 +64,10 @@ $list_breakpoints: getListBreakpoints();
     }
 }
 
+@function toRem($value) {
+    @return 0.0625rem * $value
+}
+
 :root {
     /* Debug */
     --d1: #{$list_breakpoints};

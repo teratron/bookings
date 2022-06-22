@@ -22,15 +22,15 @@ $light:                  #f8f9fa;
 $dark:                   #212529;
 
 // Body
-$body-bg:                #fff;
-$body-color:             #000;
+//$body-bg:                #fff;
+//$body-color:             #000;
 
 // Fonts
 $font-family-sans-serif: Futura, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 // CSS color variables
 @mixin app-theme {
-    --color-primary:         #{$primary};
+    --color-primary:         #f8bb44; //#{$primary};
     --color-primary-dark:    #f8bb44;
     --color-primary-light:   #f8bb44;
     --color-primary-font:    white;
