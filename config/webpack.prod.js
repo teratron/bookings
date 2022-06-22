@@ -1,6 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const SemverWebpackPlugin = require('semver-extended-webpack-plugin')
-const {merge} = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
 const paths = require('./paths')
 
@@ -25,7 +25,7 @@ const config = merge(
     },
     isBuildDev
         ? {
-            devtool: 'source-map',
+            devtool: 'eval-source-map',
             output: {
                 filename: 'static/js/[name].bundle.js',
                 path: paths.dist
@@ -37,7 +37,7 @@ const config = merge(
             ]
         }
         : {
-            devtool: 'eval-source-map',
+            devtool: 'source-map',
             output: {
                 filename: 'static/js/[name].[contenthash].bundle.js',
                 path: paths.build
