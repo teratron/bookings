@@ -1,19 +1,21 @@
 // Layout
 .layout {
-    width:        100%;
-    max-width:    $layout_width;
-    margin-left:  auto;
+    width: 100%;
+    max-width: $layout_width;
+    margin-left: auto;
     margin-right: auto;
 
-    @include setPropsAdaptive((
+    @include setPropsAdaptive(
+        (
             padding-left: $layout_gap,
             padding-right: $layout_gap,
-    ));
+        )
+    );
 }
 
 // Grid
 .grid {
-    display:        grid;
+    display: grid;
     grid-auto-rows: minmax($grid_cell_height, auto);
 }
 
@@ -21,19 +23,22 @@
     @extend .grid;
     grid-auto-flow: dense;
 
-    @include setPropsAdaptive((
+    @include setPropsAdaptive(
+        (
             grid-gap: $grid_gap,
-    ));
+        )
+    );
 }
 
 .row {
     @extend .grid;
+    grid-template-columns: repeat(auto-fit, minmax($grid_cell_height, auto-fill));
     grid-auto-flow: column;
 }
 
 .col,
 %col {
-    width:     auto;
+    width: auto;
     max-width: none;
 }
 
@@ -57,6 +62,12 @@
     .span-#{$i} {
         grid-column-start: $i;
     }
+}
+
+.list {
+    @extend .grid;
+    grid-template-rows: repeat(auto-fill, minmax($grid_cell_height, auto));
+    grid-auto-flow: row;
 }
 
 // Shrink

@@ -7,24 +7,22 @@ export const props = {
     keyword: 'bookings,hotel',
     publicURL: '',
     version: packageJSON.version,
-    pages: fs.readdirSync('./src/templates/pages')
-        .filter(fileName => fileName.endsWith('.js'))
-        .map(page => page.replace(/.js/gi, '')),
     page: function () {
-        const list = fs.readdirSync('./src/templates/pages')
-            .filter(fileName => fileName.endsWith('.js'))
-            .map(page => page.replace(/.js/gi, ''))
-
         let page = {}
 
-        for (const key of list) {
-            let val = key
-            if (key === 'index') val = 'home'
-            page[key] = {
-                title: val.replace(/[_|-]/, ' ').trim(),
-                url: `./${val}.html`
-            }
-        }
+        fs.readdirSync('./src/templates/pages')
+            .filter(fileName => fileName.endsWith('.js'))
+            .forEach(key => {
+                key = key.replace(/.js/gi, '')
+                let value = key
+
+                if (key === 'index') value = 'home'
+
+                page[key] = {
+                    title: value.replace(/[_|-]/, ' ').trim(),
+                    url: `./${key}.html`
+                }
+            })
 
         return page
     }()

@@ -1,4 +1,4 @@
-import {props} from '../app'
+import { props } from '../app'
 import template from './index.hbs'
 
 const arrGrid = []
@@ -13,7 +13,7 @@ const context = {
         //search: true
         navigation: true
     },
-    pages: props['pages'].filter(fileName => fileName !== 'index'),
+    //pages: props['pages'].filter(fileName => fileName !== 'index'),
     debugGrid: arrGrid
 }
 
