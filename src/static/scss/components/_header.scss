@@ -19,6 +19,7 @@
             @extend .row;
             justify-content: center;
             grid-gap:        $unit;
+            font-size:       toRem(18px);
         }
     }
 

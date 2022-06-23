@@ -19,12 +19,14 @@
                             <li><a class="dropdown-item" href="/#">Something else here</a></li>
                         </ul>
                     </div>
-                    <a class="nav-link" href="./map.html">Map</a>
-                    <a class="nav-link" href="./blog.html">Blog</a>
+                    {{#with page}}
+                        <a class="nav-link" href="{{map.url}}">Map</a>
+                        <a class="nav-link" href="{{blog.url}}">Blog</a>
+                    {{/with}}
                 </nav>
             {{else}}
                 {{#if header.search}}
-                    {{> inline-search}}
+                    {{> advanced-search}}
                 {{/if}}
             {{/if}}
         </div>

@@ -1,56 +1,56 @@
+<style>
+    .outline > * {
+        outline: 1px solid #ddd;
+    }
+</style>
 {{#> base main-partial-block=true title=title}}
-{{!> jumbotron}}
-    <style>
-        .outline > * {
-            outline: 1px solid #ddd;
-        }
-    </style>
+    {{> jumbotron-search}}
 
-    <aside class="sidebar">
-        <nav>
-            {{#each pages}}
-                <div>
-                    <a href="./{{this}}.html">{{this}}</a>
-                </div>
-            {{/each}}
-        </nav>
-    </aside>
+    <main class="app-main">
+        <div class="app-container">
 
-    <section class="content">
-        content
-        <nav class="col">
-            {{#each pages}}
-                <div>
-                    <a href="./{{this}}.html">{{this}}</a>
-                </div>
-            {{/each}}
-        </nav>
-    </section>
+            <aside class="sidebar">
+                <nav>
 
-    <section class="grid-12 outline">
-        {{#each debugGrid}}
-            <div>{{this}}</div>
-        {{/each}}
-    </section>
+                    {{#each page}}
+                        <div>
+                            <a href="{{this.url}}">{{this.title}}</a>
+                        </div>
+                    {{/each}}
 
-    <section class="grid-12 shrink outline">
-        {{#each debugGrid}}
-            <div>{{this}}</div>
-        {{/each}}
-    </section>
+                </nav>
+            </aside>
 
-    <section class="row outline">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div class="col-3">4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>11</div>
-        <div>12</div>
-    </section>
+            <section class="content">
+                content
+            </section>
+
+            <section class="grid-12 outline">
+                {{#each debugGrid}}
+                    <div>{{this}}</div>
+                {{/each}}
+            </section>
+
+            <section class="grid-12 shrink outline">
+                {{#each debugGrid}}
+                    <div>{{this}}</div>
+                {{/each}}
+            </section>
+
+            <section class="row outline">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div class="col-3">4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+                <div>11</div>
+                <div>12</div>
+            </section>
+        </div>
+    </main>
 {{/base}}

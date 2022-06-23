@@ -64,9 +64,14 @@ $list_breakpoints: getListBreakpoints();
     }
 }
 
-@function toRem($value) {
-    @return 0.0625rem * $value
+@function stripUnit($value) {
+    @return math.div($value, ($value * 0 + 1));
 }
+
+@function toRem($value) {
+    @return 0.0625rem * stripUnit($value);
+}
+
 
 :root {
     /* Debug */

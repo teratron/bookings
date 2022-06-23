@@ -6,12 +6,9 @@
         align-content: start;
         height:        100%;
 
-        //padding-top:    20px;
-        //padding-bottom: 120px;
-
         @include setPropsAdaptive((
                 padding-top: $grid_gap,
-                padding-bottom: toRem(120),
+                padding-bottom: toRem(120px),
         ));
 
         > .sidebar {
