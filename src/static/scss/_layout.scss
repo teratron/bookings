@@ -32,8 +32,8 @@
 
 .row {
     @extend .grid;
-    grid-template-columns: repeat(auto-fit, minmax($grid_cell_height, auto-fill));
-    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax($grid_cell_height, auto));
+    grid-auto-flow:        column;
 }
 
 .col,

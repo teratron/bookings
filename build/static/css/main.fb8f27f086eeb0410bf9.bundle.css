@@ -74,7 +74,7 @@ form {
     }
 }
 
-.grid, .app-footer .foot, .app-header .foot, .row, .app-header .body > .nav, .grid-12, .app-container, .grid-11, .grid-10, .grid-9, .app-main > .app-container > .content, .grid-8, .grid-7, .grid-6, .app-footer .body, .app-header .body, .grid-5, .grid-4, .grid-3, .grid-2, .grid-1 {
+.grid, .app-footer .foot, .app-header .foot, .list, .row, .app-header .body > .nav, .grid-12, .app-container, .grid-11, .grid-10, .grid-9, .app-main > .app-container > .content, .grid-8, .grid-7, .grid-6, .app-footer .body, .app-header .body, .grid-5, .grid-4, .grid-3, .grid-2, .grid-1 {
     display: grid;
     grid-auto-rows: minmax(1.25rem, auto)
 }
@@ -91,6 +91,7 @@ form {
 }
 
 .row, .app-header .body > .nav {
+    grid-template-columns:repeat(auto-fit, minmax(1.25rem, auto));
     grid-auto-flow: column
 }
 
@@ -243,6 +244,11 @@ form {
     grid-column-start: 12
 }
 
+.list {
+    grid-template-rows:repeat(auto-fill, minmax(1.25rem, auto));
+    grid-auto-flow: row
+}
+
 @media only screen and (max-width: 73.2708333333rem) {
     .shrink, .shrink > .col-12, .shrink > .grid-12, .shrink > .app-container {
         grid-template-columns:repeat(11, 1fr)
@@ -368,9 +374,7 @@ body {
 }
 
 .app-header, .app-footer {
-    background-color: #f8bb44;
     background-color: var(--color-primary);
-    color: white;
     color: var(--color-primary-font)
 }
 
@@ -379,7 +383,6 @@ body {
 }
 
 .app-header a, .app-header a:focus, .app-header a:active, .app-header a:hover, .app-footer a, .app-footer a:focus, .app-footer a:active, .app-footer a:hover {
-    color: white;
     color: var(--color-primary-font)
 }
 
@@ -641,4 +644,4 @@ body {
     font-weight: 400
 }
 
-/*# sourceMappingURL=main.3d7888770b15214a63d4.bundle.css.map*/
+/*# sourceMappingURL=main.fb8f27f086eeb0410bf9.bundle.css.map*/
