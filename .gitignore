@@ -328,4 +328,3 @@ tmp/
 .run/
 
 */static/**/*.txt
-package-lock.json
