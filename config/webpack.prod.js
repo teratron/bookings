@@ -48,7 +48,7 @@ const config = merge(
                     filename: 'static/css/[name].[contenthash].bundle.css'
                 }),
                 isBuildGH
-                    ? null
+                    ? undefined
                     : new SemverWebpackPlugin({
                         files: [paths.root + '/package.json'],
                         incArgs: ['patch'],
