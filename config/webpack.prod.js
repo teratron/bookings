@@ -4,6 +4,7 @@ const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
 const paths = require('./paths')
 
+const isBuildGH = process.env.NODE_ENV === 'build-gh'
 const isBuildDev = process.env.NODE_ENV === 'build-dev'
 
 const config = merge(
@@ -46,12 +47,14 @@ const config = merge(
                 new MiniCssExtractPlugin({
                     filename: 'static/css/[name].[contenthash].bundle.css'
                 }),
-                new SemverWebpackPlugin({
-                    files: [paths.root + '/package.json'],
-                    incArgs: ['patch'],
-                    console: true,
-                    buildDate: true
-                })
+                isBuildGH
+                    ? null
+                    : new SemverWebpackPlugin({
+                        files: [paths.root + '/package.json'],
+                        incArgs: ['patch'],
+                        console: true,
+                        buildDate: true
+                    })
             ]
         }
 )

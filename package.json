@@ -1,6 +1,6 @@
 {
     "name": "bookings",
-    "version": "0.0.816",
+    "version": "0.0.817",
     "private": true,
     "description": "Bookings",
     "main": "src/index.js",
@@ -37,6 +37,7 @@
     "scripts": {
         "start": "webpack serve --config config/webpack.dev.js",
         "build": "webpack --config config/webpack.prod.js",
+        "build:gh": "webpack --config config/webpack.prod.js --node-env build-gh",
         "build:dev": "webpack --config config/webpack.prod.js --node-env build-dev"
     },
     "browserslist": {
@@ -51,5 +52,5 @@
             "last 1 safari version"
         ]
     },
-    "buildDate": "2022-06-24T15:32:18.827Z"
+    "buildDate": "2022-06-25T10:27:27.739Z"
 }
