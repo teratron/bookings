@@ -1,11 +1,26 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const SemverWebpackPlugin = require('semver-extended-webpack-plugin')
-const { merge } = require('webpack-merge')
+const {merge} = require('webpack-merge')
 const common = require('./webpack.common')
 const paths = require('./paths')
 
 const isBuildGH = process.env.NODE_ENV === 'build-gh'
 const isBuildDev = process.env.NODE_ENV === 'build-dev'
+
+let buildPlugins = [
+    new MiniCssExtractPlugin({
+        filename: 'static/css/[name].[contenthash].bundle.css'
+    })
+]
+
+if (!isBuildGH) {
+    buildPlugins[1] = new SemverWebpackPlugin({
+        files: [paths.root + '/package.json'],
+        incArgs: ['patch'],
+        console: true,
+        buildDate: true
+    })
+}
 
 const config = merge(
     common({
@@ -43,19 +58,7 @@ const config = merge(
                 filename: 'static/js/[name].[contenthash].bundle.js',
                 path: paths.build
             },
-            plugins: [
-                new MiniCssExtractPlugin({
-                    filename: 'static/css/[name].[contenthash].bundle.css'
-                }),
-                isBuildGH
-                    ? undefined
-                    : new SemverWebpackPlugin({
-                        files: [paths.root + '/package.json'],
-                        incArgs: ['patch'],
-                        console: true,
-                        buildDate: true
-                    })
-            ]
+            plugins: buildPlugins
         }
 )
 

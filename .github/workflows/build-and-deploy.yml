@@ -24,7 +24,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
-          #ACCESS_TOKEN: $
           branch: gh-pages
           folder: build
-          #BUILD_SCRIPT: npm install && npm run-script build
