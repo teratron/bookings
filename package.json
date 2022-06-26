@@ -1,6 +1,6 @@
 {
     "name": "bookings",
-    "version": "0.0.822",
+    "version": "0.0.824",
     "private": true,
     "description": "Bookings",
     "main": "src/index.js",
@@ -19,6 +19,7 @@
         "bootstrap": "5.1.3",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.7.1",
+        "gh-pages": "^4.0.0",
         "handlebars": "^4.7.7",
         "handlebars-loader": "^1.7.2",
         "html-webpack-plugin": "^5.5.0",
@@ -37,8 +38,9 @@
     "scripts": {
         "start": "webpack serve --config config/webpack.dev.js",
         "build": "webpack --config config/webpack.prod.js",
-        "build:gh": "webpack --config config/webpack.prod.js --node-env build-gh",
-        "build:dev": "webpack --config config/webpack.prod.js --node-env build-dev"
+        "build:dev": "webpack --config config/webpack.prod.js --node-env build-dev",
+        "deploy:gh": "gh-pages -d build",
+        "build-deploy:gh": "npm run build && npm run deploy:gh"
     },
     "browserslist": {
         "production": [
@@ -52,5 +54,5 @@
             "last 1 safari version"
         ]
     },
-    "buildDate": "2022-06-25T11:35:09.843Z"
+    "buildDate": "2022-06-26T11:13:11.862Z"
 }
