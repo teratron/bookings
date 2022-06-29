@@ -117,7 +117,7 @@ module.exports = props => {
         ],
         resolve: {
             modules: [paths.src, 'node_modules'],
-            extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass'],
+            extensions: ['.js', '.hbs', '.json', '.css', '.scss'],
             alias: {
                 '~': paths.src,
                 '@': paths.src + '/static/js'

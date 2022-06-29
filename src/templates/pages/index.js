@@ -1,9 +1,5 @@
-import { props } from '../app'
+import {props} from '../app'
 import template from './index.hbs'
-
-const arrGrid = []
-
-for (let i = 1; i <= 12; i++) arrGrid.push(i)
 
 const context = {
     ...props,
@@ -13,8 +9,7 @@ const context = {
         //search: true
         navigation: true
     },
-    //pages: props['pages'].filter(fileName => fileName !== 'index'),
-    debugGrid: arrGrid
+    pages: props['pages'].filter(fileName => fileName !== 'index')
 }
 
 export default template(context)
