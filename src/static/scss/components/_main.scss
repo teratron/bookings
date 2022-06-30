@@ -1,22 +1,32 @@
+//@use "jettix:function";
+
 .app-main {
     min-height: $main_height;
     height:     1fr;
 
     > .app-container {
-        align-content: start;
-        height:        100%;
+        align-content:  start;
+        height:         100%;
+        padding-top:    $grid_gap;
+        padding-bottom: $unit * 6;
 
-        @include setPropsAdaptive((
+        /*@include setPropsAdaptive((
                 padding-top: $grid_gap,
-                padding-bottom: toRem(120px),
-        ));
+                padding-bottom: $unit * 6
+        ));*/
 
         > .sidebar {
-            @extend .col-3;
+            @extend .jx-col-3;
         }
 
         > .content {
-            @extend .grid-9;
+            @extend .jx-grid-9;
+        }
+
+        @media only screen and (max-width: getBreakpoint($grid_column)) {
+            padding-top:    $layout_rate * $grid_gap;
+            padding-bottom: $layout_rate * $unit * 6;
+
         }
     }
 }

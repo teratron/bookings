@@ -4,6 +4,35 @@ $footer_height: $unit * 11; // 220px
 $main_height:   $unit * 11; // 220px
 $border_radius: 0.35rem;
 
+// Fonts
+@font-face {
+    font-family: "Futura";
+    src:         url("#{$fonts}futura.ttf") format("truetype");
+    font-style:  normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "FuturaLight";
+    src:         url("#{$fonts}futura_light_bt.ttf") format("truetype");
+    font-style:  normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "FuturaMedium";
+    src:         url("#{$fonts}futura_medium_bt.ttf") format("truetype");
+    font-style:  normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "FuturaMediumCondensed";
+    src:         url("#{$fonts}futura_medium_condensed_bt.ttf") format("truetype");
+    font-style:  normal;
+    font-weight: 400;
+}
+
 // Reset
 body {
     font-family: Futura, sans-serif;
@@ -21,8 +50,8 @@ body {
 }
 
 .app-container {
-    @extend .layout;
-    @extend .grid-12;
+    @extend .jx-layout;
+    @extend .jx-grid-12;
 }
 
 @mixin aa() {
@@ -30,14 +59,14 @@ body {
     &:focus,
     &:active,
     &:hover {
-        color: var(--color-primary-font);
+        color: $primary_font;
     }
 }
 
 .app-header,
 .app-footer {
-    background-color: var(--color-primary);
-    color:            var(--color-primary-font);
+    background-color: $primary;
+    color:            $primary_font;
 
     a {
         @include aa();
@@ -46,15 +75,30 @@ body {
         text-decoration: none;
     }
 
-    .title {
+    .head .title {
+        @extend h2;
         white-space:   nowrap;
         margin-top:    0;
         margin-bottom: 0;
+
+        &, > a {
+            line-height: 1;
+        }
+
+        > a {
+            display: block;
+        }
     }
 }
 
+// App
+@import "components/header";
+@import "components/footer";
+@import "components/main";
+@import "components/jumbotron";
+
 // Breakpoints
-@media only screen {
+/*@media only screen {
     @media (max-width: getBreakpoint()) {
         .app-footer {
             background-color: red;
@@ -78,4 +122,39 @@ body {
             background-color: palevioletred;
         }
     }
+}*/
+
+%heading {
+    margin-top:    0;
+    margin-bottom: 0;
+}
+
+h1 {
+    @extend %heading;
+    font-size: 48px;
+}
+
+h2 {
+    @extend %heading;
+    font-size: 36px;
+}
+
+h3 {
+    @extend %heading;
+    font-size: 24px;
+}
+
+h4 {
+    @extend %heading;
+    font-size: 20px;
+}
+
+h5 {
+    @extend %heading;
+    font-size: 18px;
+}
+
+h6 {
+    @extend %heading;
+    font-size: 16px;
 }

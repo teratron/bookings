@@ -46,7 +46,7 @@ module.exports = props => {
                             options: {
                                 postcssOptions: {
                                     plugins: [
-                                        'postcss-preset-env'
+                                        //'postcss-preset-env'
                                     ]
                                 }
                             }
@@ -65,8 +65,7 @@ module.exports = props => {
                         partialDirs: [
                             paths.src + '/templates',
                             paths.src + '/templates/partials',
-                            paths.src + '/templates/pages',
-                            paths.src + '/templates/layouts'
+                            paths.src + '/templates/pages'
                         ]
                     }
                 },
@@ -117,7 +116,7 @@ module.exports = props => {
         ],
         resolve: {
             modules: [paths.src, 'node_modules'],
-            extensions: ['.js', '.hbs', '.json', '.css', '.scss'],
+            extensions: ['.js', '.hbs', '.scss', '.css'],
             alias: {
                 '~': paths.src,
                 '@': paths.src + '/static/js'

@@ -1,29 +1,27 @@
-{{#> base main-partial-block=true title=title}}
+{{#> app app-partial-block=true title=title}}
+    {{> header}}
     {{> jumbotron}}
+    {{#> main main-partial-block=true}}
+        <aside class="sidebar">
+            <nav>
+                {{#each page}}
+                    <div>
+                        <a href="{{this.url}}">{{this.title}}</a>
+                    </div>
+                {{/each}}
+            </nav>
+        </aside>
 
-    <main class="app-main">
-        <div class="app-container">
-
-            <aside class="sidebar">
-                <nav>
-                    {{#each page}}
-                        <div>
-                            <a href="{{this.url}}">{{this.title}}</a>
-                        </div>
-                    {{/each}}
-                </nav>
-            </aside>
-
-            <section class="content">
-                content
-                <div class="list col-2 outline">
+        <section class="content">
+            content
+            <div class="list col-2 outline">
                 <div>1</div>
                 <div>2</div>
                 <div>3</div>
                 <div>4</div>
                 <div>5</div>
-                </div>
-            </section>
-        </div>
-    </main>
-{{/base}}
+            </div>
+        </section>
+    {{/main}}
+    {{> footer}}
+{{/app}}

@@ -1,3 +1,5 @@
+//@import "d:/Projects/src/github.com/teratron/jettix/src/scss/boot";
+
 // Configuration
 @import "themes/default";
 @import "variables";
@@ -5,14 +7,13 @@
 //@import "layout";
 @import "app";
 
-// App
-@import "components/header";
-@import "components/footer";
-@import "components/main";
-@import "components/jumbotron";
-
 // Elements
 @import "elements/dropdown";
+
+// Jettix
+//@import "jettix/scss/jettix";
+@import "d:/Projects/src/github.com/teratron/jettix/src/scss/jettix";
+
 
 // Bootstrap icons
 //@import "bootstrap-icons/icons";
@@ -27,35 +28,3 @@
 // Layout & components
 //@import "bootstrap/scss/dropdown";
 
-// Fonts
-@font-face {
-    font-family: "Futura";
-    src:         url("../fonts/futura.ttf") format("truetype");
-    font-style:  normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "FuturaLight";
-    src:         url("../fonts/futura_light_bt.ttf") format("truetype");
-    font-style:  normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "FuturaMedium";
-    src:         url("../fonts/futura_medium_bt.ttf") format("truetype");
-    font-style:  normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "FuturaMediumCondensed";
-    src:         url("../fonts/futura_medium_condensed_bt.ttf") format("truetype");
-    font-style:  normal;
-    font-weight: 400;
-}
-
-/***********/
-@import "d:/Projects/src/github.com/teratron/jettix/src/scss/jettix";
-/***********/

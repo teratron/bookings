@@ -1,7 +1,7 @@
-{{#> base main-partial-block=true title=title}}
-    <main class="app-main">
-        <div class="app-container">
-            <h1>ERROR</h1>
-        </div>
-    </main>
-{{/base}}
+{{#> app app-partial-block=true title=title}}
+    {{> header}}
+    {{#> main main-partial-block=true}}
+        <h1>ERROR</h1>
+    {{/main}}
+    {{> footer}}
+{{/app}}

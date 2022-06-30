@@ -1,26 +1,28 @@
 .app-footer {
     > .app-container {
-        min-height: $footer_height;
+        min-height:     $footer_height;
+        padding-top:    $layout_gap;
+        padding-bottom: $layout_gap;
 
-        @include setPropsAdaptive((
+        /*@include setPropsAdaptive((
                 padding-top: $layout_gap,
                 padding-bottom: $layout_gap,
-        ));
+        ));*/
     }
 
     .head {
-        @extend .col-3;
+        @extend .jx-col-3;
         order: 1;
     }
 
     .body {
-        @extend .grid-6;
+        @extend .jx-grid-6;
         order: 2;
 
         > .about,
         > .contacts,
         > .social {
-            @extend .col-2;
+            @extend .jx-col-2;
         }
 
         .social {
@@ -36,14 +38,13 @@
     }
 
     .foot {
-        @extend .col-3;
-        @extend .grid;
+        @extend .jx-col-3;
+        @extend .jx-grid;
         order:       3;
         align-items: start;
     }
 
     .title {
-        white-space: nowrap;
     }
 
     .nav {
@@ -56,15 +57,22 @@
     }
 
     @media only screen {
+        @media (max-width: 1200px) {
+            > .app-container {
+                padding-top:    $layout_rate * $layout_gap;
+                padding-bottom: $layout_rate * $layout_gap;
+            }
+        }
+
         @media (max-width: 1000px) {
             .head {
-                grid-column: span 6;
-                order:       3;
+                //grid-column-end: span 6 !important;
+                order: 3;
             }
 
             .body {
-                grid-column: span 9;
-                order:       1;
+                //grid-column-end: span 9 !important;
+                order: 1;
             }
 
             .foot {
@@ -74,16 +82,16 @@
 
         @media (max-width: 800px) {
             .head {
-                grid-column: span 8;
+                //grid-column-end: span 8 !important;
                 order:       2;
             }
 
             .body {
-                grid-column: span 12;
+                //grid-column-end: span 12 !important;
             }
 
             .foot {
-                grid-column: span 4;
+                //grid-column-end: span 4 !important;
                 order:       3;
             }
         }
@@ -91,11 +99,11 @@
         @media (max-width: 600px) {
             .head,
             .foot {
-                grid-column: span 6;
+                //grid-column-end: span 6 !important;
             }
 
             .body {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                //grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
             }
         }
 
@@ -103,7 +111,7 @@
             .head,
             .body,
             .foot {
-                grid-column: span 12;
+                //grid-column-end: span 12 !important;
             }
 
             .head {

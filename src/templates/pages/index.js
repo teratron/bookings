@@ -8,8 +8,9 @@ const context = {
         // navigation / search / none
         //search: true
         navigation: true
-    },
-    pages: props['pages'].filter(fileName => fileName !== 'index')
+    }
+    //pages: props['pages'].filter(fileName => fileName !== 'index')
+    //page: props['page'].filter(fileName => fileName.title !== 'index')
 }
 
 export default template(context)

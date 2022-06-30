@@ -9,27 +9,26 @@
     }
 
     .head {
-        @extend .col-3;
+        @extend .jx-col-3;
     }
 
     .body {
-        @extend .grid-6;
+        @extend .jx-grid-6;
 
         > .nav {
-            @extend .row;
+            @extend .jx-row;
             justify-content: center;
-            grid-gap:        $unit;
-            font-size:       toRem(18px);
+            grid-gap:        $grid_cell_height;
+            font-size:       1.125rem; //toRem(18px);
         }
     }
 
     .foot {
-        @extend .col-3;
-        @extend .grid;
+        @extend .jx-col-3;
+        @extend .jx-grid;
         justify-items: end;
     }
 
     .title {
-        white-space: nowrap;
     }
 }
