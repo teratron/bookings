@@ -46,7 +46,7 @@ module.exports = props => {
                             options: {
                                 postcssOptions: {
                                     plugins: [
-                                        //'postcss-preset-env'
+                                        'postcss-preset-env'
                                     ]
                                 }
                             }
@@ -109,7 +109,7 @@ module.exports = props => {
                 .filter(fileName => fileName.endsWith('.js'))
                 .map(page => new HtmlWebpackPlugin({
                     template: paths.src + `/templates/pages/${page}`,
-                    filename: page.replace(/.js/gi, '.html'),
+                    filename: page.replace(/\.js/gi, '.html'),
                     inject: 'body',
                     minify: !props.env
                 }))

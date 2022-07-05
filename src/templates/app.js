@@ -12,7 +12,7 @@ export const props = {
         fs.readdirSync('./src/templates/pages')
             .filter(fileName => fileName.endsWith('.js'))
             .forEach(key => {
-                key = key.replace(/.js/gi, '')
+                key = key.replace(/\.js/gi, '')
                 let value = key
                 if (key === 'index') value = 'home'
                 page[key] = {

@@ -97,38 +97,6 @@ body {
 @import "components/main";
 @import "components/jumbotron";
 
-// Breakpoints
-/*@media only screen {
-    @media (max-width: getBreakpoint()) {
-        .app-footer {
-            background-color: red;
-        }
-    }
-
-    @media (max-width: getBreakpoint(11)) {
-        .app-footer {
-            background-color: #ff6381;
-        }
-    }
-
-    @media (max-width: getBreakpoint(10)) {
-        .app-footer {
-            background-color: green;
-        }
-    }
-
-    @media (max-width: getBreakpoint(9)) {
-        .app-footer {
-            background-color: palevioletred;
-        }
-    }
-}*/
-
-%heading {
-    margin-top:    0;
-    margin-bottom: 0;
-}
-
 h1 {
     @extend %heading;
     font-size: 48px;
