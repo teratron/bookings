@@ -73,7 +73,7 @@ module.exports = props => {
                     test: /\.(svg|gif|png|jpe?g)$/i,
                     type: 'asset/resource',
                     generator: {
-                        filename: props.env
+                        filename: props.isBuildDev
                             ? 'static/media/[name][ext]'
                             : 'static/media/[name].[hash][ext]'
                     }
@@ -82,7 +82,7 @@ module.exports = props => {
                     test: /\.(woff(2)?|eot|ttf|otf)$/i,
                     type: 'asset/resource',
                     generator: {
-                        filename: props.env
+                        filename: props.isBuildDev
                             ? 'static/fonts/[name][ext]'
                             : 'static/fonts/[name].[hash][ext]'
                     }
@@ -111,7 +111,7 @@ module.exports = props => {
                     template: paths.src + `/templates/pages/${page}`,
                     filename: page.replace(/\.js/gi, '.html'),
                     inject: 'body',
-                    minify: !props.env
+                    minify: !props.isBuildDev
                 }))
         ],
         resolve: {

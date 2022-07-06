@@ -9,7 +9,7 @@ const isBuildDev = process.env.NODE_ENV === 'build-dev'
 const config = merge(
     common({
         styleLoader: MiniCssExtractPlugin.loader,
-        env: isBuildDev
+        isBuildDev: isBuildDev
     }),
     {
         mode: 'production',
