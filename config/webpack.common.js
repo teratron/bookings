@@ -46,7 +46,7 @@ module.exports = props => {
                             options: {
                                 postcssOptions: {
                                     plugins: [
-                                        'postcss-preset-env'
+                                        //'postcss-preset-env'
                                     ]
                                 }
                             }
@@ -118,8 +118,10 @@ module.exports = props => {
             modules: [paths.src, 'node_modules'],
             extensions: ['.js', '.hbs', '.scss', '.css'],
             alias: {
-                '~': paths.src,
-                '@': paths.src + '/static/js'
+                '~': 'jettix/scss/',
+                '@': paths.src + '/static/js',
+                jettix$: 'jettix/scss/jettix.scss',
+                debug$: 'jettix/scss/debug.scss'
             }
         }
     }

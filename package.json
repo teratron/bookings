@@ -22,7 +22,7 @@
       "html-webpack-plugin": "^5.5.0",
       "jettix": "file:../jettix/src/",
       "mini-css-extract-plugin": "^2.6.1",
-      "postcss-loader": "^7.0.0",
+      "postcss-loader": "^7.0.1",
       "postcss-preset-env": "^7.7.2",
       "sass": "^1.53.0",
       "sass-loader": "^13.0.2",
@@ -34,11 +34,9 @@
       "webpack-merge": "^5.8.0"
   },
   "scripts": {
-    "start": "webpack serve --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.prod.js",
-    "build:dev": "webpack --config config/webpack.prod.js --node-env build-dev",
-    "deploy:gh": "gh-pages -d build",
-    "build-deploy:gh": "npm run build && npm run deploy:gh"
+      "start": "webpack serve --config config/webpack.dev.js",
+      "build": "webpack --config config/webpack.prod.js --node-env build-dev",
+      "build-deploy:gh": "webpack --config config/webpack.prod.js && gh-pages -d build"
   },
   "browserslist": {
     "production": [

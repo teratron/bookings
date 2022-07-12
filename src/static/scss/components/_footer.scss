@@ -1,8 +1,10 @@
 .app-footer {
     > .app-container {
-        min-height:     $footer_height;
-        padding-top:    $layout_gap;
-        padding-bottom: $layout_gap;
+        min-height: $footer_height;
+        //@extend %padding-top;
+        //@extend %padding-bottom;
+        //padding-top:    $layout_gap;
+        //padding-bottom: $layout_gap;
 
         /*@include setPropsAdaptive((
                 padding-top: $layout_gap,
@@ -59,8 +61,10 @@
     @media only screen {
         @media (max-width: 1200px) {
             > .app-container {
-                padding-top:    $layout_rate * $layout_gap;
-                padding-bottom: $layout_rate * $layout_gap;
+                //@extend %padding-top;
+                //@extend %padding-bottom;
+                //padding-top:    $layout_rate * $layout_gap;
+                //padding-bottom: $layout_rate * $layout_gap;
             }
         }
 

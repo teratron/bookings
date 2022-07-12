@@ -18,8 +18,8 @@
         > .nav {
             @extend .jx-row;
             justify-content: center;
-            grid-gap:        $grid_cell_height;
-            font-size:       1.125rem; //toRem(18px);
+            grid-gap:        1rem;
+            font-size:       1.125rem;
         }
     }
 

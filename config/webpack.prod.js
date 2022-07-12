@@ -14,6 +14,7 @@ const config = merge(
     {
         mode: 'production',
         output: {
+            path: paths.build,
             publicPath: 'auto',
             clean: true
         },
@@ -27,8 +28,7 @@ const config = merge(
         ? {
             devtool: 'eval-source-map',
             output: {
-                filename: 'static/js/[name].bundle.js',
-                path: paths.dist
+                filename: 'static/js/[name].bundle.js'
             },
             plugins: [
                 new MiniCssExtractPlugin({
@@ -39,8 +39,7 @@ const config = merge(
         : {
             devtool: 'source-map',
             output: {
-                filename: 'static/js/[name].[contenthash].bundle.js',
-                path: paths.build
+                filename: 'static/js/[name].[contenthash].bundle.js'
             },
             plugins: [
                 new MiniCssExtractPlugin({

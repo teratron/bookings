@@ -1,52 +1,15 @@
-// Variables
-$header_height: $unit * 5; // ~96px
-$footer_height: $unit * 11; // 220px
-$main_height:   $unit * 11; // 220px
-$border_radius: 0.35rem;
-
-// Fonts
-@font-face {
-    font-family: "Futura";
-    src:         url("#{$fonts}futura.ttf") format("truetype");
-    font-style:  normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "FuturaLight";
-    src:         url("#{$fonts}futura_light_bt.ttf") format("truetype");
-    font-style:  normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "FuturaMedium";
-    src:         url("#{$fonts}futura_medium_bt.ttf") format("truetype");
-    font-style:  normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "FuturaMediumCondensed";
-    src:         url("#{$fonts}futura_medium_condensed_bt.ttf") format("truetype");
-    font-style:  normal;
-    font-weight: 400;
-}
-
-// Reset
-body {
-    font-family: Futura, sans-serif;
-}
 
 // Application
 #app {
-    display:               grid;
+    @extend %display-grid;
     grid-template-rows:    auto 1fr;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-auto-flow:        row;
     grid-auto-rows:        auto;
-    grid-gap:              0;
     min-height:            100vh;
+    z-index:               $zindex_app;
+
+    @extend .sticker !optional;
 }
 
 .app-container {
@@ -91,38 +54,62 @@ body {
     }
 }
 
-// App
-@import "components/header";
-@import "components/footer";
-@import "components/main";
-@import "components/jumbotron";
-
+// Typography
 h1 {
-    @extend %heading;
     font-size: 48px;
 }
 
 h2 {
-    @extend %heading;
     font-size: 36px;
 }
 
 h3 {
-    @extend %heading;
     font-size: 24px;
 }
 
 h4 {
-    @extend %heading;
     font-size: 20px;
 }
 
 h5 {
-    @extend %heading;
     font-size: 18px;
 }
 
 h6 {
-    @extend %heading;
     font-size: 16px;
 }
+
+// Fonts
+@font-face {
+    font-family: "Futura";
+    src:         url("#{$fonts}futura.ttf") format("truetype");
+    font-style:  normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "FuturaLight";
+    src:         url("#{$fonts}futura_light_bt.ttf") format("truetype");
+    font-style:  normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "FuturaMedium";
+    src:         url("#{$fonts}futura_medium_bt.ttf") format("truetype");
+    font-style:  normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "FuturaMediumCondensed";
+    src:         url("#{$fonts}futura_medium_condensed_bt.ttf") format("truetype");
+    font-style:  normal;
+    font-weight: 400;
+}
+
+// Components
+@import "components/header";
+@import "components/footer";
+@import "components/main";
+@import "components/jumbotron";
