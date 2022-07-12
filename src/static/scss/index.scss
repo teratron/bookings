@@ -8,12 +8,12 @@
 @import "elements/dropdown";
 
 // Jettix
-@import "jettix";
-@import "debug";
+//@import "jettix";
+//@import "debug";
 //@import "jettix/scss/jettix";
 //@import "jettix/scss/debug";
-//@import "d:/Projects/src/github.com/teratron/jettix/src/scss/jettix";
-//@import "d:/Projects/src/github.com/teratron/jettix/src/scss/debug";
+@import "../../../../jettix/src/scss/jettix";
+@import "../../../../jettix/src/scss/debug";
 
 // Bootstrap icons
 //@import "bootstrap-icons/icons";

@@ -1,7 +1,7 @@
 
 // Application
 #app {
-    @extend %display-grid;
+    @extend %jx-display-grid;
     grid-template-rows:    auto 1fr;
     grid-template-columns: 100%;
     grid-auto-flow:        row;
@@ -9,7 +9,7 @@
     min-height:            100vh;
     z-index:               $zindex_app;
 
-    @extend .sticker !optional;
+    @extend .jx-sticker !optional;
 }
 
 .app-container {
@@ -22,14 +22,14 @@
     &:focus,
     &:active,
     &:hover {
-        color: $primary_font;
+        color: $color_primary_font;
     }
 }
 
 .app-header,
 .app-footer {
     background-color: $primary;
-    color:            $primary_font;
+    color:            $color_primary_font;
 
     a {
         @include aa();
