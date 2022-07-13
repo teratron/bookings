@@ -5,18 +5,18 @@
     }
 
     .head {
-        @extend .jx-col-3, .jx-col-b10-6, .jx-col-b8-8, .jx-col-b6-6, .jx-col-b4-12;
-        @extend .jx-order-1, .jx-order-b10-3, .jx-order-b8-2, .jx-order-b4-3;
+        @extend .jx-col-3, .jx-col-b11-6, .jx-col-b8-8, .jx-col-b6-6, .jx-col-b4-12;
+        @extend .jx-order-1, .jx-order-b11-3, .jx-order-b8-2, .jx-order-b4-3;
     }
 
     .body {
-        @extend .jx-grid-6, .jx-grid-b10-9, .jx-grid-b8-12;
-        @extend .jx-order-2, .jx-order-b10-1, .jx-order-b4-1;
+        @extend .jx-grid-6, .jx-col-b11-9, .jx-col-b8-12;
+        @extend .jx-order-2, .jx-order-b11-1, .jx-order-b4-1;
 
         .about,
         .contacts,
         .social {
-            @extend .jx-col-2, .jx-col-b10-3, .jx-col-b8-4;
+            @extend .jx-col-2, .jx-col-b11-3, .jx-col-b8-4;
         }
 
         .social {
@@ -34,7 +34,7 @@
     .foot {
         @extend .jx-grid;
         @extend .jx-col-3, .jx-col-b8-4, .jx-col-b6-6, .jx-col-b4-12;
-        @extend .jx-order-3, .jx-order-b10-2, .jx-order-b8-3, .jx-order-b4-2;
+        @extend .jx-order-3, .jx-order-b11-2, .jx-order-b8-3, .jx-order-b4-2;
         align-items: start;
     }
 
