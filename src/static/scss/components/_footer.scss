@@ -32,7 +32,6 @@
     }
 
     .foot {
-        @extend .jx-grid;
         @extend .jx-col-3, .jx-col-b8-4, .jx-col-b6-6, .jx-col-b4-12;
         @extend .jx-order-3, .jx-order-b11-2, .jx-order-b8-3, .jx-order-b4-2;
         align-items: start;
