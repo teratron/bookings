@@ -10,7 +10,7 @@
     }
 
     .body {
-        @extend .jx-grid-6, .jx-col-b11-9, .jx-col-b8-12;
+        @extend .jx-grid-6, .jx-grid-b11-9, .jx-grid-b8-12;
         @extend .jx-order-2, .jx-order-b11-1, .jx-order-b4-1;
 
         .about,
