@@ -1,4 +1,4 @@
-@use "sass:color";
+//@use "sass:color";
 
 // Color variables
 $blue:               #0009e1;
@@ -6,7 +6,7 @@ $blue2:              #3055d6;
 $indigo:             #6610f2;
 $purple:             #6f42c1;
 $pink:               #d63384;
-$red:                #ff0000;
+$red:                #f00;
 $orange:             #fd7e14;
 $yellow:             #ffa900;
 $green:              #198754;
@@ -24,7 +24,9 @@ $danger:             #ff6464;
 $light:              #f8f9fa;
 $dark:               #212529;
 
+$color_primary:      #f8bb44;
 $color_primary_font: white;
+
 //$color_primary_dark: color.darken($primary, 60%);
 //$color_accent_light: color.lightness($accent, 60%);
 

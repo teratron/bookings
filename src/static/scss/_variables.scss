@@ -35,12 +35,9 @@ $main_height:            11rem; // 220px
 $border_radius:          0.35rem;
 
 // Fonts
-$font_family_sans_serif: Futura;
+$font_family_sans_serif: FuturaLight, FuturaMedium, Futura;
 
 :root {
-    /* Debug */
-    --d1: 42;
-
-    /* Theme */
+    // Theme
     @include app-theme;
 }

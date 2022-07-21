@@ -9,14 +9,14 @@
     }
 
     .head {
-        @extend .jx-col-3;
+        @extend %jx-col-3;
     }
 
     .body {
-        @extend .jx-grid-6;
+        @extend %jx-grid-6;
 
         > .nav {
-            @extend .jx-row;
+            @extend %jx-row;
             justify-content: center;
             grid-gap:        1rem;
             font-size:       1.125rem;
@@ -24,8 +24,8 @@
     }
 
     .foot {
-        @extend .jx-col-3;
-        @extend .jx-grid;
+        @extend %jx-col-3;
+        @extend %jx-grid;
         justify-items: end;
     }
 

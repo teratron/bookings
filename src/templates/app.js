@@ -7,6 +7,12 @@ export const props = {
     keyword: 'bookings,hotel',
     publicURL: '',
     version: packageJSON.version,
+    path: {
+        media: './static/media/',
+        fonts: './static/fonts/',
+        css: './static/css/',
+        js: './static/js/'
+    },
     page: function () {
         let page = {}
         fs.readdirSync('./src/templates/pages')

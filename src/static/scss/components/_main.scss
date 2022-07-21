@@ -18,11 +18,11 @@
         ));*/
 
         > .sidebar {
-            @extend .jx-col-3;
+            @extend %jx-col-3;
         }
 
         > .content {
-            @extend .jx-grid-9;
+            @extend %jx-grid-9;
         }
 
         @media only screen and (max-width: GetBreakpoint($grid_column)) {

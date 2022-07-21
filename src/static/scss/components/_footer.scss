@@ -5,18 +5,18 @@
     }
 
     .head {
-        @extend .jx-col-3, .jx-col-b11-6, .jx-col-b8-8, .jx-col-b6-6, .jx-col-b4-12;
-        @extend .jx-order-1, .jx-order-b11-3, .jx-order-b8-2, .jx-order-b4-3;
+        @extend %jx-col-3, %jx-col-b11-6, %jx-col-b8-8, %jx-col-b6-6, %jx-col-b4-12;
+        @extend %jx-order-1, %jx-order-b11-3, %jx-order-b8-2, %jx-order-b4-3;
     }
 
     .body {
-        @extend .jx-grid-6, .jx-grid-b11-9, .jx-grid-b8-12;
-        @extend .jx-order-2, .jx-order-b11-1, .jx-order-b4-1;
+        @extend %jx-grid-6, %jx-grid-b11-9, %jx-grid-b8-12;
+        @extend %jx-order-2, %jx-order-b11-1, %jx-order-b4-1;
 
         .about,
         .contacts,
         .social {
-            @extend .jx-col-2, .jx-col-b11-3, .jx-col-b8-4, .jx-col-b7-6, .jx-col-b5-12;
+            @extend %jx-col-2, %jx-col-b11-3, %jx-col-b8-4, %jx-col-b7-6, %jx-col-b5-12;
         }
 
         .social {
@@ -32,86 +32,48 @@
     }
 
     .foot {
-        @extend .jx-col-3, .jx-col-b8-4, .jx-col-b6-6, .jx-col-b4-12;
-        @extend .jx-order-3, .jx-order-b11-2, .jx-order-b8-3, .jx-order-b4-2;
+        @extend %jx-col-3, %jx-col-b8-4, %jx-col-b6-6, %jx-col-b4-12;
+        @extend %jx-order-3, %jx-order-b11-2, %jx-order-b8-3, %jx-order-b4-2;
         align-items: start;
+
+        .btn {
+            font-size:        .9rem;
+            font-weight:      600;
+            background-color: $color_primary_font;
+            color:            $color_primary;
+            display:          flex;
+            flex-wrap:        nowrap;
+            justify-content:  center;
+            align-items:      center;
+            width:            100%;
+            min-height:       3rem;
+            padding:          0;
+            border:           1px solid white;
+            border-radius:    .4rem;
+            transition:       all .5ms ease-in-out;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, .3);
+                color:            $color_primary_font;
+                border-color:     $color_primary_font;
+            }
+
+            &:active {
+                background-color: transparent;
+                color:            $color_primary_font;
+            }
+        }
     }
 
     .title {
     }
 
-    //.nav {
-    //    display:        flex;
-    //    flex-direction: column;
-    //
-    //    > * {
-    //        white-space: nowrap;
-    //    }
-    //}
+    .list {
+        @extend %jx-list;
+    }
 
-    //@media only screen {
-
-    //@media (max-width: 1000px) {
-    //    .head {
-    //        grid-column-end: span 6 !important;
-    //        order: 3;
-    //    }
-    //
-    //    .body {
-    //        grid-column-end: span 9 !important;
-    //        order: 1;
-    //    }
-    //
-    //    .foot {
-    //        order: 2;
-    //    }
-    //}
-
-    //@media (max-width: 800px) {
-    //    .head {
-    //        grid-column-end: span 8 !important;
-    //        order:       2;
-    //    }
-    //
-    //    .body {
-    //        grid-column-end: span 12 !important;
-    //    }
-    //
-    //    .foot {
-    //        grid-column-end: span 4 !important;
-    //        order:       3;
-    //    }
-    //}
-
-    //@media (max-width: 600px) {
-    //    .head,
-    //    .foot {
-    //        grid-column-end: span 6 !important;
-    //    }
-    //
-    //    .body {
-    //        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    //    }
-    //}
-
-    //@media (max-width: 400px) {
-    //    .head,
-    //    .body,
-    //    .foot {
-    //        grid-column-end: span 12 !important;
-    //    }
-    //
-    //    .head {
-    //        order: 3;
-    //    }
-    //
-    //    .body {
-    //        order: 1;
-    //    }
-    //
-    //    .foot {
-    //        order: 2;
-    //    }
-    //}
-    //}
+    .bar {
+        @extend %jx-bar;
+        @extend %jx-gap-quart;
+    }
 }

@@ -9,12 +9,12 @@
     min-height:            100vh;
     z-index:               $zindex_app;
 
-    @extend .jx-sticker !optional;
+    @extend %jx-sticker !optional;
 }
 
 .app-container {
-    @extend .jx-container;
-    @extend .jx-grid-12;
+    @extend %jx-container;
+    @extend %jx-grid-12;
 }
 
 @mixin aa() {
@@ -34,7 +34,7 @@
     a {
         @include aa();
 
-        //@extend .text-decoration-none;
+        //@extend %text-decoration-none;
         text-decoration: none;
     }
 
@@ -97,21 +97,21 @@ h6 {
     font-family: "FuturaLight";
     src:         url("#{$fonts}futura_light_bt.ttf") format("truetype");
     font-style:  normal;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 @font-face {
     font-family: "FuturaMedium";
     src:         url("#{$fonts}futura_medium_bt.ttf") format("truetype");
     font-style:  normal;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 @font-face {
     font-family: "FuturaMediumCondensed";
     src:         url("#{$fonts}futura_medium_condensed_bt.ttf") format("truetype");
     font-style:  normal;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 // Components
